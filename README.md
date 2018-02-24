@@ -17,6 +17,4 @@ A home for all tools and nifty items used by the pre release team.
 
 ## SESSION STORAGE IS ACTIVE BY COOKIE AND STORED SECURELY IN MONGODB.
 
-#### If there are any questions or concerns, you can reach out to me directly through email.
-
-[Personal Email](mailto:sabeyfox@gmail.com)
+#### If there are any questions or concerns, you can reach out to me directly through [email](mailto:sabeyfox@gmail.com).
