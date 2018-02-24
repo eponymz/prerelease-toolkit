@@ -6,12 +6,23 @@ A home for all tools and nifty items used by the pre release team.
 
 [Pre Release Toolkit](https://murmuring-bastion-29031.herokuapp.com/)
 
-### Things to Note About this Project Currently
+### Things to Note About This Project As of Now:
 
-1. This is incredibly bare bones currently.
-2. No redirect routes are set.
-3. Client side does point at 'localhost:3000'.
-   > This is incredibly bare bones currently
+1. At the moment, this project is incredibly bare bones.
+2. Client side does not point outward. It is still in development.
+   > 1. At the moment, this project is incredibly bare bones.
+
+### TODOS
+
+* [] Build out client side.
+  * [] Determine layout and UI standards.
+  * [] OAuth login page design. Logo?
+  * [] Hash out pages needed with diagram.
+* [] Setup routers to client side pages.
+* [] Implement 'authorized users only' DB.
+* [x] Build out OAuth flow.
+* [x] Implement cookie and session tracking.
+* [x] Implement cookie deletion upon 'logout'.
 
 ## AGAIN. THIS PROJECT IS BAREBONES. THE ONLY THING SET UP IS OAUTH.
 
