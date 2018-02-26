@@ -30,9 +30,9 @@ passport.use(
         console.log('User exists. Moving along...');
       }
 
-      const user = await new User({ googleId: profile.id }).save();
-      done(null, user);
-      console.log('User created. Moving along...');
+      // const user = await new User({ googleId: profile.id }).save();
+      // done(null, user);
+      // console.log('User created. Moving along...');
     }
   )
 );
