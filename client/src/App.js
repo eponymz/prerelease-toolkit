@@ -8,12 +8,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={triage} className="App-logo" alt="logo" />
-          <h1 className="App-title">Look It Up Buttercup</h1>
+          <h1 className="App-title">Welcome to the Release Triage Toolkit!</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a href="/auth/google">Sign In With Google</a>
+        <a href="/auth/google">Sign In</a>
       </div>
     );
   }
