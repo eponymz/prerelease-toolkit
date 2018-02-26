@@ -16,8 +16,9 @@ A home for all tools and nifty items used by the pre release team.
 
 * [] Build out client side.
   * [] Determine layout and UI standards.
-  * [] OAuth login page design. Logo?
-  * [] Hash out pages needed with diagram.
+  * [] OAuth login page design.
+    * [x] Logo?
+  * [] Hash out routes needed with diagram.
 * [] Setup routers to client side pages.
 * [] Implement 'authorized users only' DB.
 * [x] Build out OAuth flow.
