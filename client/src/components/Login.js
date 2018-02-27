@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import triage from '../triage.svg';
-import '../Login.css';
+import '../css/Login.css';
 
 class Login extends Component {
   render() {

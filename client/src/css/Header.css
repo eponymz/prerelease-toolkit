@@ -1,0 +1,32 @@
+.Header {
+  text-align: left;
+  height: 60px;
+}
+
+.Header-logo {
+  height: 40px;
+  line-height: 20px;
+  vertical-align: middle;
+  display: inline;
+}
+
+.navbar-header {
+  background-color: #222;
+  height: 60px;
+  color: white;
+}
+
+.navbar-title {
+  font-family: fantasy;
+  font-size: 20px;
+  color: gray;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.image-header {
+  height: inherit;
+  padding: 10px;
+}
