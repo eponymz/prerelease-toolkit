@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import triage from './triage.svg';
+import triage from '../triage.svg';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import Center from 'react-center';
-import './App.css';
+import '../App.css';
 
 class App extends Component {
   render() {
