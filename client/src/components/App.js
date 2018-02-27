@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Login from './Login';
 import GoogleButton from './GoogleBtn';
+import Welcome from './Welcome';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -13,6 +14,7 @@ const App = () => {
     <BrowserRouter>
       <div>
         <Route path="/" component={Login} />
+        <Route path="/" component={Welcome} />
         <Route path="/" component={GoogleButton} />
       </div>
     </BrowserRouter>

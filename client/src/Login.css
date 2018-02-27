@@ -1,0 +1,41 @@
+.Login {
+  text-align: center;
+}
+
+.Login-header {
+  background-color: #222222d6;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border: 4.5px solid #222;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+.Login-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 349px;
+  width: 349px;
+}
+
+.Login-title {
+  font-size: 1.5em;
+  font-family: fantasy;
+  font-weight: bold;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
