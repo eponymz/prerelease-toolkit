@@ -15,14 +15,15 @@ A home for all tools and nifty items used by the pre release team.
 ### TODOS
 
 * [] Build out client side.
-  * [] Determine layout and UI standards.
-  * [] OAuth login page design.
+  * [] Implement all routes.
+  - [x] Determine layout and UI standards.
+  - [x] OAuth login page design.
     * [x] Logo v1.
-  * [] Hash out routes needed with diagram.
+  - [] Hash out routes needed with diagram.
 * [] Setup routers to client side pages.
-  * [] React router.
+  * [x] React router.
   * [] Redux implementation.
-* [] Implement 'authorized users only' DB.
+* [] Implement 'authorized users only' DB?
 * [x] Build out OAuth flow.
 * [x] Implement cookie and session tracking.
 * [x] Implement cookie deletion upon 'logout'.
