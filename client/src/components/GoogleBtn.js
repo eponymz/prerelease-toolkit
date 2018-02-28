@@ -8,7 +8,7 @@ class GoogleButton extends Component {
   render() {
     return (
       <div className="App">
-        <a className="no-underline" href="/triage/dashboard">
+        <a className="no-underline" href="/auth/google">
           <Center>
             <GoogleLoginButton className="no-underline" />
           </Center>

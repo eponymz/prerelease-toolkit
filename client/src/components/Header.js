@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import triage from '../triage.svg';
 import logout from '../logout.svg';
 import '../css/Header.css';
@@ -6,6 +7,7 @@ import '../css/GoogleBtn.css';
 
 class Header extends Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         <header className="Header navbar-header">
@@ -27,4 +29,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(Header);
