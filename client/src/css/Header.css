@@ -22,6 +22,22 @@
   color: gray;
 }
 
+.component-title {
+  font-family: fantasy;
+  font-size: 10px;
+  color: gray;
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  top: 25px;
+}
+
+.logout-icon {
+  height: 15px;
+  display: inline;
+  vertical-align: middle;
+}
+
 .App-intro {
   font-size: large;
 }

@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bootstrap-social": "^5.1.1",
+    "materialize-css": "^0.100.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
     "react-center": "^1.1.1",
