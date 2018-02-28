@@ -12,7 +12,7 @@ class Header extends Component {
           <div className="image-header">
             <img src={triage} className="Header-logo" alt="logo" />
             <a className="no-underline navbar-title" href="/triage/dashboard">
-              T O O L K I T
+              T R I A G E
             </a>
             <a className="right component-title" href="/">
               <div className="logout-icon">
