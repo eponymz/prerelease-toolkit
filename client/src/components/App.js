@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 import Header from './Header';
 import JakobReport from './JakobReport';
 import Prerelease from './PrereleasePage';
+import Terminal from './Terminal';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/z/dashboard" component={Dashboard} />
           <Route path="/z/post-release-report" component={JakobReport} />
           <Route path="/z/pre-release" component={Prerelease} />
+          <Route path="/z/terminal" component={Terminal} />
         </div>
       </BrowserRouter>
     );
