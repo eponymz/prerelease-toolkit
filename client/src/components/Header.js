@@ -27,6 +27,12 @@ class Header extends Component {
                   T R I A G E
                 </Link>
                 <Link
+                  to={this.props.auth ? '/z/pre-release' : '/'}
+                  className="no-underline navbar-button"
+                >
+                  Pre Release
+                </Link>
+                <Link
                   to={this.props.auth ? '/z/post-release-report' : '/'}
                   className="no-underline navbar-button"
                 >
