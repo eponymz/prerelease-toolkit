@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import triage from '../triage.svg';
 import logout from '../logout.svg';
 import '../css/Header.css';
@@ -19,12 +20,12 @@ class Header extends Component {
             <header className="Header navbar-header">
               <div className="image-header">
                 <img src={triage} className="Header-logo" alt="logo" />
-                <a
+                <Link
+                  to={this.props.auth ? '/triage/dashboard' : '/'}
                   className="no-underline navbar-title"
-                  href="/triage/dashboard"
                 >
                   T R I A G E
-                </a>
+                </Link>
                 <a className="right component-title" href="/api/logout">
                   <div className="logout-icon">
                     <img src={logout} className="logout-icon" alt="logo" />
