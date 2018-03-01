@@ -19,8 +19,9 @@ class JakobReport extends Component {
             <Center>
               <iframe
                 width="1000"
-                height="800"
+                height="1000"
                 src="https://datastudio.google.com/embed/reporting/1gYy9a_0gC-vLpkWiCdKUr-DKpXIiTefS/page/FpQO"
+                frameborder="0"
               />
             </Center>
           </div>
