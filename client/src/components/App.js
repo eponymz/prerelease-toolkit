@@ -29,8 +29,8 @@ class App extends Component {
           <Route exact path="/" component={Login} />
           <Route exact path="/" component={Welcome} />
           <Route exact path="/" component={GoogleButton} />
-          <Route path="/triage" component={Header} />
-          <Route path="/triage/dashboard" component={Dashboard} />
+          <Route path="/z/" component={Header} />
+          <Route path="/z/dashboard" component={Dashboard} />
         </div>
       </BrowserRouter>
     );

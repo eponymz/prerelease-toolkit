@@ -21,7 +21,7 @@ class Header extends Component {
               <div className="image-header">
                 <img src={triage} className="Header-logo" alt="logo" />
                 <Link
-                  to={this.props.auth ? '/triage/dashboard' : '/'}
+                  to={this.props.auth ? '/z/dashboard' : '/'}
                   className="no-underline navbar-title"
                 >
                   T R I A G E
