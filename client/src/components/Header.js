@@ -26,6 +26,12 @@ class Header extends Component {
                 >
                   T R I A G E
                 </Link>
+                <Link
+                  to={this.props.auth ? '/z/post-release-report' : '/'}
+                  className="no-underline navbar-button"
+                >
+                  Post Release Report
+                </Link>
                 <a className="right component-title" href="/api/logout">
                   <div className="logout-icon">
                     <img src={logout} className="logout-icon" alt="logo" />

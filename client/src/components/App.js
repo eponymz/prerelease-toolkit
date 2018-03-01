@@ -7,6 +7,7 @@ import GoogleButton from './GoogleBtn';
 import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
+import JakobReport from './JakobReport';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -31,6 +32,7 @@ class App extends Component {
           <Route exact path="/" component={GoogleButton} />
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
+          <Route path="/z/post-release-report" component={JakobReport} />
         </div>
       </BrowserRouter>
     );

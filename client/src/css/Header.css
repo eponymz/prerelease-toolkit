@@ -46,3 +46,10 @@
   height: inherit;
   padding: 10px;
 }
+
+.navbar-button {
+  font-family: fantasy;
+  font-size: 15px;
+  color: gray;
+  margin-left: 20px;
+}
