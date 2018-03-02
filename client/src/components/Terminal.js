@@ -20,7 +20,23 @@ class Bash extends Component {
               Not yet hooked to local path
             </h3>
             <Center>
-              <Terminal prefix="triage@default" />
+              <Terminal
+                prefix="triage@default"
+                styles={{
+                  borderRadius: '5px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  fontFamily: "'Inconsolata', monospace",
+                  fontSize: '13px',
+                  fontWeight: '400',
+                  height: '1000px',
+                  width: '1200px',
+                  overflow: 'hidden',
+                  textAlign: 'left',
+                  border: '1px solid rgb(91,101,251)',
+                  backgroundColor: 'rgb(50,50,50)'
+                }}
+              />
             </Center>
           </div>
         );
