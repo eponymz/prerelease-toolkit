@@ -20,7 +20,16 @@ class Bash extends Component {
               Not yet hooked to local path
             </h3>
             <Center>
-              <Terminal prefix="triage@default" theme="dark" />
+              <Terminal
+                prefix="triage@default"
+                theme="dark"
+                styles={{
+                  header: {
+                    backgroundColor: '#000',
+                    borderBottom: '1px solid rgb(91,101,251)'
+                  }
+                }}
+              />
             </Center>
           </div>
         );
