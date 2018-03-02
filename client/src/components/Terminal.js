@@ -22,6 +22,7 @@ class Bash extends Component {
             <Center>
               <Terminal
                 prefix="triage@default"
+                className="ReactBash"
                 styles={{
                   borderRadius: '5px',
                   display: 'flex',
