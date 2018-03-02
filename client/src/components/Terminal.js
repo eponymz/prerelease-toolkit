@@ -20,7 +20,7 @@ class Bash extends Component {
               Not yet hooked to local path
             </h3>
             <Center>
-              <Terminal theme="Terminal.Themes.DARK" prefix="triage@default" />
+              <Terminal prefix="triage@default" />
             </Center>
           </div>
         );
