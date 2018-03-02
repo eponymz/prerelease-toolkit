@@ -13,13 +13,14 @@ class JakobReport extends Component {
         return <Redirect to="/" />;
       default:
         return (
-          <div className="navbar-title">
+          <div className="content-title">
             <h1 style={{ textAlign: 'center' }}>P O S T - R E L E A S E</h1>
             <h1 style={{ textAlign: 'center' }}>R E P O R T</h1>
             <Center>
               <iframe
-                width="1000"
-                height="1000"
+                title="Jakob's Post Release Report"
+                width="1300"
+                height="1350"
                 src="https://datastudio.google.com/embed/reporting/1gYy9a_0gC-vLpkWiCdKUr-DKpXIiTefS/page/FpQO"
                 frameborder="0"
               />

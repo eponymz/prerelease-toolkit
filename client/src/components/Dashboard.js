@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Center from 'react-center';
 import '../css/Header.css';
 
 class Dashboard extends Component {
@@ -13,7 +12,7 @@ class Dashboard extends Component {
         return <Redirect to="/" />;
       default:
         return (
-          <div className="navbar-title">
+          <div className="content-title">
             <h1 style={{ textAlign: 'center' }}>THIS WILL BE THE DASHBOARD</h1>
           </div>
         );

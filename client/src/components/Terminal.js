@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Terminal from 'react-bash';
 import Center from 'react-center';
 import '../css/Header.css';
 
-class Terminal extends Component {
+class Bash extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -13,8 +14,14 @@ class Terminal extends Component {
         return <Redirect to="/" />;
       default:
         return (
-          <div className="navbar-title">
-            <h1 style={{ textAlign: 'center' }}>THIS WILL BE THE BASH PAGE</h1>
+          <div className="content-title">
+            <h1 style={{ textAlign: 'center' }}>BASH COMMANDS</h1>
+            <h3 style={{ textAlign: 'center' }}>
+              Not yet hooked to local path
+            </h3>
+            <Center>
+              <Terminal />
+            </Center>
           </div>
         );
     }
@@ -29,4 +36,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(Terminal);
+export default connect(mapStateToProps)(Bash);
