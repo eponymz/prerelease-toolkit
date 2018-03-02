@@ -24,9 +24,52 @@ class Bash extends Component {
                 prefix="triage@default"
                 theme="dark"
                 styles={{
+                  prefix: {
+                    marginRight: '5px',
+                    color: '#5b65fb'
+                  },
                   header: {
                     backgroundColor: '#000',
-                    borderBottom: '1px solid rgb(91,101,251)'
+                    borderBottom: '1px solid rgb(91,101,251)',
+                    padding: '5px 10px 0'
+                  },
+                  ReactBash: {
+                    borderRadius: '5px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    fontFamily: "'Inconsolata', monospace",
+                    fontSize: '13px',
+                    fontWeight: '400',
+                    height: '1000px',
+                    width: '1200px',
+                    overflow: 'hidden',
+                    textAlign: 'left',
+                    border: '1px solid rgb(91,101,251)',
+                    backgroundColor: 'rgb(50,50,50)'
+                  },
+                  redCircle: {
+                    backgroundColor: '#ff4b5a',
+                    borderRadius: '50%',
+                    display: 'inline-block',
+                    height: '15px',
+                    marginRight: '5px',
+                    width: '15px'
+                  },
+                  yellowCircle: {
+                    backgroundColor: '#ffbe46',
+                    borderRadius: '50%',
+                    display: 'inline-block',
+                    height: '15px',
+                    marginRight: '5px',
+                    width: '15px'
+                  },
+                  greenCircle: {
+                    backgroundColor: '#a5ff5a',
+                    borderRadius: '50%',
+                    display: 'inline-block',
+                    height: '15px',
+                    marginRight: '5px',
+                    width: '15px'
                   }
                 }}
               />
