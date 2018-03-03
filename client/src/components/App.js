@@ -38,7 +38,7 @@ class App extends Component {
           <Route path="/z/post-release-report" component={JakobReport} />
           <Route path="/z/pre-release" component={Prerelease} />
           <Route path="/z/terminal" component={Bash} />
-          <Route path="/" component={Footer} />
+          <Footer />
         </div>
       </BrowserRouter>
     );
