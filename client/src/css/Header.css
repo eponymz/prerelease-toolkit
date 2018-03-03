@@ -17,31 +17,36 @@
 }
 
 .navbar-title {
-  font-family: fantasy;
+  font-family: 'Orbitron', sans-serif;
   font-size: 20px;
   color: gray;
-  padding-top: 5px;
+  padding-top: 5.5px;
   padding-left: 5px;
   padding-right: 5px;
+  margin-bottom: 5px;
   transition-duration: 0.2s;
 }
 
 .component-title {
-  font-family: fantasy;
+  font-family: 'Orbitron', sans-serif;
   font-size: 10px;
   color: gray;
   text-decoration: none;
   position: absolute;
   right: 10px;
-  top: 20px;
-  padding: 5px;
+  top: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 21px;
+  padding-bottom: 21.5;
   transition-duration: 0.2s;
 }
 
 .logout-icon {
   height: 15px;
-  display: inline;
+  display: inline-block;
   vertical-align: middle;
+  margin-right: 2px;
 }
 
 .App-intro {
@@ -54,19 +59,14 @@
 }
 
 .navbar-button {
-  font-family: fantasy;
+  font-family: 'Orbitron', sans-serif;
   font-size: 15px;
   color: gray;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  padding-top: 22px;
+  padding-bottom: 22px;
   transition-duration: 0.2s;
-}
-
-.navbar-title:hover {
-  background-color: gray;
-  color: black;
 }
 
 .navbar-button:hover {
@@ -75,17 +75,8 @@
 }
 
 .content-title {
-  font-family: fantasy;
+  font-family: 'Monda', sans-serif;
   font-size: 20px;
   color: gray;
   margin-right: 10px;
-}
-
-.component-title:hover {
-  background-color: gray;
-  color: black;
-}
-
-.component-title:hover img {
-  background-color: black;
 }

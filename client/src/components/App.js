@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Login from './Login';
 import GoogleButton from './GoogleBtn';
+import Footer from './Footer';
 import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
@@ -37,6 +38,7 @@ class App extends Component {
           <Route path="/z/post-release-report" component={JakobReport} />
           <Route path="/z/pre-release" component={Prerelease} />
           <Route path="/z/terminal" component={Bash} />
+          <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>
     );

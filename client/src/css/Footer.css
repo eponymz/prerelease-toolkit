@@ -1,0 +1,20 @@
+.footer-bar {
+  background-color: aliceblue;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-component {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 15px;
+  color: gray;
+  text-decoration: none;
+  transition-duration: 0.2s;
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 15px;
+}

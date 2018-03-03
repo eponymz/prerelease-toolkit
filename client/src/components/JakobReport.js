@@ -15,9 +15,7 @@ class JakobReport extends Component {
         return (
           <div className="content-title">
             <h1 style={{ textAlign: 'center' }}>P O S T - R E L E A S E</h1>
-            <h1 style={{ textAlign: 'center' }}>
-              R E P O R T changing for esses and gees
-            </h1>
+            <h1 style={{ textAlign: 'center' }}>R E P O R T</h1>
             <Center>
               <iframe
                 title="Jakob's Post Release Report"

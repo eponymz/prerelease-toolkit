@@ -15,11 +15,10 @@ class Prerelease extends Component {
         return (
           <div className="content-title">
             <h1 style={{ textAlign: 'center' }}>
-              THIS WILL BE IAN AND DAVID'S RESOURCE PAGE
+              This will be Ian and David's resource page
             </h1>
             <h3 style={{ textAlign: 'center' }}>
-              PRE-RELEASE PAGE WILL BE PARSED IN TO DIV BELOW THIS .. AS SOON AS
-              ATLASSIAN FIXES THEIR SHIT ..
+              Pre-Release page will be parsed into div below this
             </h3>
             <div>
               <Center>
