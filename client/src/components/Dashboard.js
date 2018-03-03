@@ -14,6 +14,11 @@ class Dashboard extends Component {
         return (
           <div className="content-title">
             <h1 style={{ textAlign: 'center' }}>THIS WILL BE THE DASHBOARD</h1>
+            <div>
+              <h4 style={{ textAlign: 'center' }}>
+                Will be parsing google sheet into this container
+              </h4>
+            </div>
           </div>
         );
     }

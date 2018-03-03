@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Center from 'react-center';
 import '../css/Header.css';
+import '../css/Prerelease.css';
 
 class Prerelease extends Component {
   renderContent() {
@@ -14,22 +15,32 @@ class Prerelease extends Component {
       default:
         return (
           <div className="content-title">
-            <h1 style={{ textAlign: 'center' }}>
-              This will be Ian and David's resource page
-            </h1>
             <h3 style={{ textAlign: 'center' }}>
-              Pre-Release page will be parsed into div below this
+              Operator Response && Memory Usage
             </h3>
             <div>
-              <Center>
-                <iframe
-                  title="Pre-Release Page"
-                  width="1300"
-                  height="1350"
-                  src="https://sofiinc.atlassian.net/wiki/spaces/PS/pages/297009248/Pre+-+Release+Team+Page"
-                  frameBorder="0"
-                />
-              </Center>
+              <div className="relic-left">
+                <Center>
+                  <iframe
+                    src="https://rpm.newrelic.com/public/charts/ibJnMzIDjVk"
+                    width="97%"
+                    height="300"
+                    scrolling="no"
+                    frameborder="no"
+                  />
+                </Center>
+              </div>
+              <div className="relic-right">
+                <Center>
+                  <iframe
+                    src="https://rpm.newrelic.com/public/charts/7UEd0MgVlVu"
+                    width="97%"
+                    height="300"
+                    scrolling="no"
+                    frameborder="no"
+                  />
+                </Center>
+              </div>
             </div>
           </div>
         );

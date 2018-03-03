@@ -1,0 +1,15 @@
+.relic-left {
+  width: 50%;
+  margin-left: 5px;
+  margin-right: 5px;
+  position: absolute;
+  left: 0;
+}
+
+.relic-right {
+  width: 50%;
+  margin-right: 5px;
+  margin-left: 5px;
+  position: absolute;
+  right: 0;
+}
