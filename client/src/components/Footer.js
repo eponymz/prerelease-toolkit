@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+<<<<<<< HEAD
+=======
+import Center from 'react-center';
+>>>>>>> parent of b7342f9... updated footer color for more distinction
 import '../css/Footer.css';
 
 class Footer extends Component {
