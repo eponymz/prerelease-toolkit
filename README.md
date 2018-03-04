@@ -8,21 +8,21 @@ A home for all tools and nifty items used by the pre release team.
 
 ### Things to Note About This Project As of Now:
 
-1. At the moment, this project is incredibly bare bones.
-2. Client side does not point outward. It is still in development.
-   > 1. At the moment, this project is incredibly bare bones.
+1.  At the moment, this project is incredibly bare bones.
+2.  Client side does not point outward. It is still in development.
+    > 1.  At the moment, this project is incredibly bare bones.
 
 ### TODOS
 
-* [] Build out client side.
-  * [] Implement all routes.
+* [x] Build out client side.
+  * [x] Implement all routes. _These will be implemented continuously._
   - [x] Determine layout and UI standards.
   - [x] OAuth login page design.
     * [x] Logo v1.
-  - [] Hash out routes needed with diagram.
-* [] Setup routers to client side pages.
+  - [x] Hash out routes needed with diagram.
+* [] Setup routers to client side pages. _This will be implemented continuously. As new routes are added._
   * [x] React router.
-  * [] Redux implementation.
+  * [x] Redux implementation.
 * [] Implement 'authorized users only' DB?
 * [x] Build out OAuth flow.
 * [x] Implement cookie and session tracking.
