@@ -13,3 +13,58 @@
   position: absolute;
   right: 0;
 }
+
+.relic-center {
+  width: 75%;
+}
+
+.content {
+  height: 400px;
+}
+
+.content-min {
+  height: 200px;
+}
+
+.content-title {
+  font-family: 'Monda', sans-serif;
+  font-size: 20px;
+  color: gray;
+  margin-right: 10px;
+}
+
+.relic-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  color: black;
+  transition-duration: 0.5s;
+  margin: 15px;
+  padding: 10px;
+  background-color: gray;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.relic-button:hover {
+  color: gray;
+  background-color: black;
+  border: 2px solid gray;
+}
+
+.relic-button-collapse {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  color: black;
+  transition-duration: 0.5s;
+  margin: 10px;
+  padding: 5px;
+  background-color: gray;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.relic-button-collapse:hover {
+  color: gray;
+  background-color: black;
+  border: 2px solid gray;
+}

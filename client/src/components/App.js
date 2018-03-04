@@ -9,8 +9,14 @@ import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import JakobReport from './JakobReport';
-import Prerelease from './PrereleasePage';
 import Bash from './Terminal';
+import Operator from './Operator';
+import CollapseBtn from './CollapseBtn';
+import Borrower from './Borrower';
+import Activities from './Activities';
+import PreRelic from './PreRelic';
+import PreDocker from './PreDocker';
+import Docker from './Docker';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -36,8 +42,25 @@ class App extends Component {
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
           <Route path="/z/post-release-report" component={JakobReport} />
-          <Route path="/z/pre-release" component={Prerelease} />
+          <Route exact path="/z/pre-release" component={PreRelic} />
+          <Route exact path="/z/pre-release" component={PreDocker} />
           <Route path="/z/terminal" component={Bash} />
+          <Route path="/z/pre-release/docker" component={CollapseBtn} />
+          <Route exact path="/z/pre-release/docker" component={Docker} />
+          <Route exact path="/z/pre-release/operator" component={CollapseBtn} />
+          <Route exact path="/z/pre-release/operator" component={Operator} />
+          <Route exact path="/z/pre-release/borrower" component={CollapseBtn} />
+          <Route exact path="/z/pre-release/borrower" component={Borrower} />
+          <Route
+            exact
+            path="/z/pre-release/activities"
+            component={CollapseBtn}
+          />
+          <Route
+            exact
+            path="/z/pre-release/activities"
+            component={Activities}
+          />
           <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>
