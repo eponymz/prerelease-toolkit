@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Center from 'react-center';
 import '../css/Header.css';
+import '../css/Prerelease.css';
 
 class Dashboard extends Component {
   renderContent() {
@@ -13,7 +15,21 @@ class Dashboard extends Component {
       default:
         return (
           <div className="content-title">
-            <h1 style={{ textAlign: 'center' }}>THIS WILL BE THE DASHBOARD</h1>
+            <h1 style={{ textAlign: 'center' }}>QA Release Sheet</h1>
+            <Center>
+              <div className="release-center">
+                <Center>
+                  <iframe
+                    title="qa release sheet"
+                    src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?usp=sharing"
+                    width="100%"
+                    height="1000px"
+                    scrolling="no"
+                    frameborder="2px"
+                  />
+                </Center>
+              </div>
+            </Center>
           </div>
         );
     }

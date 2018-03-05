@@ -18,6 +18,11 @@
   width: 75%;
 }
 
+.release-center {
+  width: 98%;
+  height: 1000px;
+}
+
 .content {
   height: 400px;
 }
