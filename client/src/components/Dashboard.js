@@ -30,6 +30,38 @@ class Dashboard extends Component {
                 </Center>
               </div>
             </Center>
+            <div className="relic-left">
+              <h1 style={{ textAlign: 'center' }}>Risk Rating Legend</h1>
+              <Center>
+                <table
+                  style={{
+                    width: '100%',
+                    textAlign: 'center'
+                  }}
+                >
+                  <tr>
+                    <th>
+                      <h3>Label</h3>
+                    </th>
+                    <th>
+                      <h3>Rating</h3>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>rrr1</td>
+                    <td>RED</td>
+                  </tr>
+                  <tr>
+                    <td>rrr2</td>
+                    <td>YELLOW</td>
+                  </tr>
+                  <tr>
+                    <td>rrr3</td>
+                    <td>GREEN</td>
+                  </tr>
+                </table>
+              </Center>
+            </div>
           </div>
         );
     }
