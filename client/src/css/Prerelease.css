@@ -23,6 +23,10 @@
   height: 1000px;
 }
 
+.body {
+  min-height: 100%;
+}
+
 .content {
   height: 400px;
 }

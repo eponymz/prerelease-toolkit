@@ -1,5 +1,4 @@
 .footer-bar {
-  background-color: snow;
   height: 50px;
   position: fixed;
   left: 0;
@@ -14,7 +13,7 @@
   color: gray;
   text-decoration: none;
   transition-duration: 0.2s;
-  text-align: left;
-  margin-left: 15px;
+  text-align: right;
+  margin-right: 15px;
   margin-top: 15px;
 }
