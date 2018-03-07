@@ -17,7 +17,9 @@ class PreDocker extends Component {
         return (
           <div>
             <div className="content-title">
-              <h3 style={{ textAlign: 'center' }}>Resource References</h3>
+              <h3 style={{ textAlign: 'center' }}>
+                Automation Results && Ratings
+              </h3>
             </div>
 
             <div>

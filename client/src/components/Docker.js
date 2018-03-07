@@ -16,7 +16,9 @@ class Docker extends Component {
         return (
           <div>
             <div className="content-title content">
-              <h3 style={{ textAlign: 'center' }}>Post Release Resource</h3>
+              <h3 style={{ textAlign: 'center' }}>
+                AUTOMATION RESULTS && RISK RATING
+              </h3>
               <Center>
                 <div className="release-center">
                   <Center>
