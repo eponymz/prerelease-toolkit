@@ -24,7 +24,7 @@ class QASheet extends Component {
                       title="qa release sheet"
                       src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?usp=sharing"
                       width="100%"
-                      height="1200px"
+                      height="1000px"
                       scrolling="no"
                       frameborder="2px"
                     />

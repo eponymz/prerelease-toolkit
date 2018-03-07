@@ -26,7 +26,7 @@ class Results extends Component {
                       title="qa release sheet"
                       src="https://docs.google.com/spreadsheets/d/1eF9PbZY_1Gy0vBTqVZwROJj8glOLNcryrVhnaml4nmQ/edit?usp=sharing"
                       width="100%"
-                      height="1200px"
+                      height="1000px"
                       scrolling="no"
                       frameborder="2px"
                     />
