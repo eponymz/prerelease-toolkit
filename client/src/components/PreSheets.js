@@ -6,7 +6,7 @@ import Center from 'react-center';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
-class PreDocker extends Component {
+class PreSheets extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -17,11 +17,23 @@ class PreDocker extends Component {
         return (
           <div>
             <div className="content-title">
+              <h3 style={{ textAlign: 'center' }}>QA Release Sheet</h3>
+            </div>
+            <div>
+              <Center>
+                <Link
+                  to={this.props.auth ? '/z/pre-release/qa-sheet' : '/'}
+                  className="no-underline relic-button"
+                >
+                  QA RELEASE SHEET
+                </Link>
+              </Center>
+            </div>
+            <div className="content-title">
               <h3 style={{ textAlign: 'center' }}>
                 Automation Results && Ratings
               </h3>
             </div>
-
             <div>
               <Center>
                 <Link
@@ -46,4 +58,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(PreDocker);
+export default connect(mapStateToProps)(PreSheets);
