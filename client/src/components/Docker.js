@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-//import Center from 'react-center';
+import Center from 'react-center';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
