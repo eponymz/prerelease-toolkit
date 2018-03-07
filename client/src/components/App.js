@@ -45,8 +45,8 @@ class App extends Component {
           <Route exact path="/z/pre-release" component={PreRelic} />
           <Route exact path="/z/pre-release" component={PreDocker} />
           <Route path="/z/terminal" component={Bash} />
-          <Route path="/z/pre-release/docker" component={CollapseBtn} />
-          <Route exact path="/z/pre-release/docker" component={Docker} />
+          <Route path="/z/pre-release/results" component={CollapseBtn} />
+          <Route exact path="/z/pre-release/results" component={Docker} />
           <Route exact path="/z/pre-release/operator" component={CollapseBtn} />
           <Route exact path="/z/pre-release/operator" component={Operator} />
           <Route exact path="/z/pre-release/borrower" component={CollapseBtn} />

@@ -16,7 +16,21 @@ class Docker extends Component {
         return (
           <div>
             <div className="content-title content">
-              <h3 style={{ textAlign: 'center' }}>Docker Update Commands</h3>
+              <h3 style={{ textAlign: 'center' }}>Post Release Resource</h3>
+              <Center>
+                <div className="release-center">
+                  <Center>
+                    <iframe
+                      title="qa release sheet"
+                      src="https://docs.google.com/spreadsheets/d/1eF9PbZY_1Gy0vBTqVZwROJj8glOLNcryrVhnaml4nmQ/edit?usp=sharing"
+                      width="100%"
+                      height="1000px"
+                      scrolling="no"
+                      frameborder="2px"
+                    />
+                  </Center>
+                </div>
+              </Center>
             </div>
           </div>
         );

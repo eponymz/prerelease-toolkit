@@ -23,10 +23,10 @@ class PreDocker extends Component {
             <div>
               <Center>
                 <Link
-                  to={this.props.auth ? '/z/pre-release/docker' : '/'}
+                  to={this.props.auth ? '/z/pre-release/results' : '/'}
                   className="no-underline relic-button"
                 >
-                  DOCKER
+                  TEST RESULTS && RATINGS
                 </Link>
               </Center>
             </div>
