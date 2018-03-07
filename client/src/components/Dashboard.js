@@ -20,10 +20,10 @@ class Dashboard extends Component {
               <div className="release-center">
                 <Center>
                   <iframe
-                    title="mr lonely"
+                    title="so ronery"
                     width="640"
                     height="360"
-                    src="https://www.youtube.com/embed/6EEW-9NDM5k"
+                    src="https://www.youtube.com/embed/UEaKX9YYHiQ?autoplay=1"
                     frameborder="0"
                     allow="autoplay; encrypted-media"
                     allowfullscreen
