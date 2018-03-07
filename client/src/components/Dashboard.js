@@ -15,17 +15,18 @@ class Dashboard extends Component {
       default:
         return (
           <div className="content-title body">
-            <h1 style={{ textAlign: 'center' }}>QA Release Sheet</h1>
+            <h1 style={{ textAlign: 'center' }}>This page is so lonely.</h1>
             <Center>
               <div className="release-center">
                 <Center>
                   <iframe
-                    title="qa release sheet"
-                    src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?usp=sharing"
-                    width="100%"
-                    height="1200px"
-                    scrolling="no"
-                    frameborder="2px"
+                    title="mr lonely"
+                    width="640"
+                    height="360"
+                    src="https://www.youtube.com/embed/6EEW-9NDM5k"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
                   />
                 </Center>
               </div>
