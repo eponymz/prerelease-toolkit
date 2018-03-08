@@ -22,7 +22,7 @@ class QASheet extends Component {
                   <Center>
                     <iframe
                       title="qa release sheet"
-                      src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?usp=sharing"
+                      src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?&rm=minimal#gid=1720122925"
                       width="100%"
                       height="1000px"
                       scrolling="no"

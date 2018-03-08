@@ -24,7 +24,7 @@ class Results extends Component {
                   <Center>
                     <iframe
                       title="qa release sheet"
-                      src="https://docs.google.com/spreadsheets/d/1eF9PbZY_1Gy0vBTqVZwROJj8glOLNcryrVhnaml4nmQ/edit?usp=sharing"
+                      src="https://docs.google.com/spreadsheets/d/1eF9PbZY_1Gy0vBTqVZwROJj8glOLNcryrVhnaml4nmQ/edit?usp=sharing?&rm=minimal"
                       width="100%"
                       height="1000px"
                       scrolling="no"
