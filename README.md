@@ -23,6 +23,7 @@ A home for all tools and nifty items used by the pre release team.
 * [] Setup routers to client side pages. _This will be implemented continuously. As new routes are added._
   * [x] React router.
   * [x] Redux implementation.
+* [] Refactor Post Release page to function and look the same as Pre Release. (multiple reports)
 * [] Implement 'authorized users only' DB?
 * [x] Build out OAuth flow.
 * [x] Implement cookie and session tracking.
