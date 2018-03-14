@@ -9,10 +9,10 @@ import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import JakobReport from './JakobReport';
-import Bash from './Terminal';
+// import Bash from './Terminal';
 import Operator from './Operator';
 import CollapseBtn from './CollapseBtn';
-import Borrower from './Borrower';
+import Borrower from './Borrower';s
 import Activities from './Activities';
 import PreRelic from './PreRelic';
 import PreSheets from './PreSheets';
@@ -45,7 +45,7 @@ class App extends Component {
           <Route path="/z/post-release-report" component={JakobReport} />
           <Route exact path="/z/pre-release" component={PreRelic} />
           <Route exact path="/z/pre-release" component={PreSheets} />
-          <Route path="/z/terminal" component={Bash} />
+          {/* <Route path="/z/terminal" component={Bash} /> */}
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn} />
