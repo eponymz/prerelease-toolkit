@@ -12,7 +12,7 @@ import JakobReport from './JakobReport';
 // import Bash from './Terminal';
 import Operator from './Operator';
 import CollapseBtn from './CollapseBtn';
-import Borrower from './Borrower';s
+import Borrower from './Borrower';
 import Activities from './Activities';
 import PreRelic from './PreRelic';
 import PreSheets from './PreSheets';
