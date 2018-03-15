@@ -19,12 +19,14 @@ class QASheet extends Component {
               <h3 style={{ textAlign: 'center' }}>QA RELEASE SHEET</h3>
               <Center>
                 <div className="release-center">
-                  <Center>
+                  <Center style={{ height: '100%' }}>
                     <iframe
+                      style={{
+                        width: '100%',
+                        height: '100%'
+                      }}
                       title="qa release sheet"
                       src="https://docs.google.com/spreadsheets/d/1EPMAsaNuzEbRlINEquwX3T1uaHtW32OoeBGHnXXSYVI/edit?&rm=minimal#gid=1720122925"
-                      width="100%"
-                      height="1150px"
                       scrolling="no"
                       frameborder="2px"
                     />

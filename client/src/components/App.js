@@ -18,6 +18,8 @@ import PreRelic from './PreRelic';
 import PreSheets from './PreSheets';
 import Results from './Results';
 import QASheet from './BryanRelease';
+import DockIt from './PreDocker';
+import DockNation from './DockNation';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -45,6 +47,7 @@ class App extends Component {
           <Route path="/z/post-release-report" component={JakobReport} />
           <Route exact path="/z/pre-release" component={PreRelic} />
           <Route exact path="/z/pre-release" component={PreSheets} />
+          <Route exact path="/z/pre-release" component={DockIt} />
           {/* <Route path="/z/terminal" component={Bash} /> */}
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
@@ -64,6 +67,8 @@ class App extends Component {
             path="/z/pre-release/activities"
             component={Activities}
           />
+          <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
+          <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>
