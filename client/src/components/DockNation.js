@@ -6,6 +6,15 @@ import Center from 'react-center';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
+const copyText = text => {
+  const textField = document.createElement('textarea');
+  textField.innerText = text;
+  document.body.appendChild(textField);
+  textField.select();
+  document.execCommand('copy');
+  textField.remove();
+};
+
 class DockNation extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -137,14 +146,5 @@ class DockNation extends Component {
 function mapStateToProps({ auth }) {
   return { auth };
 }
-
-const copyText = text => {
-  const textField = document.createElement('textarea');
-  textField.innerText = text;
-  document.body.appendChild(textField);
-  textField.select();
-  document.execCommand('copy');
-  textField.remove();
-};
 
 export default connect(mapStateToProps)(DockNation);
