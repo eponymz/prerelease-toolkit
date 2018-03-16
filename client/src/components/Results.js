@@ -21,12 +21,14 @@ class Results extends Component {
               </h3>
               <Center>
                 <div className="release-center">
-                  <Center>
+                  <Center style={{ height: '100%' }}>
                     <iframe
+                      style={{
+                        width: '100%',
+                        height: '100%'
+                      }}
                       title="qa release sheet"
                       src="https://docs.google.com/spreadsheets/d/1eF9PbZY_1Gy0vBTqVZwROJj8glOLNcryrVhnaml4nmQ/edit?usp=sharing?&rm=minimal"
-                      width="100%"
-                      height="1150px"
                       scrolling="no"
                       frameborder="2px"
                     />

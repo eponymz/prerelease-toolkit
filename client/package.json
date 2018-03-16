@@ -26,6 +26,7 @@
     "react-scripts": "1.1.1",
     "react-social-icons": "^2.8.1",
     "react-social-login-buttons": "^1.3.6",
+    "react-xterm": "^2.0.4",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "save": "^2.3.2"
