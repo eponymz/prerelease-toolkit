@@ -15,6 +15,12 @@ const copyText = text => {
   textField.remove();
 };
 
+function copyShit() {
+  copyText(textToCopy);
+}
+
+let textToCopy;
+
 class DockNation extends Component {
   renderContent() {
     switch (this.props.auth) {
@@ -35,19 +41,21 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyText('ssh opdev-0.sofitest.com')}
+                  onClick={copyShit({ textToCopy: 'ssh opdev-0.sofitest.com' })}
                 >
                   ssh opdev-0
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyText('ssh opdev-1.sofitest.com')}
+                  onClick={copyShit({ textToCopy: 'ssh opdev-1.sofitest.com' })}
                 >
                   ssh opdev-1
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyText('ssh qa-<number>.sofitest.com')}
+                  onClick={copyShit({
+                    content: 'ssh qa-<number>.sofitest.com'
+                  })}
                 >
                   ssh kraken
                 </button>
@@ -62,13 +70,13 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyText('sudo su - sofi')}
+                  onClick={copyShit({ textToCopy: 'sudo su - sofi' })}
                 >
                   sudo su - sofi
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyText('cd dev-compose-env')}
+                  onClick={copyShit({ textToCopy: 'cd dev-compose-env' })}
                 >
                   cd dev-compose-env
                 </button>
@@ -81,7 +89,10 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button className="relic-button" onClick={copyText('dc ps')}>
+                <button
+                  className="relic-button"
+                  onClick={copyShit({ textToCopy: 'dc ps' })}
+                >
                   dc ps
                 </button>
               </Center>
@@ -100,16 +111,19 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyText('git checkout -- .')}
+                  onClick={copyShit({ textToCopy: 'git checkout -- .' })}
                 >
                   git checkout -- .
                 </button>
-                <button className="relic-button" onClick={copyText('git pull')}>
+                <button
+                  className="relic-button"
+                  onClick={copyShit({ textToCopy: 'git pull' })}
+                >
                   git pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyText('./cloud-preper.sh')}
+                  onClick={copyShit({ textToCopy: './cloud-preper.sh' })}
                 >
                   ./cloud-preper.sh
                 </button>
@@ -122,12 +136,15 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button className="relic-button" onClick={copyText('dc pull')}>
+                <button
+                  className="relic-button"
+                  onClick={copyShit({ textToCopy: 'dc pull' })}
+                >
                   dc pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyText('./docker-cleanup.sh')}
+                  onClick={copyShit({ textToCopy: './docker-cleanup.sh' })}
                 >
                   ./docker-cleanup.sh
                 </button>

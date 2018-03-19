@@ -32,12 +32,12 @@ class Header extends Component {
                 >
                   Pre Release
                 </Link>
-                {/* <Link
+                <Link
                   to={this.props.auth ? '/z/terminal' : '/'}
                   className="no-underline navbar-button"
                 >
                   Terminal
-                </Link> */}
+                </Link>
                 <Link
                   to={this.props.auth ? '/z/post-release-report' : '/'}
                   className="no-underline navbar-button"
