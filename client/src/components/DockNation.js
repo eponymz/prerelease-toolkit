@@ -27,20 +27,20 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'ssh opdev-0.sofitest.com' })}
+                  onClick={copyShit({ content: 'ssh opdev-0.sofitest.com' })}
                 >
                   ssh opdev-0
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'ssh opdev-1.sofitest.com' })}
+                  onClick={copyShit({ content: 'ssh opdev-1.sofitest.com' })}
                 >
                   ssh opdev-1
                 </button>
                 <button
                   className="relic-button"
                   onClick={copyShit({
-                    content = 'ssh qa-<number>.sofitest.com'
+                    content: 'ssh qa-<number>.sofitest.com'
                   })}
                 >
                   ssh kraken
@@ -56,13 +56,13 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'sudo su - sofi' })}
+                  onClick={copyShit({ content: 'sudo su - sofi' })}
                 >
                   sudo su - sofi
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'cd dev-compose-env' })}
+                  onClick={copyShit({ content: 'cd dev-compose-env' })}
                 >
                   cd dev-compose-env
                 </button>
@@ -77,7 +77,7 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'dc ps' })}
+                  onClick={copyShit({ content: 'dc ps' })}
                 >
                   dc ps
                 </button>
@@ -97,19 +97,19 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'git checkout -- .' })}
+                  onClick={copyShit({ content: 'git checkout -- .' })}
                 >
                   git checkout -- .
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'git pull' })}
+                  onClick={copyShit({ content: 'git pull' })}
                 >
                   git pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = './cloud-preper.sh' })}
+                  onClick={copyShit({ content: './cloud-preper.sh' })}
                 >
                   ./cloud-preper.sh
                 </button>
@@ -124,13 +124,13 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = 'dc pull' })}
+                  onClick={copyShit({ content: 'dc pull' })}
                 >
                   dc pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ content = './docker-cleanup.sh' })}
+                  onClick={copyShit({ content: './docker-cleanup.sh' })}
                 >
                   ./docker-cleanup.sh
                 </button>
