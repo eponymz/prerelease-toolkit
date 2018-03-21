@@ -3,23 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
+import copyShit from './copyShit';
 import '../css/Header.css';
 import '../css/Prerelease.css';
-
-const copyText = text => {
-  const textField = document.createElement('textarea');
-  textField.innerText = text;
-  document.body.appendChild(textField);
-  textField.select();
-  document.execCommand('copy');
-  textField.remove();
-};
-
-function copyShit() {
-  copyText(textToCopy);
-}
-
-let textToCopy;
 
 class DockNation extends Component {
   renderContent() {
@@ -41,20 +27,20 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'ssh opdev-0.sofitest.com' })}
+                  onClick={copyShit({ content = 'ssh opdev-0.sofitest.com' })}
                 >
                   ssh opdev-0
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'ssh opdev-1.sofitest.com' })}
+                  onClick={copyShit({ content = 'ssh opdev-1.sofitest.com' })}
                 >
                   ssh opdev-1
                 </button>
                 <button
                   className="relic-button"
                   onClick={copyShit({
-                    content: 'ssh qa-<number>.sofitest.com'
+                    content = 'ssh qa-<number>.sofitest.com'
                   })}
                 >
                   ssh kraken
@@ -70,13 +56,13 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'sudo su - sofi' })}
+                  onClick={copyShit({ content = 'sudo su - sofi' })}
                 >
                   sudo su - sofi
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'cd dev-compose-env' })}
+                  onClick={copyShit({ content = 'cd dev-compose-env' })}
                 >
                   cd dev-compose-env
                 </button>
@@ -91,7 +77,7 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'dc ps' })}
+                  onClick={copyShit({ content = 'dc ps' })}
                 >
                   dc ps
                 </button>
@@ -111,19 +97,19 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'git checkout -- .' })}
+                  onClick={copyShit({ content = 'git checkout -- .' })}
                 >
                   git checkout -- .
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'git pull' })}
+                  onClick={copyShit({ content = 'git pull' })}
                 >
                   git pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: './cloud-preper.sh' })}
+                  onClick={copyShit({ content = './cloud-preper.sh' })}
                 >
                   ./cloud-preper.sh
                 </button>
@@ -138,13 +124,13 @@ class DockNation extends Component {
               <Center>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: 'dc pull' })}
+                  onClick={copyShit({ content = 'dc pull' })}
                 >
                   dc pull
                 </button>
                 <button
                   className="relic-button"
-                  onClick={copyShit({ textToCopy: './docker-cleanup.sh' })}
+                  onClick={copyShit({ content = './docker-cleanup.sh' })}
                 >
                   ./docker-cleanup.sh
                 </button>
