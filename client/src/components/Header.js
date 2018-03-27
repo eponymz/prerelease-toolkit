@@ -33,17 +33,23 @@ class Header extends Component {
                   Pre Release
                 </Link>
                 <Link
+                  to={this.props.auth ? '/z/dockin-it' : '/'}
+                  className="no-underline navbar-button"
+                >
+                  Dockerz
+                </Link>
+                {/* <Link
                   to={this.props.auth ? '/z/terminal' : '/'}
                   className="no-underline navbar-button"
                 >
                   Terminal
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   to={this.props.auth ? '/z/post-release-report' : '/'}
                   className="no-underline navbar-button"
                 >
                   Post Release Report
-                </Link>
+                </Link> */}
                 <a className="right component-title" href="/api/logout">
                   <div className="logout-icon">
                     <img src={logout} className="logout-icon" alt="logo" />

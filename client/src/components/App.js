@@ -8,8 +8,8 @@ import Footer from './Footer';
 import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
-import JakobReport from './JakobReport';
-import Bash from './Terminal';
+// import JakobReport from './JakobReport';
+// import Bash from './Terminal';
 import Operator from './Operator';
 import CollapseBtn from './CollapseBtn';
 import Borrower from './Borrower';
@@ -18,7 +18,7 @@ import PreRelic from './PreRelic';
 import PreSheets from './PreSheets';
 import Results from './Results';
 import QASheet from './BryanRelease';
-import DockIt from './PreDocker';
+// import DockIt from './PreDocker';
 import DockNation from './DockNation';
 
 // const Header = () => <h2>HEADER</h2>;
@@ -44,11 +44,12 @@ class App extends Component {
           <Route exact path="/" component={GoogleButton} />
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
-          <Route path="/z/post-release-report" component={JakobReport} />
+          {/* <Route path="/z/post-release-report" component={JakobReport} /> */}
           <Route exact path="/z/pre-release" component={PreRelic} />
           <Route exact path="/z/pre-release" component={PreSheets} />
-          <Route exact path="/z/pre-release" component={DockIt} />
-          <Route path="/z/terminal" component={Bash} />
+          {/* <Route exact path="/z/pre-release" component={DockIt} /> */}
+          {/* <Route path="/z/terminal" component={Bash} /> */}
+          <Route exact path="/z/dockin-it" component={DockNation} />
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn} />
