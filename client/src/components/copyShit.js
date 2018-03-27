@@ -7,10 +7,4 @@ const copyText = text => {
   textField.remove();
 };
 
-const copyShit = () => {
-  copyText(content);
-};
-
-let content;
-
-export default copyShit;
+export default copyText;

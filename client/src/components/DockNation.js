@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import copyShit from './copyShit';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
@@ -25,26 +25,15 @@ class DockNation extends Component {
                 <h4 style={{ textAlign: 'center' }}>SSH Into the Box</h4>
               </div>
               <Center>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'ssh opdev-0.sofitest.com' })}
-                >
-                  ssh opdev-0
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'ssh opdev-1.sofitest.com' })}
-                >
-                  ssh opdev-1
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({
-                    content: 'ssh qa-<number>.sofitest.com'
-                  })}
-                >
-                  ssh kraken
-                </button>
+                <CopyToClipboard text="ssh opdev-0.sofitest.com">
+                  <button className="relic-button">ssh opdev-0</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="ssh opdev-1.sofitest.com">
+                  <button className="relic-button">ssh opdev-1</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="ssh qa-<number>.sofitest.com">
+                  <button className="relic-button">ssh kraken</button>
+                </CopyToClipboard>
               </Center>
             </div>
             <div>
@@ -54,18 +43,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'sudo su - sofi' })}
-                >
-                  sudo su - sofi
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'cd dev-compose-env' })}
-                >
-                  cd dev-compose-env
-                </button>
+                <CopyToClipboard text="sudo su - sofi">
+                  <button className="relic-button">sudo su - sofi</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="cd dev-compose-env">
+                  <button className="relic-button">cd dev-compose-env</button>
+                </CopyToClipboard>
               </Center>
             </div>
             <div>
@@ -75,12 +58,9 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'dc ps' })}
-                >
-                  dc ps
-                </button>
+                <CopyToClipboard text="dc ps">
+                  <button className="relic-button">dc ps</button>
+                </CopyToClipboard>
               </Center>
               <div className="content-title">
                 <h4 style={{ textAlign: 'center' }}>
@@ -95,24 +75,18 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'git checkout -- .' })}
-                >
-                  git checkout -- .
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'git pull' })}
-                >
-                  git pull
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: './cloud-preper.sh' })}
-                >
-                  ./cloud-preper.sh
-                </button>
+                <CopyToClipboard text="dc down">
+                  <button className="relic-button">dc down</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="git checkout -- .">
+                  <button className="relic-button">git checkout -- .</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="git pull">
+                  <button className="relic-button">git pull</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="./cloud-preper.sh">
+                  <button className="relic-button">./cloud-preper.sh</button>
+                </CopyToClipboard>
               </Center>
             </div>
             <div>
@@ -122,18 +96,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: 'dc pull' })}
-                >
-                  dc pull
-                </button>
-                <button
-                  className="relic-button"
-                  onClick={copyShit({ content: './docker-cleanup.sh' })}
-                >
-                  ./docker-cleanup.sh
-                </button>
+                <CopyToClipboard text="dc pull">
+                  <button className="relic-button">dc pull</button>
+                </CopyToClipboard>
+                <CopyToClipboard text="./docker-cleanup.sh">
+                  <button className="relic-button">./docker-cleanup.sh</button>
+                </CopyToClipboard>
               </Center>
             </div>
           </div>
