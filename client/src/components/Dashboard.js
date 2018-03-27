@@ -16,7 +16,7 @@ class Dashboard extends Component {
         return (
           <div className="content-title body">
             <h1 style={{ textAlign: 'center' }}>This page is so lonely.</h1>
-            <Center>
+            {/* <Center>
               <div className="release-center">
                 <Center>
                   <iframe
@@ -30,7 +30,7 @@ class Dashboard extends Component {
                   />
                 </Center>
               </div>
-            </Center>
+            </Center> */}
           </div>
         );
     }
