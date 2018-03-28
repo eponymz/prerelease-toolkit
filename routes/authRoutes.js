@@ -11,11 +11,14 @@ module.exports = app => {
   app.get(
     '/auth/google/callback',
     passport.authenticate('google', {
-      failureRedirect: '/'
-    }),
-    (req, res) => {
-      res.redirect('/z/dashboard');
-    }
+      successRedirect: (req, res) => {
+        res.redirect('/z/dashboard');
+      },
+      failureRedirect: '/',
+      failureFlash: (req, res) => {
+        res.send(401);
+      }
+    })
   );
 
   app.get('/api/logout', (req, res) => {

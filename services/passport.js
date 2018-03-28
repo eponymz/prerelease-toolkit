@@ -34,12 +34,17 @@ passport.use(
         console.log('User exists. Moving along...');
       }
 
-      const user = await new User({
-        googleId: profile.id,
-        email: profile.emails
-      }).save();
-      done(null, user);
-      console.log('User created. Moving along...');
+      if (!existingUser) {
+        return done(false, existingUser);
+        console.log('User doesnt exist... Access denied...');
+      }
+
+      // const user = await new User({
+      //   googleId: profile.id,
+      //   email: profile.emails
+      // }).save();
+      // done(null, user);
+      // console.log('User created. Moving along...');
     }
   )
 );
