@@ -20,6 +20,7 @@ import Results from './Results';
 import QASheet from './BryanRelease';
 // import DockIt from './PreDocker';
 import DockNation from './DockNation';
+import HipChat from './HipChat';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -50,6 +51,7 @@ class App extends Component {
           {/* <Route exact path="/z/pre-release" component={DockIt} /> */}
           {/* <Route path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/dockin-it" component={DockNation} />
+          <Route exact path="/z/hipchat" component={HipChat} />
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn} />

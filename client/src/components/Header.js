@@ -50,6 +50,12 @@ class Header extends Component {
                 >
                   Post Release Report
                 </Link> */}
+                <Link
+                  to={this.props.auth ? '/z/hipchat' : '/'}
+                  className="no-underline navbar-button"
+                >
+                  HipChizzat
+                </Link>
                 <a className="right component-title" href="/api/logout">
                   <div className="logout-icon">
                     <img src={logout} className="logout-icon" alt="logo" />
