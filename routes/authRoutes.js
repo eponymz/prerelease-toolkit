@@ -11,9 +11,7 @@ module.exports = app => {
   app.get(
     '/auth/google/callback',
     passport.authenticate('google', {
-      successRedirect: (req, res) => {
-        res.redirect('/z/dashboard');
-      },
+      successRedirect: '/z/dashboard',
       failureRedirect: '/',
       failureFlash: (req, res) => {
         res.send(401);
