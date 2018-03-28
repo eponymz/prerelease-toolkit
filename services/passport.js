@@ -24,7 +24,6 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      //console.log(profile);
       const existingUser = await User.findOne({
         googleId: profile.id,
         email: profile.emails
@@ -35,8 +34,9 @@ passport.use(
       }
 
       if (!existingUser) {
+        console.log(profile.id);
+        console.log(profile.emails);
         return done(false, existingUser);
-        console.log('User doesnt exist... Access denied...');
       }
 
       // const user = await new User({
