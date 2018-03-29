@@ -20,7 +20,6 @@ import Results from './Results';
 import QASheet from './BryanRelease';
 // import DockIt from './PreDocker';
 import DockNation from './DockNation';
-import HipChat from './HipChat';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
