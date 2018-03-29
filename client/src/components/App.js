@@ -20,6 +20,8 @@ import Results from './Results';
 import QASheet from './BryanRelease';
 // import DockIt from './PreDocker';
 import DockNation from './DockNation';
+import IanSmoke from './IanSmoke';
+import BackDash from './CollapseDash';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -70,6 +72,8 @@ class App extends Component {
           />
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
+          <Route exact path="/z/pre-release/ian_smoke" component={BackDash} />
+          <Route exact path="/z/pre-release/ian_smoke" component={IanSmoke} />
           <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>

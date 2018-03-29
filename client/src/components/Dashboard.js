@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-//import Center from 'react-center';
+import { Link } from 'react-router-dom';
+import Center from 'react-center';
+//import fetchIan from './FetchinCoo';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
@@ -16,21 +18,35 @@ class Dashboard extends Component {
         return (
           <div className="content-title body">
             <h1 style={{ textAlign: 'center' }}>This page is so lonely.</h1>
-            {/* <Center>
-              <div className="release-center">
-                <Center>
-                  <iframe
-                    title="so ronery"
-                    width="640"
-                    height="360"
-                    src="https://www.youtube.com/embed/UEaKX9YYHiQ?autoplay=1"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                  />
-                </Center>
-              </div>
-            </Center> */}
+            <div className="content-min">
+              <Center>
+                <Link
+                  to={this.props.auth ? '/z/pre-release/ian_smoke' : '/'}
+                  className="no-underline relic-button"
+                  // onClick={fetchIan()}
+                >
+                  Ian's Results
+                </Link>
+                {/* <Link
+                  to={this.props.auth ? '/z/pre-release/borrower' : '/'}
+                  className="no-underline relic-button"
+                >
+                  BORROWER
+                </Link>
+                <Link
+                  to={this.props.auth ? '/z/pre-release/activities' : '/'}
+                  className="no-underline relic-button"
+                >
+                  ACTIVITIES
+                </Link> */}
+                {/* <Link
+                  to={this.props.auth ? '/z/post-release-report' : '/'}
+                  className="no-underline navbar-title"
+                >
+                  Post Release Report
+                </Link> */}
+              </Center>
+            </div>
           </div>
         );
     }
