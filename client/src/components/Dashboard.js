@@ -17,10 +17,16 @@ class Dashboard extends Component {
         return (
           <div className="content-title body">
             <h1 style={{ textAlign: 'center' }}>This page is so lonely.</h1>
-            <h3 style={{ textAlign: 'center' }}>
+            <h3
+              style={{
+                textAlign: 'center',
+                marginLeft: '100px',
+                marginRight: '100px'
+              }}
+            >
               If you are using this app and you have requests for content, reach
               out to Ian. Learning is good for him. This app is deadended for
-              him otherwise due to not having access to internal content.
+              him otherwise, due to not having access to internal content.
             </h3>
             <h3 style={{ textAlign: 'center' }}>
               Here is a button that goes to failarmy. Since ya know, time
