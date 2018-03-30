@@ -8,6 +8,9 @@
     },
     "/api/*": {
       "target": "http://localhost:5000"
+    },
+    "http://slick.sofitest.com/api/*": {
+      "target": "http://slick.sofitest.com/api/*"
     }
   },
   "dependencies": {
@@ -37,5 +40,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "author": "Ian Sabey/React Implementation David Neilson/UI Design"
+  "author": "Ian Sabey"
 }
