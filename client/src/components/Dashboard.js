@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Center from 'react-center';
-//import fetchIan from './FetchinCoo';
 import '../css/Header.css';
 import '../css/Prerelease.css';
 
@@ -18,15 +17,32 @@ class Dashboard extends Component {
         return (
           <div className="content-title body">
             <h1 style={{ textAlign: 'center' }}>This page is so lonely.</h1>
+            <h3 style={{ textAlign: 'center' }}>
+              If you are using this app and you have requests for content, reach
+              out to Ian. Learning is good for him. This app is deadended for
+              him otherwise due to not having access to internal content.
+            </h3>
+            <h3 style={{ textAlign: 'center' }}>
+              Here is a button that goes to failarmy. Since ya know, time
+              wastin.. shhh I wont tell anyone.
+            </h3>
             <div className="content-min">
               <Center>
-                <Link
+                <a
+                  className="no-underline relic-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://www.youtube.com/watch?v=XMptpfyA5L8"
+                >
+                  FAILARMY
+                </a>
+                {/* <Link
                   to={this.props.auth ? '/z/pre-release/ian_smoke' : '/'}
                   className="no-underline relic-button"
                   // onClick={fetchIan()}
                 >
                   Ian's Results
-                </Link>
+                </Link> */}
                 {/* <Link
                   to={this.props.auth ? '/z/pre-release/borrower' : '/'}
                   className="no-underline relic-button"

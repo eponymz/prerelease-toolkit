@@ -3,12 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Login from './Login';
-import GoogleButton from './GoogleBtn';
 import Footer from './Footer';
-import Welcome from './Welcome';
 import Dashboard from './Dashboard';
 import Header from './Header';
-// import JakobReport from './JakobReport';
 // import Bash from './Terminal';
 import Operator from './Operator';
 import CollapseBtn from './CollapseBtn';
@@ -18,10 +15,7 @@ import PreRelic from './PreRelic';
 import PreSheets from './PreSheets';
 import Results from './Results';
 import QASheet from './BryanRelease';
-// import DockIt from './PreDocker';
 import DockNation from './DockNation';
-import IanSmoke from './IanSmoke';
-import BackDash from './CollapseDash';
 
 // const Header = () => <h2>HEADER</h2>;
 // const Dashboard = () => <h2>DASHBOARD</h2>;
@@ -42,14 +36,10 @@ class App extends Component {
           <Route exact path="/survey" component={Dashboard} />
           <Route path="/survey/new" component={SurveyNew} /> */}
           <Route exact path="/" component={Login} />
-          <Route exact path="/" component={Welcome} />
-          <Route exact path="/" component={GoogleButton} />
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
-          {/* <Route path="/z/post-release-report" component={JakobReport} /> */}
           <Route exact path="/z/pre-release" component={PreRelic} />
           <Route exact path="/z/pre-release" component={PreSheets} />
-          {/* <Route exact path="/z/pre-release" component={DockIt} /> */}
           {/* <Route path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/dockin-it" component={DockNation} />
           <Route path="/z/pre-release/results" component={CollapseBtn} />
@@ -72,8 +62,6 @@ class App extends Component {
           />
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
-          <Route exact path="/z/pre-release/ian_smoke" component={BackDash} />
-          <Route exact path="/z/pre-release/ian_smoke" component={IanSmoke} />
           <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>
