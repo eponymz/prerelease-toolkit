@@ -38,12 +38,12 @@ class Header extends Component {
                 >
                   Dockerz
                 </Link>
-                {/* <Link
-                  to={this.props.auth ? '/z/terminal' : '/'}
+                <Link
+                  to={this.props.auth ? '/z/loan-calculator' : '/'}
                   className="no-underline navbar-button"
                 >
-                  Terminal
-                </Link> */}
+                  Utilities
+                </Link>
                 {/* <Link
                   to={this.props.auth ? '/z/post-release-report' : '/'}
                   className="no-underline navbar-button"
