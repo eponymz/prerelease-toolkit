@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Center from 'react-center';
 import '../css/Header.css';
 import '../css/Prerelease.css';
@@ -12,25 +12,29 @@ class Utilities extends Component {
       case null:
         return;
       case false:
-        return <Redirect to="/" />;
+        return <Redirect to="/"/>;
       default:
         return (
           <div>
             <div className="content-title">
-              <h3 style={{ textAlign: 'center' }}>Helpful Tools</h3>
+              <h3 style={{
+                textAlign: 'center'
+              }}>Helpful Tools</h3>
             </div>
             <div className="content-min">
               <Center>
                 <Link
-                  to={this.props.auth ? '/z/utilities/loan-calculator' : '/'}
-                  className="no-underline relic-button"
-                >
+                  to={this.props.auth
+                  ? '/z/utilities/loan-calculator'
+                  : '/'}
+                  className="no-underline relic-button">
                   LOAN CALCULATOR
                 </Link>
                 <Link
-                  to={this.props.auth ? '/z/utilities/checklist' : '/'}
-                  className="no-underline relic-button"
-                >
+                  to={this.props.auth
+                  ? '/z/utilities/checklist'
+                  : '/'}
+                  className="no-underline relic-button">
                   CHECKLIST
                 </Link>
                 {/* <Link
@@ -56,9 +60,9 @@ class Utilities extends Component {
     return <div>{this.renderContent()}</div>;
   }
 }
-
-function mapStateToProps({ auth }) {
-  return { auth };
+//change for shits
+function mapStateToProps({auth}) {
+  return {auth};
 }
 
 export default connect(mapStateToProps)(Utilities);
