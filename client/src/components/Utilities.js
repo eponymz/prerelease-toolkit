@@ -30,13 +30,13 @@ class Utilities extends Component {
                   className="no-underline relic-button">
                   LOAN CALCULATOR
                 </Link>
-                <Link
+                {/* <Link
                   to={this.props.auth
                   ? '/z/utilities/checklist'
                   : '/'}
                   className="no-underline relic-button">
                   CHECKLIST
-                </Link>
+                </Link> */}
                 {/* <Link
                   to={this.props.auth ? '/z/pre-release/activities' : '/'}
                   className="no-underline relic-button"

@@ -20,7 +20,6 @@ import DockNation from './DockNation';
 import LoanCalc from './LoanCalc';
 import BackUtil from './CollapseUtils';
 import Utilities from './Utilities';
-import CheckList from './CheckList';
 
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
 // <h2>DASHBOARD</h2>; const SurveyNew = () => <h2>SURVEY CREATE</h2>; const
@@ -50,8 +49,6 @@ class App extends Component {
           <Route path="/z/utilities" component={Utilities}/>
           <Route exact path="/z/utilities/loan-calculator" component={BackUtil}/>
           <Route exact path="/z/utilities/loan-calculator" component={LoanCalc}/>
-          <Route exact path="/z/utilities/checklist" component={BackUtil}/>
-          <Route exact path="/z/utilities/checklist" component={CheckList}/>
           <Route path="/z/pre-release/results" component={CollapseBtn}/>
           <Route exact path="/z/pre-release/results" component={Results}/>
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn}/>
