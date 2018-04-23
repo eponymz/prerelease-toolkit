@@ -23,22 +23,27 @@ class PreSheets extends Component {
               <Center>
                 <Link
                   to={this.props.auth ? '/z/pre-release/qa-sheet' : '/'}
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   QA RELEASE SHEET
                 </Link>
               </Center>
             </div>
+            <br />
+            <hr />
             <div className="content-title">
               <h3 style={{ textAlign: 'center' }}>
                 Automation Results && Ratings
               </h3>
             </div>
+
             <div>
               <Center>
                 <Link
                   to={this.props.auth ? '/z/pre-release/results' : '/'}
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   TEST RESULTS && RATINGS
                 </Link>

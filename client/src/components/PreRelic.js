@@ -23,19 +23,22 @@ class PreRelic extends Component {
               <Center>
                 <Link
                   to={this.props.auth ? '/z/pre-release/operator' : '/'}
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   OPERATOR
                 </Link>
                 <Link
                   to={this.props.auth ? '/z/pre-release/borrower' : '/'}
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   BORROWER
                 </Link>
                 <Link
                   to={this.props.auth ? '/z/pre-release/activities' : '/'}
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   ACTIVITIES
                 </Link>

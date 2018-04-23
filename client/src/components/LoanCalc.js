@@ -8,7 +8,6 @@ import loading from '../loading.gif';
 //import resetForm from './resetForm';
 import '../css/Header.css';
 import '../css/Prerelease.css';
-import '../css/bscss.css';
 
 class LoanCalc extends Component {
   constructor(props) {
@@ -131,7 +130,7 @@ class LoanCalc extends Component {
                     </form>
                     {/* LOADER */}
                     <div id="loading" style={{ display: 'none' }}>
-                      <img src={loading} />
+                      <img src={loading} alt="loading..." />
                     </div>
                     {/* RESULTS */}
                     <div
