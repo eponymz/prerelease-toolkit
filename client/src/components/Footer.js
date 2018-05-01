@@ -12,9 +12,19 @@ class Footer extends Component {
         return <Redirect to="/" />;
       default:
         return (
-          <div>
-            <footer className="footer-bar">
-              <div className="footer-component">©2018 | Ian Sabey</div>
+          <div id="footer sticky-bottom">
+            <footer>
+              <div
+                className="pb-2 pt-2"
+                style={{
+                  fontFamily: "'Orbitron', sans-serif",
+                  fontSize: '8px',
+                  color: 'rgb(146,146,146)',
+                  textAlign: 'center'
+                }}
+              >
+                ©2018 | Ian Sabey
+              </div>
             </footer>
           </div>
         );
