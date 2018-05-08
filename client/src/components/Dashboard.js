@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 //import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import '../css/Header.css';
-import '../css/Prerelease.css';
+
+import '../App.css'
 
 class Dashboard extends Component {
   renderContent() {
@@ -35,7 +35,8 @@ class Dashboard extends Component {
             <div className="content-min">
               <Center>
                 <a
-                  className="no-underline relic-button"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                   target="_blank"
                   rel="noopener noreferrer"
                   href="https://www.youtube.com/watch?v=XMptpfyA5L8"

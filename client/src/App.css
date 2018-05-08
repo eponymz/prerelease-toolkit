@@ -19,6 +19,12 @@
   font-size: 1.5em;
 }
 
+.content-title {
+  font-family: 'Monda', sans-serif;
+  font-size: 20px;
+  color: gray;
+}
+
 .App-intro {
   font-size: large;
 }
@@ -30,4 +36,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Login {
+  text-align: center;
+}
+
+.Login-header {
+  background-color: azure;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border: 4.5px solid #222;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+
+.Login-logo {
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.Login-title {
+  font-size: 1.5em;
+  font-family: fantasy;
+  font-weight: bold;
 }

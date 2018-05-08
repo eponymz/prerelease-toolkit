@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import '../css/Header.css';
-import '../css/Prerelease.css';
+
+import '../App.css'
 
 class Utilities extends Component {
   renderContent() {
@@ -25,7 +25,7 @@ class Utilities extends Component {
                 Helpful Tools
               </h3>
             </div>
-            <div className="content-min">
+            <div>
               <Center>
                 <Link
                   to={this.props.auth ? '/z/utilities/loan-calculator' : '/'}

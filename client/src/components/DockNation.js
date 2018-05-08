@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import '../css/Header.css';
-import '../css/Prerelease.css';
+
+import '../App.css'
 
 class DockNation extends Component {
   renderContent() {

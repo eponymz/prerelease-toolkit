@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import triage from '../triage.svg';
 import logout from '../logout.svg';
-import '../css/Header.css';
-import '../css/GoogleBtn.css';
 
 class Header extends Component {
   renderContent() {
@@ -23,7 +21,7 @@ class Header extends Component {
                 className="navbar-brand"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
-                <img src={triage} className="Header-logo pr-2" alt="logo" />
+                <img src={triage} className="navbar-brand" width="50" height="50" alt="logo" />
                 T R I A G E
               </Link>
               <Link
@@ -61,7 +59,8 @@ class Header extends Component {
                   HipChizzat
                 </Link> */}
               <a
-                className="right navbar-brand"
+
+                className="btn btn-sm font-weight-bold p-sm-1 mr-sm-1"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
                   fontSize: '10px',
@@ -69,14 +68,15 @@ class Header extends Component {
                   textDecoration: 'none',
                   position: 'absolute',
                   right: '10px',
-                  top: '14px',
+                  top: '25%',
                   transitionDuration: '0.2s'
                 }}
                 href="/api/logout"
               >
-                <div className="logout-icon">
-                  <img src={logout} className="logout-icon" alt="logo" />
+                <div style={{ height: '15px', display: 'inline-block' }}>
+                  <img src={logout} style={{ height: '15px', display: 'inline-block' }} className="pr-1" alt="logo" />
                 </div>
+
                 L O G O U T
               </a>
             </div>

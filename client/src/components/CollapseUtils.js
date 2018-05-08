@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import '../css/Header.css';
-import '../css/Prerelease.css';
+
+import '../App.css'
 
 class BackUtil extends Component {
   renderContent() {
@@ -20,7 +20,8 @@ class BackUtil extends Component {
               <Center>
                 <Link
                   to={this.props.auth ? '/z/utilities' : '/'}
-                  className="no-underline relic-button-collapse"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   † H I D E †
                 </Link>

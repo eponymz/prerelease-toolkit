@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../css/Footer.css';
+
 
 class Footer extends Component {
   renderContent() {
@@ -15,7 +15,7 @@ class Footer extends Component {
           <div id="footer sticky-bottom">
             <footer>
               <div
-                className="pb-2 pt-2"
+                className="pb-2 pt-5"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
                   fontSize: '8px',

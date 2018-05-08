@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 //import { CopyToClipboard } from 'react-copy-to-clipboard';
 import loading from '../loading.gif';
 //import resetForm from './resetForm';
-import '../css/Header.css';
-import '../css/Prerelease.css';
+
+import '../App.css'
 
 class LoanCalc extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class LoanCalc extends Component {
   calculate = () => {
     document
       .getElementById('loan-form')
-      .addEventListener('submit', function(e) {
+      .addEventListener('submit', function (e) {
         //hide results
         document.getElementById('results').style.display = 'none';
 
