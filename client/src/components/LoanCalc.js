@@ -89,19 +89,25 @@ class LoanCalc extends Component {
                     <form id="loan-form">
                       <div className="form-group">
                         <div className="input-group">
-                          <span className="input-group-addon">$</span>
+                          <div class="input-group-prepend">
+                            <span className="input-group-text">$</span>
+                          </div>
                           <input
                             type="number"
                             className="form-control"
                             id="amount"
                             placeholder="Loan Amount (to the nearest dollar)"
                           />
-                          <span className="input-group-addon">.00</span>
+                          <div class="input-group-append">
+                            <span className="input-group-text">.00</span>
+                          </div>
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="input-group">
-                          <span className="input-group-addon">%</span>
+                          <div class="input-group-prepend">
+                            <span className="input-group-text">%</span>
+                          </div>
                           <input
                             className="form-control"
                             id="interest"
