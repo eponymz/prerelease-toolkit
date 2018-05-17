@@ -71,3 +71,7 @@
 .no-underline {
   text-decoration: none;
 }
+
+.no-underline:hover {
+  text-decoration: none;
+}
