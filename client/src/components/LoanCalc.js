@@ -89,7 +89,7 @@ class LoanCalc extends Component {
                     <form id="loan-form">
                       <div className="form-group">
                         <div className="input-group">
-                          <div class="input-group-prepend">
+                          <div className="input-group-prepend">
                             <span className="input-group-text">$</span>
                           </div>
                           <input
@@ -98,14 +98,14 @@ class LoanCalc extends Component {
                             id="amount"
                             placeholder="Loan Amount (to the nearest dollar)"
                           />
-                          <div class="input-group-append">
+                          <div className="input-group-append">
                             <span className="input-group-text">.00</span>
                           </div>
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="input-group">
-                          <div class="input-group-prepend">
+                          <div className="input-group-prepend">
                             <span className="input-group-text">%</span>
                           </div>
                           <input

@@ -203,6 +203,24 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
+            <hr />
+            <div>
+              <div className="content-title">
+                <h5 style={{ textAlign: 'center' }}>
+                  If you have 'spun' everything up but some apps arent working, run this.
+                </h5>
+              </div>
+              <Center>
+                <CopyToClipboard text="dc up -d --no-recreate qa-stack">
+                  <button
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  >
+                    dc up -d --no-recreate qa-stack
+                  </button>
+                </CopyToClipboard>
+              </Center>
+            </div>
           </div>
         );
     }
