@@ -67,3 +67,7 @@
   font-family: fantasy;
   font-weight: bold;
 }
+
+.no-underline {
+  text-decoration: none;
+}
