@@ -22,15 +22,15 @@ class Header extends Component {
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
                 <img src={triage} className="navbar-brand" width="50" height="50" alt="logo" />
-                T R I A G E
+                T O O L S
               </Link>
-              <Link
+              {/* <Link
                 to={this.props.auth ? '/z/pre-release' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
                 Pre Release
-              </Link>
+              </Link> */}
               <Link
                 to={this.props.auth ? '/z/dockin-it' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"

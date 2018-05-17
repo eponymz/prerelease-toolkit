@@ -16,7 +16,7 @@ class Login extends Component {
         </div>
         <div className="Login">
           <header>
-            <h1 className="Login-title">T R I A G E</h1>
+            <h1 className="Login-title">IAN's TOOLS</h1>
           </header>
         </div>
         <div className="App">
