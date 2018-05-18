@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import triage from '../triage.svg';
+//import triage from '../triage.svg';
+import vaderHelm from '../vaderHelm.svg'
 import logout from '../logout.svg';
 
 class Header extends Component {
@@ -21,7 +22,7 @@ class Header extends Component {
                 className="navbar-brand"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
               >
-                <img src={triage} className="navbar-brand" width="50" height="50" alt="logo" />
+                <img src={vaderHelm} height="50" alt="logo" />
                 T O O L S
               </Link>
               {/* <Link
