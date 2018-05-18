@@ -61,7 +61,7 @@ class Header extends Component {
                 </Link> */}
               <a
 
-                className="btn btn-sm font-weight-bold p-sm-1 mr-sm-1"
+                className="btn btn-sm font-weight-bold btn-outline-dark p-sm-1 mr-sm-1"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
                   fontSize: '10px',
