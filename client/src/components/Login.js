@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Center from 'react-center';
 import { GoogleLoginButton } from 'react-social-login-buttons';
 import tieFighter from '../tieFighter.svg';
-//import icon_BG from '../icon_BG.svg'
+import iconBG from '../iconBG.svg'
 import '../App.css';
 
 
@@ -12,7 +12,16 @@ class Login extends Component {
       <div>
         <div className="Login">
           <header className="Login-header">
-            <img src={tieFighter} className="Login-logo" alt="logo" />
+            <img src={iconBG} style={{
+              position: 'absolute',
+              width: '110%',
+              left: '0',
+              top: '0'
+            }}
+            />
+            <div>
+              <img src={tieFighter} className="Login-logo" alt="logo" />
+            </div>
           </header>
         </div>
         <div className="Login">
