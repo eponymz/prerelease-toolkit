@@ -221,6 +221,24 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
+            <div>
+              <div className="content-title">
+                <h5 style={{ textAlign: 'center' }}>
+                  If you are having issues with activities showing up, run this.<br />
+                  *MAKE SURE YOU UPDATE THE DOMAIN BEFORE YOU EXECUTE THIS COMMAND IN TERMINAL!*
+                </h5>
+              </div>
+              <Center>
+                <CopyToClipboard text="curl -X GET http://qa-<>.sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500">
+                  <button
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  >
+                    cURL to update ElasticSearch
+                  </button>
+                </CopyToClipboard>
+              </Center>
+            </div>
           </div>
         );
     }
