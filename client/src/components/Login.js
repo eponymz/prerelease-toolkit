@@ -12,7 +12,7 @@ class Login extends Component {
       <div>
         <div className="Login">
           <header className="Login-header">
-            <img src={iconBG} style={{
+            <img src={iconBG} alt="logo" style={{
               position: 'absolute',
               width: '110%',
               left: '0',

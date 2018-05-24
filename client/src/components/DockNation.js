@@ -8,6 +8,12 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import '../App.css'
 
 class DockNation extends Component {
+
+  state = {
+    value: '',
+    copied: false,
+  };
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -42,7 +48,14 @@ class DockNation extends Component {
                     ssh opdev-1
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="ssh qa-<number>.sofitest.com">
+              </Center>
+              <br />
+              <Center>
+                <input placeholder="Enter Box Number" value={this.state.value}
+                  onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
+              </Center>
+              <Center>
+                <CopyToClipboard text={"ssh qa-" + this.state.value + ".sofitest.com"} onCopy={() => this.setState({ copied: true })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -221,24 +234,7 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
-            <div>
-              <div className="content-title">
-                <h5 style={{ textAlign: 'center' }}>
-                  If you are having issues with activities showing up, run this.<br />
-                  *MAKE SURE YOU UPDATE THE DOMAIN BEFORE YOU EXECUTE THIS COMMAND IN TERMINAL!*
-                </h5>
-              </div>
-              <Center>
-                <CopyToClipboard text="curl -X GET http://qa-<>.sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500">
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
-                    cURL to update ElasticSearch
-                  </button>
-                </CopyToClipboard>
-              </Center>
-            </div>
+            <hr />
           </div>
         );
     }
