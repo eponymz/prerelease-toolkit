@@ -40,6 +40,13 @@ class Header extends Component {
                 Dockerz
               </Link>
               <Link
+                to={this.props.auth ? '/z/misc-dockz' : '/'}
+                className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+              >
+                Misc Commands
+              </Link>
+              <Link
                 to={this.props.auth ? '/z/utilities' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
