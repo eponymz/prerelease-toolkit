@@ -34,7 +34,7 @@ passport.use(
       }
 
       if (!existingUser) {
-        console.log(profile.id);
+        console.log('Unauthorized login attempt made by:\n' + profile.id);
         console.log(profile.emails);
         return done(false, existingUser);
       }

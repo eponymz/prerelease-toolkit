@@ -8,8 +8,6 @@ module.exports = app => {
     })
   );
 
-
-
   app.get(
     '/auth/google/callback',
     passport.authenticate('google', {
@@ -28,4 +26,9 @@ module.exports = app => {
     // res.send(req.session);
     res.send(req.user);
   });
+
+  // app.post('/z/no-auth', (req, res, next) => {
+  //   res.sendStatus(401, 'You are not authorized to access this application.')
+  //   console.log('Unauthorized attempt to login in by' + profile.emails)
+  // })
 };
