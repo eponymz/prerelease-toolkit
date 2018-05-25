@@ -75,16 +75,6 @@ class Dashboard extends Component {
                 </Link> */}
               </Center>
             </div>
-
-            <div className='meta'>
-              <Center>
-                <a href='https://d1qqkmp2z93k.statuspage.io/'>Status</a>
-                <ul>
-
-                </ul>
-              </Center>
-            </div>
-
           </div>
         );
     }
@@ -94,17 +84,6 @@ class Dashboard extends Component {
     return <div>{this.renderContent()}</div>;
   }
 }
-
-// const fetchThings = async () => {
-//   const res = await fetch("https://d1qqkmp2z93k.statuspage.io/api/v2/incidents/unresolved.json?api_key=5bffe5fd-6d1b-484c-8e50-35f83261478d");
-//   const json = await res.json();
-//   console.log(json.incidents);
-//   // console.log(json);
-//   const statusArr = json.incidents['0'];
-//   const statusList = statusArr.map((statusItem) => <li>{statusItem}</li>);
-// };
-
-// fetchThings();
 
 function mapStateToProps({ auth }) {
   return { auth };
