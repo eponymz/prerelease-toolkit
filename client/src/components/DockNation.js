@@ -6,14 +6,9 @@ import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import '../App.css'
+import KrakenSSH from './KrakenSSH';
 
 class DockNation extends Component {
-
-  state = {
-    value: '',
-    copied: false,
-  };
-
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -50,20 +45,7 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
               <br />
-              <Center>
-                <input placeholder="Enter Box Number" value={this.state.value}
-                  onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
-              </Center>
-              <Center>
-                <CopyToClipboard text={"ssh qa-" + this.state.value + ".sofitest.com"} onCopy={() => this.setState({ copied: true })}>
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
-                    ssh kraken
-                  </button>
-                </CopyToClipboard>
-              </Center>
+              <KrakenSSH />
             </div>
             <hr />
             <div>
