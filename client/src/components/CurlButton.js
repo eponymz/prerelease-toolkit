@@ -26,7 +26,7 @@ class CurlButton extends Component {
                 </h5>
               </div>
               <Center>
-                <input placeholder="Enter Box Number" value={this.state.value}
+                <input style={{ textAlign: 'center' }} placeholder="Enter Box Number" value={this.state.value}
                   onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
               </Center>
               <Center>
