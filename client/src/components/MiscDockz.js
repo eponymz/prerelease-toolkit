@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom'; import Center from 'react-center';
-//import Center from 'react-center';
-//import { CopyToClipboard } from 'react-copy-to-clipboard';
-import CurlButton from './CurlButton'
+// import Center from 'react-center';
+// import { CopyToClipboard } from 'react-copy-to-clipboard';
+import CurlButton from './CurlButton';
+import JakobButtons from './JakobButtons';
 
 class MiscDockz extends Component {
   renderContent() {
@@ -22,6 +23,9 @@ class MiscDockz extends Component {
             </div>
             <hr />
             <CurlButton />
+            <hr />
+            <JakobButtons />
+            <hr />
           </div>
         );
     }
