@@ -1,36 +1,23 @@
-# Pre Release Toolkit
+# Ian's Toolkit
 
 A home for all tools and nifty items used by the pre release team.
 
 # Heroku App URL
 
-[Pre Release Toolkit](https://murmuring-bastion-29031.herokuapp.com/)
+[Ian's Toolkit](https://murmuring-bastion-29031.herokuapp.com/)
 
 ### Things to Note About This Project As of Now:
 
-1.  At the moment, this project is incredibly bare bones.
-2.  Client side does not point outward. It is still in development.
-    > 1.  At the moment, this project is incredibly bare bones.
+1.  This currently only contains docker commands and a loan calculator that I wrote in vanilla and refactored to react
+2.  PRs are welcomed if you branch correctly.
+  > Any PR will need approval before merge.
+3.  Collaboration will bring more features and ultimately make this more useful for everyone involved!
 
 ### TODOS
 
-* [x] Build out client side.
-  * [x] Implement all routes. _These will be implemented continuously._
-  - [x] Determine layout and UI standards.
-  - [x] OAuth login page design.
-    * [x] Logo v1.
-  - [x] Hash out routes needed with diagram.
-* [] Setup routers to client side pages. _This will be implemented continuously. As new routes are added._
-  * [x] React router.
-  * [x] Redux implementation.
-* [] Refactor Post Release page to function and look the same as Pre Release. (multiple reports)
 * [] Implement 'authorized users only' DB?
-* [x] Build out OAuth flow.
-* [x] Implement cookie and session tracking.
-* [x] Implement cookie deletion upon 'logout'.
-
-## AGAIN. THIS PROJECT IS BAREBONES. THE ONLY THING SET UP IS OAUTH.
+ > currently access is determined by pre-existing auth in the database. If you would like to request access, feel free to post an issue [here](https://github.com/eponymz/prerelease-toolkit/issues/new) or [email](mailto:sabeyfox@gmail.com) me directly.
 
 ## SESSION STORAGE IS ACTIVE BY COOKIE AND STORED SECURELY IN MONGODB.
 
-#### If there are any questions or concerns, you can reach out to me directly through [email](mailto:sabeyfox@gmail.com).
+#### If there are any questions or concerns, you can reach out to me directly through [email](mailto:sabeyfox@gmail.com) or submit an issue to this repo [here](https://github.com/eponymz/prerelease-toolkit/issues/new).
