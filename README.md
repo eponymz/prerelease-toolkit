@@ -1,6 +1,6 @@
 # Ian's Toolkit
 
-A home for all tools and nifty items used by the pre release team.
+A home for all tools and nifty items used by me and members of my previous team.
 
 # Heroku App URL
 
