@@ -45,6 +45,7 @@ class HugeFile extends Component {
     }
   }
 
+
   render() {
     return <div>{this.renderContent()}</div>;
   }
