@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import HugeFile from './HugeFile';
 
 class JakobButtons extends Component {
   renderContent() {
@@ -68,24 +69,7 @@ class JakobButtons extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
-            <br />
-            <div>
-              <div className="content-title">
-                <h5 style={{ textAlign: 'center' }}>
-                  If you find a log file that is huge
-                </h5>
-              </div>
-              <Center>
-                <CopyToClipboard text="cp /dev/null <file name>">
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
-                    cp /dev/null filename
-                  </button>
-                </CopyToClipboard>
-              </Center>
-            </div>
+            <HugeFile />
           </div>
         );
     }
