@@ -16,9 +16,9 @@ class Discord extends Component {
         return (
           <div>
             <div className="content-title content">
-              <h3 style={{ textAlign: 'center' }}>QA RELEASE SHEET</h3>
-              <Center>
-                <div className="release-center">
+              <h3 style={{ textAlign: 'center' }}>Discord Server</h3>
+              <Center style={{ height: '100%' }}>
+                <div className="release-center" style={{ height: '100%' }}>
                   <Center style={{ height: '100%' }}>
                     <iframe
                       style={{
@@ -27,7 +27,6 @@ class Discord extends Component {
                       }}
                       title="qa release sheet"
                       src="https://discordapp.com/widget?id=451589892959633418&theme=dark"
-                      scrolling="no"
                       frameborder="2px"
                     />
                   </Center>

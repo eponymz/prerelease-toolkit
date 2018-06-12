@@ -22,7 +22,7 @@ import BackUtil from './CollapseUtils';
 import Utilities from './Utilities';
 import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
-import Discord from './Discord';
+// import Discord from './Discord';
 
 
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
@@ -51,7 +51,7 @@ class App extends Component {
           <Route exact path="/z/pre-release" component={PreSheets} /> {/* <Route path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/dockin-it" component={DockNation} />
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
-          <Route exact path="/z/discord" component={Discord} />
+          {/* <Route exact path="/z/discord" component={Discord} /> */}
           <Route path="/z/utilities" component={Utilities} />
           <Route exact path="/z/utilities/loan-calculator" component={BackUtil} />
           <Route exact path="/z/utilities/loan-calculator" component={LoanCalc} />

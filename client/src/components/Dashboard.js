@@ -29,13 +29,7 @@ class Dashboard extends Component {
                 marginRight: '100px'
               }}
             >
-              If you are using this app and you have requests for content, reach
-              out to Ian. Learning is good for him. This app is deadended for
-              him otherwise, due to not having access to internal content.
-            </h3>
-            <h3 style={{ textAlign: 'center' }}>
-              Here is a button that goes to failarmy. Since ya know, time
-              wastin.. shhh I wont tell anyone.
+              I honestly don't even care. As soon as I have some sort of content worthy of dashboardyness, guess what, it will be here. Until then, enjoy this free link to FAILARMY. Tell them I sent you. Or dont, I don't care. :)
             </h3>
             <div className="content-min">
               <Center>
@@ -75,6 +69,7 @@ class Dashboard extends Component {
                 </Link> */}
               </Center>
             </div>
+            <br />
           </div>
         );
     }
