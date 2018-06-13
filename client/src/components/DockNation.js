@@ -199,6 +199,7 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
+            <CustomUp />
             <hr />
             <div>
               <div className="content-title">
@@ -217,7 +218,6 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
               <br />
-              <CustomUp />
             </div>
             <hr />
           </div>
