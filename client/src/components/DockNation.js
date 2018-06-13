@@ -199,6 +199,7 @@ class DockNation extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
+            <br />
             <CustomUp />
             <hr />
             <div>
