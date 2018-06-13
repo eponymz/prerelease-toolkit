@@ -1,0 +1,65 @@
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
+import Center from 'react-center';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+class CustomUp extends Component {
+  state = {
+    value: '',
+    copied: false,
+  };
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return <Redirect to="/" />;
+      default:
+        return (
+          <div>
+            <div>
+              <div className="content-title">
+                <h5 style={{ textAlign: 'center' }}>
+                  You can choose specific apps to 'spin up'. If more than one, make sure to separate with a space.<br />
+                </h5>
+              </div>
+              <Center>
+                <input style={{ textAlign: 'center' }} placeholder="Enter Apps" value={this.state.value}
+                  onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
+              </Center>
+              <Center>
+                <CopyToClipboard text={"dc up -d --no-recreate " + this.state.value}>
+                  <button
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  >
+                    Up With --no-recreate Flag
+                  </button>
+                </CopyToClipboard>
+                <CopyToClipboard text={"dc up -d " + this.state.value}>
+                  <button
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  >
+                    Up Normally
+                  </button>
+                </CopyToClipboard>
+              </Center>
+            </div>
+          </div>
+        );
+    }
+  }
+
+  render() {
+    return <div>{this.renderContent()}</div>;
+  }
+}
+
+function mapStateToProps({ auth }) {
+  return { auth };
+}
+
+export default connect(mapStateToProps)(CustomUp);

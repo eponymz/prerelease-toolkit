@@ -24,6 +24,7 @@
     "http-errors": "^1.6.2",
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.6",
+    "nodemailer": "^4.6.6",
     "nodemon": "^1.14.12",
     "npm": "^6.0.0",
     "passport": "^0.4.0",

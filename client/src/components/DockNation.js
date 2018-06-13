@@ -7,6 +7,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import '../App.css'
 import KrakenSSH from './KrakenSSH';
+import CustomUp from './CustomUp';
 
 class DockNation extends Component {
   renderContent() {
@@ -215,6 +216,8 @@ class DockNation extends Component {
                   </button>
                 </CopyToClipboard>
               </Center>
+              <br />
+              <CustomUp />
             </div>
             <hr />
           </div>
