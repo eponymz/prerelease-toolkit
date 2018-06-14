@@ -34,10 +34,12 @@ passport.use(
       }
 
       if (!existingUser) {
-        console.log('Unauthorized login attempt made by:\n' + profile.id);
+        console.log('Unauthorized login attempt made by: ' + profile.id);
         console.log(profile.emails);
         return done(false, existingUser);
       }
+
+      //db.users.insert({googleId: '', email: [{ value: '', type: 'account' }], __v: '0'})
 
       // const user = await new User({
       //   googleId: profile.id,
