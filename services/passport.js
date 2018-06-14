@@ -29,14 +29,12 @@ passport.use(
         email: profile.emails
       });
       if (existingUser) {
+        console.log('User ' + profile.id + ' exists. Moving along...');
         return done(null, existingUser);
-        console.log('User exists. Moving along...');
-      }
-
-      if (!existingUser) {
+      } else {
         console.log('Unauthorized login attempt made by: ' + profile.id);
         console.log(profile.emails);
-        return done(false, existingUser);
+        return done(null, false, existingUser);
       }
 
       //db.users.insert({googleId: '', email: [{ value: '', type: 'account' }], __v: '0'})

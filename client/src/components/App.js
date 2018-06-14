@@ -22,6 +22,7 @@ import BackUtil from './CollapseUtils';
 import Utilities from './Utilities';
 import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
+import Unauthorized from './Unauthorized';
 // import Discord from './Discord';
 
 
@@ -68,6 +69,7 @@ class App extends Component {
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           <Route exact path="/z/fetch" component={IanSmoke} />
+          <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>
       </BrowserRouter>
