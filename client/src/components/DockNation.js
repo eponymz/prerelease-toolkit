@@ -4,12 +4,21 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-
 import '../App.css'
 import KrakenSSH from './KrakenSSH';
 import CustomUp from './CustomUp';
+import { Alert } from 'reactstrap';
 
 class DockNation extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      copied: false
+    }
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -19,6 +28,9 @@ class DockNation extends Component {
       default:
         return (
           <div>
+            <Center>
+              {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+            </Center>
             <div className="content-title">
               <h3 style={{ textAlign: 'center' }}>Docker Commands</h3>
             </div>
@@ -28,7 +40,13 @@ class DockNation extends Component {
                 <h4 style={{ textAlign: 'center' }}>SSH Into the Box</h4>
               </div>
               <Center>
-                <CopyToClipboard text="ssh opdev-0.sofitest.com">
+                <CopyToClipboard text="ssh opdev-0.sofitest.com"
+                  onCopy={() =>
+                    this.setState({ copied: true }, () => {
+                      setTimeout(() => {
+                        this.setState({ copied: false })
+                      }, 3000)
+                    })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -36,7 +54,12 @@ class DockNation extends Component {
                     ssh opdev-0
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="ssh opdev-1.sofitest.com">
+                <CopyToClipboard text="ssh opdev-1.sofitest.com" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -56,7 +79,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <CopyToClipboard text="sudo su - sofi">
+                <CopyToClipboard text="sudo su - sofi" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -64,7 +92,12 @@ class DockNation extends Component {
                     sudo su - sofi
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="cd dev-compose-env">
+                <CopyToClipboard text="cd dev-compose-env" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -82,7 +115,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <CopyToClipboard text="dc ps">
+                <CopyToClipboard text="dc ps" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -105,7 +143,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <CopyToClipboard text="dc down">
+                <CopyToClipboard text="dc down" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -113,7 +156,12 @@ class DockNation extends Component {
                     dc down
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="git checkout -- .">
+                <CopyToClipboard text="git checkout -- ." onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -121,7 +169,12 @@ class DockNation extends Component {
                     git checkout -- .
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="git pull">
+                <CopyToClipboard text="git pull" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -129,7 +182,12 @@ class DockNation extends Component {
                     git pull
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="./cloud-preper.sh">
+                <CopyToClipboard text="./cloud-preper.sh" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -147,7 +205,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <CopyToClipboard text="dc pull">
+                <CopyToClipboard text="dc pull" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -155,7 +218,12 @@ class DockNation extends Component {
                     dc pull
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="./docker-cleanup.sh">
+                <CopyToClipboard text="./docker-cleanup.sh" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -173,7 +241,12 @@ class DockNation extends Component {
                 </h4>
               </div>
               <Center>
-                <CopyToClipboard text="dc up -d mysql postgres ; sleep 30">
+                <CopyToClipboard text="dc up -d mysql postgres ; sleep 30" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -181,7 +254,12 @@ class DockNation extends Component {
                     dc up -d mysql postgres ; sleep 30
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="dc up db-init">
+                <CopyToClipboard text="dc up db-init" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -189,7 +267,12 @@ class DockNation extends Component {
                     dc up db-init
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text="dc up -d qa-stack">
+                <CopyToClipboard text="dc up -d qa-stack" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -209,7 +292,12 @@ class DockNation extends Component {
                 </h5>
               </div>
               <Center>
-                <CopyToClipboard text="dc up -d --no-recreate qa-stack">
+                <CopyToClipboard text="dc up -d --no-recreate qa-stack" onCopy={() =>
+                  this.setState({ copied: true }, () => {
+                    setTimeout(() => {
+                      this.setState({ copied: false })
+                    }, 3000)
+                  })}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
