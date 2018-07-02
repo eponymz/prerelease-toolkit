@@ -1,10 +1,12 @@
 # Ian's Toolkit
 
+[![CircleCI](https://circleci.com/gh/eponymz/prerelease-toolkit/tree/master.svg?style=svg)](https://circleci.com/gh/eponymz/prerelease-toolkit/tree/master)
+
 A home for all tools and nifty items used by me and members of my previous team.
 
 # Heroku App URL
 
-[Ian's Toolkit](https://murmuring-bastion-29031.herokuapp.com/)
+[Ian's Toolkit](https://slick-triage.herokuapp.com/)
 
 ### Things to Note About This Project As of Now:
 
