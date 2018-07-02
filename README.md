@@ -11,9 +11,13 @@ A home for all tools and nifty items used by me and members of my previous team.
 ### Things to Note About This Project As of Now:
 
 1.  This currently only contains docker commands and a loan calculator that I wrote in vanilla and refactored to react
-2.  PRs are welcomed if you branch correctly.
-  > Any PR will need approval before merge.
+2.  PRs are welcomed if PR rules are followed.
 3.  Collaboration will bring more features and ultimately make this more useful for everyone involved!
+
+### PR RULES
+#### ALL PRs MUST BE MADE TO DEVELOP BRANCH
+1. Any PR made MUST be approved by repo owner
+2. PRs not made to develop will be declined immediately
 
 ### TODOS
 
