@@ -19,8 +19,8 @@ class Header extends Component {
             <div>
               <Link
                 to={this.props.auth ? '/z/dashboard' : '/'}
-                className="navbar-brand"
-                style={{ fontFamily: "'Orbitron', sans-serif" }}
+                className="text-white pr-4 font-weight-bold"
+                style={{ font: "bold 1.5rem Orbitron, sans-serif" }}
               >
                 <img src={vaderHelm} height="50" alt="logo" />
                 T O O L S
