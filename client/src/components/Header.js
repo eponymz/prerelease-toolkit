@@ -20,7 +20,10 @@ class Header extends Component {
               <Link
                 to={this.props.auth ? '/z/dashboard' : '/'}
                 className="text-white pr-4 font-weight-bold"
-                style={{ font: "bold 1.5rem Orbitron, sans-serif" }}
+                style={{ 
+                  fontFamily: "'Orbitron, sans-serif'", 
+                  fontSize: "1.5rem" 
+                }}
               >
                 <img src={vaderHelm} height="50" alt="logo" />
                 T O O L S
