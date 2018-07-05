@@ -19,7 +19,7 @@ class Header extends Component {
             <div>
               <Link
                 to={this.props.auth ? '/z/dashboard' : '/'}
-                className="text-white pr-4 font-weight-bold"
+                className="text-white pr-4 font-weight-bold navbar-brand"
                 style={{ 
                   fontFamily: "'Orbitron, sans-serif'", 
                   fontSize: "1.5rem" 
