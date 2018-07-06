@@ -13,7 +13,7 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "test": "mocha"
+    "test": "mocha --reporter nyan"
   },
   "author": "Ian Fox Sabey",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "nodemon": "^1.14.12",
     "npm": "^6.0.0",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "supertest": "^3.1.0"
   }
 }
