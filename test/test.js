@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var addTwoNumbers = require('../addTwoNumbers');
+var existingUser = require('../checkExistingUser');
 
 describe('addTwoNumbers()', function () {
   it('should add two numbers', function () {
@@ -15,5 +16,13 @@ describe('addTwoNumbers()', function () {
     // 3. ASSERT
     expect(sum2).to.be.equal(sum1);
 
+  });
+});
+
+describe('checkExistingUser()', function () {
+  it('should validate existing users', function () {
+    var good = existingUser();
+
+    expect(good).to.be.true;
   });
 });
