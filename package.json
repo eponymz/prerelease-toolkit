@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -34,6 +34,7 @@
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "standard-version": "^4.4.0",
-    "supertest": "^3.1.0"
+    "supertest": "^3.1.0",
+    "xterm": "^3.4.1"
   }
 }
