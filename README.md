@@ -1,7 +1,6 @@
 # Ian's Toolkit
 
 [![CircleCI](https://circleci.com/gh/eponymz/prerelease-toolkit/tree/master.svg?style=svg)](https://circleci.com/gh/eponymz/prerelease-toolkit/tree/master)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 A home for all tools and nifty items used by me and members of my previous team.
 
