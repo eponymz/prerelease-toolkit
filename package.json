@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -14,7 +14,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "test": "mocha",
-    "release": "concurrently \"standard-version\" \"npm run push\"",
+    "release": "standard-version",
+    "deploy": "concurrently \"standard-version\" \"npm run push\"",
     "push": "git push -u --follow-tags origin master"
   },
   "author": "Ian Fox Sabey",
