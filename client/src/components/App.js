@@ -7,7 +7,7 @@ import Login from './Login';
 import Footer from './Footer';
 import Dashboard from './Dashboard';
 import Header from './Header';
-// import Bash from './Terminal';
+//import Bash from './Terminal';
 import Operator from './Operator';
 import CollapseBtn from './CollapseBtn';
 import Borrower from './Borrower';
@@ -49,7 +49,7 @@ class App extends Component {
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
           <Route exact path="/z/pre-release" component={PreRelic} />
-          <Route exact path="/z/pre-release" component={PreSheets} /> {/* <Route path="/z/terminal" component={Bash} /> */}
+          <Route exact path="/z/pre-release" component={PreSheets} />
           <Route exact path="/z/dockin-it" component={DockNation} />
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
           {/* <Route exact path="/z/discord" component={Discord} /> */}
@@ -68,6 +68,7 @@ class App extends Component {
           <Route exact path="/z/pre-release/activities" component={Activities} />
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
+          {/* <Route exact path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/fetch" component={IanSmoke} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />

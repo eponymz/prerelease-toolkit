@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Terminal from 'react-bash';
+// import Terminal from 'react-bash';
 import Center from 'react-center';
-import '../css/Header.css';
+
 
 class Bash extends Component {
   renderContent() {
