@@ -42,16 +42,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="9.9.10"></a>
-## [9.9.10](https://github.com/eponymz/prerelease-toolkit/compare/v9.9.9...v9.9.10) (2018-07-09)
-
-
-
-<a name="9.9.9"></a>
-## [9.9.9](https://github.com/eponymz/prerelease-toolkit/compare/v1.0.9...v9.9.9) (2018-07-09)
-
-
-
 <a name="1.0.9"></a>
 ## [1.0.9](https://github.com/eponymz/prerelease-toolkit/compare/v1.0.8...v1.0.9) (2018-07-09)
 
