@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CurlButton from './CurlButton';
 import JakobButtons from './JakobButtons';
+import ActivityCurl from './ActivityCurl';
 
 class MiscDockz extends Component {
   renderContent() {
@@ -21,6 +22,8 @@ class MiscDockz extends Component {
               <h3 style={{ textAlign: 'center' }}>Misc. Docker Commands</h3>
               <p style={{ textAlign: 'center' }}>Miscellanious commands to paste in terminal when working with an environment.</p>
             </div>
+            <hr />
+            <ActivityCurl />
             <hr />
             <CurlButton />
             <hr />

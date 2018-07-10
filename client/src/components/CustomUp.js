@@ -14,7 +14,19 @@ class CustomUp extends Component {
       value: '',
       copied: false
     }
+
+    this.stateTimeout = this.stateTimeout.bind(this);
+
   }
+
+  stateTimeout() {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 3000)
+    })
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -38,12 +50,7 @@ class CustomUp extends Component {
                   onChange={({ target: { value } }) => this.setState({ value })} />
               </Center>
               <Center>
-                <CopyToClipboard text={"dc up -d --no-recreate " + this.state.value} onCopy={() =>
-                  this.setState({ copied: true }, () => {
-                    setTimeout(() => {
-                      this.setState({ copied: false })
-                    }, 3000)
-                  })}>
+                <CopyToClipboard text={"dc up -d --no-recreate " + this.state.value} onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -51,12 +58,7 @@ class CustomUp extends Component {
                     Up With --no-recreate Flag
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text={"dc up -d " + this.state.value} onCopy={() =>
-                  this.setState({ copied: true }, () => {
-                    setTimeout(() => {
-                      this.setState({ copied: false })
-                    }, 3000)
-                  })}>
+                <CopyToClipboard text={"dc up -d " + this.state.value} onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}

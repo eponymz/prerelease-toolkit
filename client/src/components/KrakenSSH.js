@@ -6,7 +6,7 @@ import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Alert } from 'reactstrap';
 
-class CurlButton extends Component {
+class KrakenCopy extends Component {
   constructor(props) {
     super(props);
 
@@ -14,7 +14,23 @@ class CurlButton extends Component {
       value: '',
       copied: false
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.stateTimeout = this.stateTimeout.bind(this);
   }
+
+  stateTimeout() {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 3000)
+    })
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value })
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -29,15 +45,10 @@ class CurlButton extends Component {
             </Center>
             <Center>
               <input style={{ textAlign: 'center' }} placeholder="Enter QA Box" value={this.state.value}
-                onChange={({ target: { value } }) => this.setState({ value })} />
+                onChange={this.handleChange} />
             </Center>
             <Center>
-              <CopyToClipboard text={"ssh qa-" + this.state.value + ".sofitest.com"} onCopy={() =>
-                this.setState({ copied: true }, () => {
-                  setTimeout(() => {
-                    this.setState({ copied: false })
-                  }, 3000)
-                })}>
+              <CopyToClipboard text={"ssh qa-" + this.state.value + ".sofitest.com"} onCopy={this.stateTimeout}>
                 <button
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -62,4 +73,4 @@ function mapStateToProps({ auth }) {
 
 //, copied: false
 
-export default connect(mapStateToProps)(CurlButton);
+export default connect(mapStateToProps)(KrakenCopy);

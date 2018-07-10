@@ -69,6 +69,7 @@ class JakobButtons extends Component {
                 </CopyToClipboard>
               </Center>
             </div>
+            <br />
             <HugeFile />
           </div>
         );

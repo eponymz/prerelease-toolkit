@@ -4,12 +4,28 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Alert } from 'reactstrap';
 
 class CurlButton extends Component {
-  state = {
-    value: '',
-    copied: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: '',
+      copied: false,
+    }
+
+    this.stateTimeout = this.stateTimeout.bind(this);
+  }
+
+  stateTimeout() {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 3000)
+    })
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -19,6 +35,9 @@ class CurlButton extends Component {
       default:
         return (
           <div>
+            <Center>
+              {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+            </Center>
             <div>
               <div className="content-title">
                 <h5 style={{ textAlign: 'center' }}>
@@ -30,7 +49,7 @@ class CurlButton extends Component {
                   onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
               </Center>
               <Center>
-                <CopyToClipboard text={"curl -X GET http://qa-" + this.state.value + ".sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500"}>
+                <CopyToClipboard text={"curl -X GET http://qa-" + this.state.value + ".sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500"} onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}

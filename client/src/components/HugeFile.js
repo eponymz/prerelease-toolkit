@@ -4,12 +4,29 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom'; 
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Alert } from 'reactstrap';
 
 class HugeFile extends Component {
-  state = {
-    value: '',
-    copied: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: '',
+      copied: false,
+    }
+
+    this.stateTimeout = this.stateTimeout.bind(this);
+
+  }
+
+  stateTimeout() {
+    this.setState({ copied: true }, () => {
+      setTimeout(() => {
+        this.setState({ copied: false })
+      }, 3000)
+    })
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -19,6 +36,9 @@ class HugeFile extends Component {
       default:
         return (
           <div>
+            <Center>
+              {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+            </Center>
             <div>
               <div className="content-title">
                 <h5 style={{ textAlign: 'center' }}>
@@ -30,7 +50,7 @@ class HugeFile extends Component {
                   onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
               </Center>
               <Center>
-                <CopyToClipboard text={"cp /dev/null " + this.state.value}>
+                <CopyToClipboard text={"cp /dev/null " + this.state.value} onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}
