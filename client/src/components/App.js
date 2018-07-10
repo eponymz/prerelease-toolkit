@@ -23,6 +23,7 @@ import Utilities from './Utilities';
 import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
+import Lazy from './Lazy';
 // import Discord from './Discord';
 
 
@@ -70,6 +71,7 @@ class App extends Component {
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           {/* <Route exact path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/fetch" component={IanSmoke} />
+          <Route exact path="/z/lazy" component={Lazy} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>

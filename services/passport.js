@@ -37,8 +37,6 @@ passport.use(
         return done(null, false, existingUser);
       }
 
-      //db.users.insert({googleId: '102216289713594720058', email: [{ value: 'sabeyfox@gmail.com', type: 'account' }], __v: '0'})
-
       // const user = await new User({
       //   googleId: profile.id,
       //   email: profile.emails

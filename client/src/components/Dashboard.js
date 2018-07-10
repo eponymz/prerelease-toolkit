@@ -31,6 +31,15 @@ class Dashboard extends Component {
             >
               I honestly don't even care. As soon as I have some sort of content worthy of dashboardyness, guess what, it will be here. Until then, enjoy this free link to FAILARMY. Tell them I sent you. Or dont, I don't care. :)
             </h3>
+            <h3
+              style={{
+                textAlign: 'center',
+                marginLeft: '100px',
+                marginRight: '100px'
+              }}
+            >
+              CONGRATS! If you are here, then ... you're welcome.
+            </h3>
             <div className="content-min">
               <Center>
                 <a
