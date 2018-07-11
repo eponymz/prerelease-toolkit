@@ -18,9 +18,11 @@ A home for all tools and nifty items used by me and members of my previous team.
 ##### Just the one rule right now.
 1. Any PR made MUST be approved by repo owner
 2. Preferrably, if PR is made, it will have been versioned correctly.
- - If not, repo owner will git pull, version and push.
- - 'standard-version' node module IS part of the package.json, scripts are in there accordingly.
- - Run 'npm run release' to version if not done already.
+  - If not, repo owner will git pull, version and push.
+  - 'standard-version' node module IS part of the package.json, scripts are in there accordingly.
+  - Run 'npm run release' to version if not done already.
+3. Ensure `git pull` has been done to prevent any merge conflicts.
+  - Always rebase! :D
 
 ### TODOS
 

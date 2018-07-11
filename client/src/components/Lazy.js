@@ -18,7 +18,7 @@ class Lazy extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
-
+    this.logger = this.logger.bind(this);
   }
 
   stateTimeout() {
@@ -33,9 +33,9 @@ class Lazy extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // logger(event) {
-  //   console.log("Copied curl for box: " + this.state.boxValue + " - with the activity ID of: " + this.state.activityValue);
-  // }
+  logger() {
+    console.log("Copied DB command to insert: " + this.state.googleId + " - with the email: " + this.state.emailVal);
+  }
 
   renderContent() {
     switch (this.props.auth) {
@@ -69,7 +69,7 @@ class Lazy extends Component {
                 <button
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
-                //onClick={this.logger}
+                  onClick={this.logger}
                 >
                   DB Insert
                   </button>

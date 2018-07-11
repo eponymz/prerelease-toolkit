@@ -34,7 +34,7 @@ class ActivityCurl extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  logger(event) {
+  logger() {
     console.log("Copied curl for box: " + this.state.boxValue + " - with the activity ID of: " + this.state.activityValue);
   }
 
