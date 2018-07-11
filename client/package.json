@@ -22,6 +22,7 @@
     "react-bash": "^1.6.0",
     "react-bootstrap": "^0.32.1",
     "react-center": "^1.1.1",
+    "react-chrome-redux": "^2.0.0-alpha.1",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "*",
     "react-iframe": "^1.1.0",

@@ -26,16 +26,13 @@ import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
 // import Discord from './Discord';
 
-
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
 // <h2>DASHBOARD</h2>; const SurveyNew = () => <h2>SURVEY CREATE</h2>; const
 // Landing = () => <h2>LANDING</h2>;
 
 class App extends Component {
   componentDidMount() {
-    this
-      .props
-      .fetchUser();
+    this.props.fetchUser();
   }
 
   render() {
@@ -55,8 +52,16 @@ class App extends Component {
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
           {/* <Route exact path="/z/discord" component={Discord} /> */}
           <Route path="/z/utilities" component={Utilities} />
-          <Route exact path="/z/utilities/loan-calculator" component={BackUtil} />
-          <Route exact path="/z/utilities/loan-calculator" component={LoanCalc} />
+          <Route
+            exact
+            path="/z/utilities/loan-calculator"
+            component={BackUtil}
+          />
+          <Route
+            exact
+            path="/z/utilities/loan-calculator"
+            component={LoanCalc}
+          />
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn} />
@@ -65,13 +70,22 @@ class App extends Component {
           <Route exact path="/z/pre-release/operator" component={Operator} />
           <Route exact path="/z/pre-release/borrower" component={CollapseBtn} />
           <Route exact path="/z/pre-release/borrower" component={Borrower} />
-          <Route exact path="/z/pre-release/activities" component={CollapseBtn} />
-          <Route exact path="/z/pre-release/activities" component={Activities} />
+          <Route
+            exact
+            path="/z/pre-release/activities"
+            component={CollapseBtn}
+          />
+          <Route
+            exact
+            path="/z/pre-release/activities"
+            component={Activities}
+          />
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           {/* <Route exact path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/fetch" component={IanSmoke} />
           <Route exact path="/z/lazy" component={Lazy} />
+
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>
@@ -80,4 +94,7 @@ class App extends Component {
   }
 }
 
-export default connect(null, actions)(App);
+export default connect(
+  null,
+  actions
+)(App);

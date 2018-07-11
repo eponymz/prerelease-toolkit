@@ -1,17 +1,27 @@
+/*global chrome*/
+
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 //import { Link } from 'react-router-dom';
 import Center from 'react-center';
-
-import '../App.css'
+import '../App.css';
 //import statusWidget from './statusWidget';
 
-
-
-
-
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+
+    this.barnacleButton.bind(this);
+  }
+
+  barnacleButton() {
+    var editorExtensionId = 'pinmfdfajcpnnekcppampjljnfmndfok';
+    chrome.runtime.sendMessage(editorExtensionId, {
+      greeting: 'barnacles (shudder)'
+    });
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -29,7 +39,10 @@ class Dashboard extends Component {
                 marginRight: '100px'
               }}
             >
-              I honestly don't even care. As soon as I have some sort of content worthy of dashboardyness, guess what, it will be here. Until then, enjoy this free link to FAILARMY. Tell them I sent you. Or dont, I don't care. :)
+              I honestly don't even care. As soon as I have some sort of content
+              worthy of dashboardyness, guess what, it will be here. Until then,
+              enjoy this free link to FAILARMY. Tell them I sent you. Or dont, I
+              don't care. :)
             </h3>
             <h3
               style={{
@@ -51,6 +64,13 @@ class Dashboard extends Component {
                 >
                   FAILARMY
                 </a>
+                <button
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  onClick={this.barnacleButton}
+                >
+                  ssh opdev-0
+                </button>
                 {/* <Link
                   to={this.props.auth ? '/z/pre-release/ian_smoke' : '/'}
                   className="no-underline relic-button"
