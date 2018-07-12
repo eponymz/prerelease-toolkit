@@ -5,8 +5,9 @@ const aliases = {
   'user-clicked-alias': () => {
     var editorExtensionId = 'noikhccpojdclobaamiinlaiiojpfhdc';
     chrome.runtime.sendMessage(editorExtensionId, {
-      greeting: 'barnacles (shudder)'
+      greeting: 'barnacles'
     });
+    console.log('you did it peter');
   }
 };
 
