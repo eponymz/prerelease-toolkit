@@ -16,9 +16,9 @@ class Dashboard extends Component {
   }
 
   barnacleButton() {
-    var editorExtensionId = 'pinmfdfajcpnnekcppampjljnfmndfok';
+    var editorExtensionId = 'noikhccpojdclobaamiinlaiiojpfhdc';
     chrome.runtime.sendMessage(editorExtensionId, {
-      greeting: 'barnacles (shudder)'
+      greeting: 'barnacles'
     });
   }
 
@@ -69,7 +69,7 @@ class Dashboard extends Component {
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
                   onClick={this.barnacleButton}
                 >
-                  ssh opdev-0
+                  Barnacles
                 </button>
                 {/* <Link
                   to={this.props.auth ? '/z/pre-release/ian_smoke' : '/'}
