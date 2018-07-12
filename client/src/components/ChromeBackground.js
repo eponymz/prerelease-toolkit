@@ -3,7 +3,7 @@ import { alias, wrapStore } from 'react-chrome-redux';
 
 const aliases = {
   'user-clicked-alias': () => {
-    var editorExtensionId = 'pinmfdfajcpnnekcppampjljnfmndfok';
+    var editorExtensionId = 'noikhccpojdclobaamiinlaiiojpfhdc';
     chrome.runtime.sendMessage(editorExtensionId, {
       greeting: 'barnacles (shudder)'
     });
