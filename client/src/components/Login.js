@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Center from 'react-center';
 import { GoogleLoginButton } from 'react-social-login-buttons';
-import tieFighter from '../tieFighter.svg';
 import iconBG from '../iconBG.svg'
 import '../App.css';
 
