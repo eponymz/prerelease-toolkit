@@ -1,12 +1,37 @@
+/*global chrome*/
+
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
-
-import '../App.css'
+import '../App.css';
 
 class Utilities extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      ticketNumber: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.barnacleButton = this.barnacleButton.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  barnacleButton() {
+    var editorExtensionId = 'noikhccpojdclobaamiinlaiiojpfhdc';
+    chrome.runtime.sendMessage(editorExtensionId, {
+      greeting: 'barnacles',
+      message: this.state.ticketNumber
+    });
+    this.setState({ ticketNumber: '' });
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -33,6 +58,28 @@ class Utilities extends Component {
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
                   LOAN CALCULATOR
+                </Link>
+              </Center>
+              <hr />
+              <br />
+              <Center>
+                <input
+                  name="ticketNumber"
+                  style={{ textAlign: 'center' }}
+                  placeholder="Enter Apps"
+                  value={this.state.ticketNumber}
+                  onChange={this.handleChange}
+                />
+              </Center>
+              <br />
+              <Center>
+                <Link
+                  to={this.props.auth ? '/z/utilities/branch-lookup' : '/'}
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  onMouseDown={this.barnacleButton}
+                >
+                  BUILDS BY TICKET
                 </Link>
                 {/* <Link
                   to={this.props.auth

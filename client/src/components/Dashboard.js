@@ -1,5 +1,3 @@
-/*global chrome*/
-
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -9,19 +7,6 @@ import '../App.css';
 //import statusWidget from './statusWidget';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.barnacleButton.bind(this);
-  }
-
-  barnacleButton() {
-    var editorExtensionId = 'noikhccpojdclobaamiinlaiiojpfhdc';
-    chrome.runtime.sendMessage(editorExtensionId, {
-      greeting: 'barnacles'
-    });
-  }
-
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -64,13 +49,6 @@ class Dashboard extends Component {
                 >
                   FAILARMY
                 </a>
-                <button
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.barnacleButton}
-                >
-                  Barnacles
-                </button>
                 {/* <Link
                   to={this.props.auth ? '/z/pre-release/ian_smoke' : '/'}
                   className="no-underline relic-button"

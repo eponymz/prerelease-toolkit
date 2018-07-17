@@ -4,9 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 
-import '../App.css'
+import '../App.css';
 
 class BackUtil extends Component {
+  lsClear = () => {
+    localStorage.removeItem('branches');
+  };
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -22,6 +25,7 @@ class BackUtil extends Component {
                   to={this.props.auth ? '/z/utilities' : '/'}
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1 mt-5"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  onClick={this.lsClear}
                 >
                   † H I D E †
                 </Link>
