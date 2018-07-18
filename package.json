@@ -18,7 +18,7 @@
     "major": "standard-version -- --release-as major",
     "minor": "standard-version -- --release-as minor",
     "deploy": "concurrently \"standard-version\" \"npm run push\"",
-    "majeploy": "concurrently \"major\" \"npm run push\"",
+    "majdeploy": "concurrently \"major\" \"npm run push\"",
     "mindeploy": "concurrently \"minor\" \"npm run push\"",
     "push": "git push -u --follow-tags origin master"
   },
