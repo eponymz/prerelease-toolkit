@@ -24,7 +24,6 @@ import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
-import BambooFetch from './BambooFetch';
 // import Discord from './Discord';
 
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
@@ -86,12 +85,6 @@ class App extends Component {
           {/* <Route exact path="/z/terminal" component={Bash} /> */}
           <Route exact path="/z/fetch" component={IanSmoke} />
           <Route exact path="/z/lazy" component={Lazy} />
-          <Route exact path="/z/utilities/branch-lookup" component={BackUtil} />
-          <Route
-            exact
-            path="/z/utilities/branch-lookup"
-            component={BambooFetch}
-          />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>
