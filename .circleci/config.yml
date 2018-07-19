@@ -35,7 +35,8 @@ jobs:
         
       # run tests!
       - run: yarn test
-      
+      - run: react-scripts build
+
   deploy:
     machine: true
     steps:
