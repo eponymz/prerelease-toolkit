@@ -35,7 +35,7 @@ jobs:
         
       # run tests!
       - run: yarn test
-      # - run: npm run build
+      - run: npm run build --prefix client
 
   deploy:
     machine: true
