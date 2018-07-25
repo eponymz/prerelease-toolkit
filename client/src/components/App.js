@@ -24,6 +24,7 @@ import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
+import DayCalc from './DayCalc'
 // import Discord from './Discord';
 
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
@@ -61,6 +62,16 @@ class App extends Component {
             exact
             path="/z/utilities/loan-calculator"
             component={LoanCalc}
+          />
+          <Route
+            exact
+            path="/z/utilities/day-calculator"
+            component={BackUtil}
+          />
+          <Route
+            exact
+            path="/z/utilities/day-calculator"
+            component={DayCalc}
           />
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />

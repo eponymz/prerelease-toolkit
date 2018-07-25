@@ -60,27 +60,18 @@ class Utilities extends Component {
                   LOAN CALCULATOR
                 </Link>
               </Center>
+              <Center>
+                <Link
+                  to={this.props.auth ? '/z/utilities/day-calculator' : '/'}
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
+                >
+                  DAY CALCULATOR
+                </Link>
+              </Center>
               <hr />
               <br />
               <Center>
-                <input
-                  name="ticketNumber"
-                  style={{ textAlign: 'center' }}
-                  placeholder="Enter Apps"
-                  value={this.state.ticketNumber}
-                  onChange={this.handleChange}
-                />
-              </Center>
-              <br />
-              <Center>
-                <Link
-                  to={this.props.auth ? '/z/utilities/branch-lookup' : '/'}
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onMouseDown={this.barnacleButton}
-                >
-                  BUILDS BY TICKET
-                </Link>
                 {/* <Link
                   to={this.props.auth
                   ? '/z/utilities/checklist'
