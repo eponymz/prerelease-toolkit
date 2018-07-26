@@ -125,6 +125,13 @@ class DayCalc extends Component {
 
       //show results
       document.getElementById('results').style.display = 'block';
+      // disable input until form reset completes
+      document.querySelector(DOMstrings.month).setAttribute('disabled', '');
+      document.querySelector(DOMstrings.year).setAttribute('disabled', '');
+      document.querySelector(DOMstrings.day).setAttribute('disabled', '');
+      document
+        .querySelector(DOMstrings.calcButton)
+        .setAttribute('disabled', '');
       //hide loader
       document.getElementById('loading').style.display = 'none';
     }
@@ -184,6 +191,7 @@ class DayCalc extends Component {
                     </div>
                     <div className="form-group">
                       <button
+                        id="calcButton"
                         onClick={this.calculate}
                         className="btn btn-dark btn-block">
                         Calculate
@@ -205,7 +213,7 @@ class DayCalc extends Component {
                       <div className="form-group">
                         <div className="input-group">
                           <div id="outputMessage">
-                            <div id="daysResult" />
+                            <input id="daysResult" disabled />
                           </div>
                         </div>
                       </div>
@@ -220,6 +228,19 @@ class DayCalc extends Component {
                             document.querySelector(DOMstrings.month).value = '';
                             document.querySelector(DOMstrings.day).value = '';
                             document.querySelector(DOMstrings.year).value = '';
+                            // disable input until form reset completes
+                            document
+                              .querySelector(DOMstrings.month)
+                              .removeAttribute('disabled');
+                            document
+                              .querySelector(DOMstrings.year)
+                              .removeAttribute('disabled');
+                            document
+                              .querySelector(DOMstrings.day)
+                              .removeAttribute('disabled');
+                            document
+                              .querySelector(DOMstrings.calcButton)
+                              .removeAttribute('disabled');
                           }}
                         />
                       </div>
@@ -248,7 +269,8 @@ const DOMstrings = {
   day: '#date',
   year: '#year',
   daysResult: '#daysResult',
-  loanForm: '#loan-form'
+  loanForm: '#loan-form',
+  calcButton: '#calcButton'
 };
 
 // show error function

@@ -45,8 +45,7 @@ class Utilities extends Component {
               <h3
                 style={{
                   textAlign: 'center'
-                }}
-              >
+                }}>
                 Helpful Tools
               </h3>
             </div>
@@ -55,12 +54,11 @@ class Utilities extends Component {
                 <Link
                   to={this.props.auth ? '/z/utilities/loan-calculator' : '/'}
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                >
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
                   LOAN CALCULATOR
                 </Link>
               </Center>
-              <Center>
+              {/* <Center>
                 <Link
                   to={this.props.auth ? '/z/utilities/day-calculator' : '/'}
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
@@ -68,7 +66,7 @@ class Utilities extends Component {
                 >
                   DAY CALCULATOR
                 </Link>
-              </Center>
+              </Center> */}
               <hr />
               <br />
               <Center>
