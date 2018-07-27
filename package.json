@@ -1,6 +1,6 @@
 {
   "name": "server",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -20,7 +20,8 @@
     "deploy": "concurrently \"standard-version\" \"npm run push\"",
     "majdeploy": "concurrently \"npm run major\" \"npm run push\"",
     "mindeploy": "concurrently \"npm run minor\" \"npm run push\"",
-    "push": "git push -u --follow-tags origin master"
+    "push": "git push -u --follow-tags origin master",
+    "build": "npm run build --prefix client"
   },
   "author": "Ian Fox Sabey",
   "license": "ISC",
