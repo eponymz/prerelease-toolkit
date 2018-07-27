@@ -14,20 +14,19 @@ class ActivityCurl extends Component {
       boxValue: '',
       activityValue: '',
       copied: false
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.logger = this.logger.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
-
   }
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
-        this.setState({ copied: false })
-      }, 3000)
-    })
+        this.setState({ copied: false });
+      }, 3000);
+    });
   }
 
   handleChange(event) {
@@ -35,7 +34,12 @@ class ActivityCurl extends Component {
   }
 
   logger() {
-    console.log("Copied curl for box: " + this.state.boxValue + " - with the activity ID of: " + this.state.activityValue);
+    console.log(
+      'Copied curl for box: ' +
+        this.state.boxValue +
+        ' - with the activity ID of: ' +
+        this.state.activityValue
+    );
   }
 
   renderContent() {
@@ -48,47 +52,86 @@ class ActivityCurl extends Component {
         return (
           <div>
             <Center>
-              {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+              {this.state.copied ? (
+                <Alert
+                  color="success"
+                  id="copySuccess"
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: "'Orbitron', sans-serif",
+                    width: '50%'
+                  }}>
+                  Copied!!
+                </Alert>
+              ) : null}
             </Center>
             <div className="content-title">
               <h5 style={{ textAlign: 'center' }}>
-                These will copy the curl commands to fund a loan.
+                These will copy the curl commands to complete activities.
               </h5>
               <Center>
-                <input name="boxValue" style={{ textAlign: 'center' }} placeholder="Kraken Box Number" value={this.state.boxValue}
-                  onChange={this.handleChange} />
+                <input
+                  name="boxValue"
+                  style={{ textAlign: 'center' }}
+                  placeholder="Kraken Box Number"
+                  value={this.state.boxValue}
+                  onChange={this.handleChange}
+                />
               </Center>
             </div>
             <br />
             <Center>
-              <input name="activityValue" style={{ textAlign: 'center' }} placeholder="Enter Activity ID" value={this.state.activityValue}
-                onChange={this.handleChange} />
+              <input
+                name="activityValue"
+                style={{ textAlign: 'center' }}
+                placeholder="Enter Activity ID"
+                value={this.state.activityValue}
+                onChange={this.handleChange}
+              />
             </Center>
             <Center>
-              <CopyToClipboard text={"curl -X GET http://qa-" + this.state.boxValue + ".sofitest.com:9019/w/api/v1/activity/checkoutActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/" + this.state.activityValue} onCopy={this.stateTimeout}>
+              <CopyToClipboard
+                text={
+                  'curl -X GET http://qa-' +
+                  this.state.boxValue +
+                  '.sofitest.com:9019/w/api/v1/activity/checkoutActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/' +
+                  this.state.activityValue
+                }
+                onCopy={this.stateTimeout}>
                 <button
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.logger}
-                >
+                  onClick={this.logger}>
                   curl -x GET
-                  </button>
+                </button>
               </CopyToClipboard>
             </Center>
             <br />
             <Center>
-              <input name="activityValue" style={{ textAlign: 'center' }} placeholder="Enter Activity ID" value={this.state.activityValue}
-                onChange={this.handleChange} />
+              <input
+                name="activityValue"
+                style={{ textAlign: 'center' }}
+                placeholder="Enter Activity ID"
+                value={this.state.activityValue}
+                onChange={this.handleChange}
+              />
             </Center>
             <Center>
-              <CopyToClipboard text={"curl -X POST http://qa-" + this.state.boxValue + ".sofitest.com:9019/w/api/v1/activity/completeActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/3236/" + this.state.activityValue + "/CMPLT"} onCopy={this.stateTimeout}>
+              <CopyToClipboard
+                text={
+                  'curl -X POST http://qa-' +
+                  this.state.boxValue +
+                  '.sofitest.com:9019/w/api/v1/activity/completeActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/3236/' +
+                  this.state.activityValue +
+                  '/CMPLT'
+                }
+                onCopy={this.stateTimeout}>
                 <button
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.logger}
-                >
+                  onClick={this.logger}>
                   curl -x POST
-                  </button>
+                </button>
               </CopyToClipboard>
             </Center>
           </div>
