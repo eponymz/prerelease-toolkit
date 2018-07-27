@@ -24,7 +24,7 @@ import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
-import DayCalc from './DayCalc';
+//import DayCalc from './DayCalc';
 // import Discord from './Discord';
 
 // const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
