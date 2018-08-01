@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import CurlButton from './CurlButton';
 import JakobButtons from './JakobButtons';
 import ActivityCurl from './ActivityCurl';
+import KafkaCreate from './KafkaCreate';
 
 class MiscDockz extends Component {
   renderContent() {
@@ -20,7 +21,10 @@ class MiscDockz extends Component {
           <div>
             <div className="content-title">
               <h3 style={{ textAlign: 'center' }}>Misc. Docker Commands</h3>
-              <p style={{ textAlign: 'center' }}>Miscellanious commands to paste in terminal when working with an environment.</p>
+              <p style={{ textAlign: 'center' }}>
+                Miscellanious commands to paste in terminal when working with an
+                environment.
+              </p>
             </div>
             <hr />
             <ActivityCurl />
@@ -28,6 +32,8 @@ class MiscDockz extends Component {
             <CurlButton />
             <hr />
             <JakobButtons />
+            <hr />
+            <KafkaCreate />
             <hr />
           </div>
         );
