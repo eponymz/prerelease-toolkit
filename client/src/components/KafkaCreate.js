@@ -76,7 +76,7 @@ class KafkaCreate extends Component {
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    cURL to update ElasticSearch
+                    Copy Command
                   </button>
                 </CopyToClipboard>
               </Center>
