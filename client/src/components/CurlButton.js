@@ -12,8 +12,8 @@ class CurlButton extends Component {
 
     this.state = {
       value: '',
-      copied: false,
-    }
+      copied: false
+    };
 
     this.stateTimeout = this.stateTimeout.bind(this);
   }
@@ -21,9 +21,9 @@ class CurlButton extends Component {
   stateTimeout() {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
-        this.setState({ copied: false })
-      }, 3000)
-    })
+        this.setState({ copied: false });
+      }, 3000);
+    });
   }
 
   renderContent() {
@@ -36,7 +36,18 @@ class CurlButton extends Component {
         return (
           <div>
             <Center>
-              {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+              {this.state.copied ? (
+                <Alert
+                  color="success"
+                  id="copySuccess"
+                  style={{
+                    textAlign: 'center',
+                    fontFamily: "'Orbitron', sans-serif",
+                    width: '50%'
+                  }}>
+                  Copied!!
+                </Alert>
+              ) : null}
             </Center>
             <div>
               <div className="content-title">
@@ -45,15 +56,26 @@ class CurlButton extends Component {
                 </h5>
               </div>
               <Center>
-                <input style={{ textAlign: 'center' }} placeholder="Enter Box Number" value={this.state.value}
-                  onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
+                <input
+                  style={{ textAlign: 'center' }}
+                  placeholder="Enter Box Number"
+                  value={this.state.value}
+                  onChange={({ target: { value } }) =>
+                    this.setState({ value, copied: false })
+                  }
+                />
               </Center>
               <Center>
-                <CopyToClipboard text={"curl -X GET http://qa-" + this.state.value + ".sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500"} onCopy={this.stateTimeout}>
+                <CopyToClipboard
+                  text={
+                    'curl -X GET http://kraken-qa-' +
+                    this.state.value +
+                    '.sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500'
+                  }
+                  onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     cURL to update ElasticSearch
                   </button>
                 </CopyToClipboard>

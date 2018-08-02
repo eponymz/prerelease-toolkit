@@ -92,7 +92,7 @@ class ActivityCurl extends Component {
             <Center>
               <CopyToClipboard
                 text={
-                  'curl -X GET http://qa-' +
+                  'curl -X GET http://kraken-qa-' +
                   this.state.boxValue +
                   '.sofitest.com:9019/w/api/v1/activity/checkoutActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/' +
                   this.state.activityValue
@@ -119,7 +119,7 @@ class ActivityCurl extends Component {
             <Center>
               <CopyToClipboard
                 text={
-                  'curl -X POST http://qa-' +
+                  'curl -X POST http://kraken-qa-' +
                   this.state.boxValue +
                   '.sofitest.com:9019/w/api/v1/activity/completeActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/3236/' +
                   this.state.activityValue +
