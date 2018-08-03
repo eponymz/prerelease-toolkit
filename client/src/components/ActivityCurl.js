@@ -13,13 +13,30 @@ class ActivityCurl extends Component {
     this.state = {
       boxValue: '',
       activityValue: '',
-      copied: false
+      copied: false,
+      boxType: 'kraken-qa'
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.logger = this.logger.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
+    this.updateBoxType = this.updateBoxType.bind(this);
+    this.logger = this.logger.bind(this);
+    //this.getActivity = this.getActivity.bind(this);
   }
+
+  // getActivity() {
+  //   fetch(
+  //     'http://' +
+  //       this.state.boxType +
+  //       '-' +
+  //       this.state.boxValue +
+  //       '.sofitest.com:9019/w/api/v1/activity/checkoutActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/' +
+  //       this.state.activityValue,
+  //     {
+  //       method: 'GET'
+  //     }
+  //   );
+  // }
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -33,9 +50,15 @@ class ActivityCurl extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  updateBoxType(boxType) {
+    this.setState({ boxType: boxType });
+  }
+
   logger() {
     console.log(
       'Copied curl for box: ' +
+        this.state.boxType +
+        '-' +
         this.state.boxValue +
         ' - with the activity ID of: ' +
         this.state.activityValue
@@ -69,16 +92,28 @@ class ActivityCurl extends Component {
               <h5 style={{ textAlign: 'center' }}>
                 These will copy the curl commands to complete activities.
               </h5>
-              <Center>
-                <input
-                  name="boxValue"
-                  style={{ textAlign: 'center' }}
-                  placeholder="Kraken Box Number"
-                  value={this.state.boxValue}
-                  onChange={this.handleChange}
-                />
-              </Center>
             </div>
+            <Center className="form-group">
+              <div>
+                <select
+                  name="boxType"
+                  value={this.state.boxType}
+                  onChange={event => {
+                    this.updateBoxType(event.target.value);
+                  }}>
+                  <option>kraken-qa</option>
+                  <option>qa</option>
+                </select>
+              </div>
+              <input
+                name="boxValue"
+                style={{ textAlign: 'center' }}
+                placeholder="Kraken Box Number"
+                value={this.state.boxValue}
+                onChange={this.handleChange}
+              />
+            </Center>
+
             <br />
             <Center>
               <input
@@ -92,7 +127,9 @@ class ActivityCurl extends Component {
             <Center>
               <CopyToClipboard
                 text={
-                  'curl -X GET http://kraken-qa-' +
+                  'curl -X GET http://' +
+                  this.state.boxType +
+                  '-' +
                   this.state.boxValue +
                   '.sofitest.com:9019/w/api/v1/activity/checkoutActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/' +
                   this.state.activityValue
@@ -101,7 +138,9 @@ class ActivityCurl extends Component {
                 <button
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.logger}>
+                  onClick={this.logger}
+                  onMouseDown={this.getActivity}
+                  onMouseUp={this.stateTimeout}>
                   curl -x GET
                 </button>
               </CopyToClipboard>
@@ -119,7 +158,9 @@ class ActivityCurl extends Component {
             <Center>
               <CopyToClipboard
                 text={
-                  'curl -X POST http://kraken-qa-' +
+                  'curl -X POST http://' +
+                  this.state.boxType +
+                  '-' +
                   this.state.boxValue +
                   '.sofitest.com:9019/w/api/v1/activity/completeActivity/bbdab2f76d0fbf8a6c860fda9b681fd159937cbe0acfe76d6a213beeb35b2f24/3236/' +
                   this.state.activityValue +

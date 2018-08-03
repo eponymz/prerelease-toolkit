@@ -16,7 +16,19 @@ class CurlButton extends Component {
     };
 
     this.stateTimeout = this.stateTimeout.bind(this);
+    //this.elasticSearch = this.elasticSearch.bind(this);
   }
+
+  // elasticSearch() {
+  //   fetch(
+  //     'http://kraken-qa-' +
+  //       this.state.value +
+  //       '.sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500',
+  //     {
+  //       method: 'GET'
+  //     }
+  //   );
+  // }
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -75,7 +87,9 @@ class CurlButton extends Component {
                   onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                    onMouseDown={this.elasticSearch}
+                    onMouseUp={this.stateTimeout}>
                     cURL to update ElasticSearch
                   </button>
                 </CopyToClipboard>

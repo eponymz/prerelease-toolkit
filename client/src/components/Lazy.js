@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Alert } from 'reactstrap';
+import MoreLazy from './MoreLazy';
 
 class Lazy extends Component {
   constructor(props) {
@@ -108,6 +109,8 @@ class Lazy extends Component {
                 </button>
               </CopyToClipboard>
             </Center>
+            <br />
+            <MoreLazy />
           </div>
         );
     }
