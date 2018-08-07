@@ -25,7 +25,11 @@ class Lazy extends Component {
   stateTimeout() {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
-        this.setState({ copied: false });
+        this.setState({
+          copied: false,
+          googleId: '',
+          emailVal: ''
+        });
       }, 3000);
     });
   }
