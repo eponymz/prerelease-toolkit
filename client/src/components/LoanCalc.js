@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 import loading from '../loading.gif';
 //import resetForm from './resetForm';
 
-import '../App.css'
+import '../App.css';
+//import '../bootswatch.min.css';
 
 class LoanCalc extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class LoanCalc extends Component {
   calculate = () => {
     document
       .getElementById('loan-form')
-      .addEventListener('submit', function (e) {
+      .addEventListener('submit', function(e) {
         //hide results
         document.getElementById('results').style.display = 'none';
 
@@ -47,7 +48,7 @@ class LoanCalc extends Component {
 
       // Compute monthly payment
       const x = Math.pow(1 + calculatedInterest, calculatedPayment);
-      const monthly = principal * x * calculatedInterest / (x - 1);
+      const monthly = (principal * x * calculatedInterest) / (x - 1);
 
       if (isFinite(monthly)) {
         monthlyPayment.value = monthly.toFixed(2);
@@ -82,8 +83,7 @@ class LoanCalc extends Component {
                   <div className="card card-body text-center mt-5">
                     <h1
                       className="card-header display-5 mb-3"
-                      style={{ fontFamily: 'Orbitron' }}
-                    >
+                      style={{ fontFamily: 'Orbitron' }}>
                       Loan Calculator
                     </h1>
                     <form id="loan-form">
@@ -125,8 +125,7 @@ class LoanCalc extends Component {
                       <div className="form-group">
                         <button
                           onClick={this.calculate}
-                          className="btn btn-dark btn-block"
-                        >
+                          className="btn btn-dark btn-block">
                           Calculate
                         </button>
                       </div>
@@ -142,8 +141,7 @@ class LoanCalc extends Component {
                     <div
                       id="results"
                       className="pt-4"
-                      style={{ display: 'none' }}
-                    >
+                      style={{ display: 'none' }}>
                       <h5>Results</h5>
                       <div className="form-group">
                         <div className="input-group">
@@ -223,9 +221,10 @@ class LoanCalc extends Component {
                     <p />
                     <center>
                       THIS IS A <b>VERY</b> ROUGH ESTIMATION TO CALCULATE THE
-                      MONTHLY PAYMENT AND TOTAL LOAN AMOUNT.<br />THIS TOOL IS
-                      NOT EXACT AND SHOULD <b>ONLY</b> BE USED WITH THE ABOVE
-                      STATED PRETENCES.{' '}
+                      MONTHLY PAYMENT AND TOTAL LOAN AMOUNT.
+                      <br />
+                      THIS TOOL IS NOT EXACT AND SHOULD <b>ONLY</b> BE USED WITH
+                      THE ABOVE STATED PRETENCES.{' '}
                     </center>
                     <p />
                   </div>
