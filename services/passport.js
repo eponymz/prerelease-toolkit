@@ -37,12 +37,13 @@ passport.use(
         return done(null, false, existingUser);
       }
 
-      // const user = await new User({
-      //   googleId: profile.id,
-      //   email: profile.emails
-      // }).save();
-      // done(null, user);
-      // console.log('User created. Moving along...');
+      // This is to create a new user. Taking out of this file for security reasons.
+      //|
+      //|
+      //|
+      //|
+      //|
+      //|
     }
   )
 );
