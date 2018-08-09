@@ -24,12 +24,6 @@ import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
-//import DayCalc from './DayCalc';
-// import Discord from './Discord';
-
-// const Header = () => <h2>HEADER</h2>; const Dashboard = () =>
-// <h2>DASHBOARD</h2>; const SurveyNew = () => <h2>SURVEY CREATE</h2>; const
-// Landing = () => <h2>LANDING</h2>;
 
 class App extends Component {
   componentDidMount() {
@@ -63,16 +57,6 @@ class App extends Component {
             path="/z/utilities/loan-calculator"
             component={LoanCalc}
           />
-          {/* <Route
-            exact
-            path="/z/utilities/day-calculator"
-            component={BackUtil}
-          />
-          <Route
-            exact
-            path="/z/utilities/day-calculator"
-            component={DayCalc}
-          /> */}
           <Route path="/z/pre-release/results" component={CollapseBtn} />
           <Route exact path="/z/pre-release/results" component={Results} />
           <Route path="/z/pre-release/qa-sheet" component={CollapseBtn} />
