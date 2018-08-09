@@ -5,4 +5,8 @@ const userSchema = new Schema({
   email: Object
 });
 
-mongoose.model('users', userSchema);
+var User = (module.exports = mongoose.model('users', userSchema));
+
+module.exports.createUser = function(newUser, callback) {
+  newUser.save(callback);
+};

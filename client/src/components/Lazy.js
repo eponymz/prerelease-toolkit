@@ -76,43 +76,46 @@ class Lazy extends Component {
               </h5>
             </div>
             <br />
-            <Center>
-              <input
-                name="googleId"
-                style={{ textAlign: 'center' }}
-                placeholder="Google ID"
-                value={this.state.googleId}
-                onChange={this.handleChange}
-              />
-            </Center>
-            <br />
-            <Center>
-              <input
-                name="emailVal"
-                style={{ textAlign: 'center' }}
-                placeholder="Email"
-                value={this.state.emailVal}
-                onChange={this.handleChange}
-              />
-            </Center>
-            <Center>
-              <CopyToClipboard
-                text={
-                  "db.users.insert({googleId: '" +
-                  this.state.googleId +
-                  "', email: [{ value: '" +
-                  this.state.emailVal +
-                  "', type: 'account' }], __v: '0'})"
-                }
-                onCopy={this.stateTimeout}>
-                <button
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.logger}>
-                  DB Insert
-                </button>
-              </CopyToClipboard>
-            </Center>
+            <form action="/api/create_user" method="POST">
+              <Center>
+                <input
+                  name="googleId"
+                  style={{ textAlign: 'center' }}
+                  placeholder="Google ID"
+                  value={this.state.googleId}
+                  onChange={this.handleChange}
+                />
+              </Center>
+              <br />
+              <Center>
+                <input
+                  name="emailVal"
+                  style={{ textAlign: 'center' }}
+                  placeholder="Email"
+                  value={this.state.emailVal}
+                  onChange={this.handleChange}
+                />
+              </Center>
+              <Center>
+                <CopyToClipboard
+                  text={
+                    "db.users.insert({googleId: '" +
+                    this.state.googleId +
+                    "', email: [{ value: '" +
+                    this.state.emailVal +
+                    "', type: 'account' }], __v: '0'})"
+                  }
+                  onCopy={this.stateTimeout}>
+                  <button
+                    type="submit"
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                    onClick={this.logger}>
+                    DB Insert
+                  </button>
+                </CopyToClipboard>
+              </Center>
+            </form>
             <br />
             <MoreLazy />
           </div>
