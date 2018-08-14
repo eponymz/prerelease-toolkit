@@ -32,7 +32,7 @@ passport.use(
         console.log('User ' + profile.id + ' exists. Moving along...');
         return done(null, existingUser);
       } else {
-        console.log('Unauthorized login attempt made by: ' + profile.id);
+        console.error('Unauthorized login attempt made by: ' + profile.id);
         console.log(profile.emails);
         return done(null, false, existingUser);
       }

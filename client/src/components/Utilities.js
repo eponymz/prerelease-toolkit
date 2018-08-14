@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import '../App.css';
+import MoreLazy from './MoreLazy';
 
 class Utilities extends Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class Utilities extends Component {
                 </Link>
               </Center> */}
               <hr />
+              <MoreLazy />
               <br />
               <Center>
                 {/* <Link

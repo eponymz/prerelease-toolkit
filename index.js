@@ -1,14 +1,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/user');
 require('./services/passport');
+const logger = require('morgan');
 
-mongoose.connect(keys.mongoURI);
+mongoose
+  .connect(
+    keys.mongoURI,
+    { useNewUrlParser: true, promiseLibrary: require('bluebird') }
+  )
+  .then(() => console.log('DB connected successfully'))
+  .catch(err => console.error(err));
 
 const app = express();
+
+app.use(logger('combined'));
 
 app.use(
   cookieSession({
@@ -34,4 +44,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log('Server running on port: ' + PORT);
+});

@@ -20,10 +20,10 @@ import DockNation from './DockNation';
 import LoanCalc from './LoanCalc';
 import BackUtil from './CollapseUtils';
 import Utilities from './Utilities';
-import IanSmoke from './IanSmoke';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import Lazy from './Lazy';
+import UserCrud from './UserCrud';
 
 class App extends Component {
   componentDidMount() {
@@ -34,10 +34,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          {/* <Header />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/survey" component={Dashboard} />
-          <Route path="/survey/new" component={SurveyNew} /> */}
           <Route exact path="/" component={Login} />
           <Route path="/z/" component={Header} />
           <Route path="/z/dashboard" component={Dashboard} />
@@ -45,7 +41,6 @@ class App extends Component {
           <Route exact path="/z/pre-release" component={PreSheets} />
           <Route exact path="/z/dockin-it" component={DockNation} />
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
-          {/* <Route exact path="/z/discord" component={Discord} /> */}
           <Route path="/z/utilities" component={Utilities} />
           <Route
             exact
@@ -77,8 +72,7 @@ class App extends Component {
           />
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
-          {/* <Route exact path="/z/terminal" component={Bash} /> */}
-          <Route exact path="/z/fetch" component={IanSmoke} />
+          <Route exact path="/z/crud" component={UserCrud} />
           <Route exact path="/z/lazy" component={Lazy} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />

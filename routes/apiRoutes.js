@@ -1,9 +1,21 @@
 const User = require('../models/user');
 const bodyParser = require('body-parser');
+const logger = require('morgan');
+const winLog = require('../logger');
+const util = require('util');
 
 module.exports = app => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
+
+  app.use(
+    logger('combined', {
+      skip: function(req, res) {
+        return res.statusCode >= 400;
+      },
+      stream: process.stdout
+    })
+  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
@@ -17,13 +29,19 @@ module.exports = app => {
     //res.status(200).JSON(req.user);
   });
 
-  app.get('/api/create_user', (req, res) => {
-    res.send({ success: true });
+  app.get('/api/crud', function(req, res) {
+    winLog.log({
+      level: 'info',
+      message: 'API is live.'
+    });
+    res.send("I'M ALIIIIIIVVE");
   });
 
+  // CREATE
   app.post('/api/create_user', (req, res) => {
     const googleId = req.body.googleId;
     const email = req.body.emailVal;
+    const userName = req.body.userName;
 
     var newUser = new User({
       googleId: googleId,
@@ -32,20 +50,70 @@ module.exports = app => {
           value: email,
           type: 'account'
         }
-      ]
+      ],
+      userName: userName
     });
 
     User.createUser(newUser, function(err) {
       if (err) throw err;
-      console.log('User created by:' + req.user + '. Moving along...');
+      winLog.log({
+        level: 'info',
+        message: 'User created by: ' + req.user
+      });
+    });
+    res.redirect('/z/crud');
+  });
+
+  // READ ONE
+  app.post('/api/search_user', (req, res) => {
+    const userName = req.body.userName;
+    const requestor = util.format('%s', req.user.userName);
+    winLog.log({
+      level: 'info',
+      message:
+        'DB query by userName for: ' + userName + ' initiated by: ' + requestor
     });
 
-    // const user = await new User({
-    //   googleId: req.body.googleId,
-    //   email: req.body.emailVal
-    // }).save();
-    // done(null, user);
-    console.log('User created. Moving along...');
-    res.redirect('/z/lazy');
+    const query = User.where({ userName: userName });
+    query
+      .findOne()
+      .then(post => {
+        if (!post) {
+          return res
+            .status(404)
+            .send({ message: 'User not found with userName: ' + userName });
+        }
+        res.send(post);
+      })
+      .catch(err => {
+        if (err.kind === 'ObjectId') {
+          return res
+            .status(404)
+            .send({ message: 'User not found with userName: ' + userName });
+        }
+        return res.status(500).send({
+          message: 'Error retrieving user with userName: ' + userName
+        });
+      });
+  });
+
+  // READ ALL
+  app.get('/api/search', (req, res) => {
+    console.log('DB query for all initiated by: ' + req.user);
+    User.find()
+      .then(post => {
+        if (!post) {
+          return res.status(404).send({ message: 'Request not found' });
+        }
+        res.send(post);
+      })
+      .catch(err => {
+        if (err.kind === 'ObjectId') {
+          return res.status(404).send({ message: 'Request not found' });
+        }
+        return res.status(500).send({
+          message: 'Error retrieving users'
+        });
+      });
   });
 };

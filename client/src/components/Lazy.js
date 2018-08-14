@@ -70,7 +70,7 @@ class Lazy extends Component {
                 </Alert>
               ) : null}
             </Center>
-            <div className="content-title">
+            {/* <div className="content-title">
               <h5 style={{ textAlign: 'center' }}>
                 This is for me to be lazy when adding people to my auth DB.
               </h5>
@@ -115,7 +115,7 @@ class Lazy extends Component {
                   </button>
                 </CopyToClipboard>
               </Center>
-            </form>
+            </form> */}
             <br />
             <MoreLazy />
           </div>
