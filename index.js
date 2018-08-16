@@ -7,18 +7,25 @@ const keys = require('./config/keys');
 require('./models/user');
 require('./services/passport');
 const logger = require('morgan');
+const winlog = require('./logger');
 
 mongoose
   .connect(
     keys.mongoURI,
     { useNewUrlParser: true, promiseLibrary: require('bluebird') }
   )
-  .then(() => console.log('DB connected successfully'))
-  .catch(err => console.error(err));
+  .then(() => winlog.info({ message: 'DB connected successfully' }))
+  .catch(err => winlog.error({ message: err }));
 
 const app = express();
 
-app.use(logger('dev'));
+app.use(
+  logger('dev', {
+    skip: function(req, res) {
+      return res.statusCode < 400;
+    }
+  })
+);
 
 app.use(
   cookieSession({
@@ -45,5 +52,5 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log('Server running on port: ' + PORT);
+  winlog.info({ message: 'Server running on port: ' + PORT });
 });

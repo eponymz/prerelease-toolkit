@@ -1,30 +1,12 @@
 const User = require('../models/user');
 const bodyParser = require('body-parser');
-const logger = require('morgan');
+//const logger = require('morgan');
 const winLog = require('../logger');
 const util = require('util');
 
 module.exports = app => {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
-
-  app.use(
-    logger('dev', {
-      skip: function(req, res) {
-        return res.statusCode >= 400;
-      },
-      stream: process.stdout
-    })
-  );
-
-  app.use(
-    logger('dev', {
-      skip: function(req, res) {
-        return res.statusCode < 400;
-      },
-      stream: process.stderr
-    })
-  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();

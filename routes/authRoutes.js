@@ -13,7 +13,7 @@ module.exports = app => {
     '/auth/google/callback',
     passport.authenticate('google', {
       successRedirect: '/z/dashboard',
-      failureRedirect: '/unauthorized',
+      failureRedirect: '/',
       failureFlash: true
     })
   );
