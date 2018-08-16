@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 //import triage from '../triage.svg';
-import vaderHelm from '../vaderHelm.svg'
+import vaderHelm from '../vaderHelm.svg';
 import logout from '../logout.svg';
 
 class Header extends Component {
@@ -22,11 +22,9 @@ class Header extends Component {
                 className="text-white pr-4 font-weight-bold navbar-brand"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
-                  fontSize: "1.5rem"
-                }}
-              >
-                <img src={vaderHelm} height="50" alt="logo" />
-                T O O L S
+                  fontSize: '1.5rem'
+                }}>
+                <img src={vaderHelm} height="50" alt="logo" />T O O L S
               </Link>
               {/* <Link
                 to={this.props.auth ? '/z/pre-release' : '/'}
@@ -38,31 +36,27 @@ class Header extends Component {
               <Link
                 to={this.props.auth ? '/z/dockin-it' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                style={{ fontFamily: "'Orbitron', sans-serif" }}
-              >
+                style={{ fontFamily: "'Orbitron', sans-serif" }}>
                 Dockerz
               </Link>
               <Link
                 to={this.props.auth ? '/z/misc-dockz' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                style={{ fontFamily: "'Orbitron', sans-serif" }}
-              >
+                style={{ fontFamily: "'Orbitron', sans-serif" }}>
                 Misc Commands
               </Link>
               <Link
                 to={this.props.auth ? '/z/utilities' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                style={{ fontFamily: "'Orbitron', sans-serif" }}
-              >
+                style={{ fontFamily: "'Orbitron', sans-serif" }}>
                 Utilities
               </Link>
-
-              {/* <Link
-                  to={this.props.auth ? '/z/post-release-report' : '/'}
-                  className="no-underline navbar-button"
-                >
-                  Post Release Report
-                </Link> */}
+              <Link
+                to={this.props.auth ? '/z/testrail' : '/'}
+                className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                Testrail
+              </Link>
               {/* <Link
                   to={this.props.auth ? '/z/hipchat' : '/'}
                   className="no-underline navbar-button"
@@ -70,7 +64,6 @@ class Header extends Component {
                   HipChizzat
                 </Link> */}
               <a
-
                 className="btn btn-sm font-weight-bold btn-outline-dark p-sm-1 mr-sm-1"
                 style={{
                   fontFamily: "'Orbitron', sans-serif",
@@ -82,12 +75,15 @@ class Header extends Component {
                   top: '25%',
                   transitionDuration: '0.2s'
                 }}
-                href="/api/logout"
-              >
+                href="/api/logout">
                 <div style={{ height: '15px', display: 'inline-block' }}>
-                  <img src={logout} style={{ height: '15px', display: 'inline-block' }} className="pr-1" alt="logo" />
+                  <img
+                    src={logout}
+                    style={{ height: '15px', display: 'inline-block' }}
+                    className="pr-1"
+                    alt="logo"
+                  />
                 </div>
-
                 L O G O U T
               </a>
             </div>

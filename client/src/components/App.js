@@ -22,7 +22,7 @@ import BackUtil from './CollapseUtils';
 import Utilities from './Utilities';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
-import Lazy from './Lazy';
+import TestRail from './TestRail';
 import UserCrud from './UserCrud';
 
 class App extends Component {
@@ -73,7 +73,7 @@ class App extends Component {
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           <Route exact path="/z/crud" component={UserCrud} />
-          <Route exact path="/z/lazy" component={Lazy} />
+          <Route exact path="/z/lazy" component={TestRail} />
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>

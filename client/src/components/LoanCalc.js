@@ -192,26 +192,21 @@ class LoanCalc extends Component {
                               'none';
                             document.querySelector(
                               DOMstrings.loanAmount
-                            ).value =
-                              '';
+                            ).value = '';
                             document.querySelector(
                               DOMstrings.startInterest
-                            ).value =
-                              '';
+                            ).value = '';
                             document.querySelector(DOMstrings.termYears).value =
                               '';
                             document.querySelector(
                               DOMstrings.monthlyPayment
-                            ).value =
-                              '';
+                            ).value = '';
                             document.querySelector(
                               DOMstrings.totalPayment
-                            ).value =
-                              '';
+                            ).value = '';
                             document.querySelector(
                               DOMstrings.totalInterest
-                            ).value =
-                              '';
+                            ).value = '';
                           }}
                         />
                       </div>
@@ -224,7 +219,7 @@ class LoanCalc extends Component {
                       MONTHLY PAYMENT AND TOTAL LOAN AMOUNT.
                       <br />
                       THIS TOOL IS NOT EXACT AND SHOULD <b>ONLY</b> BE USED WITH
-                      THE ABOVE STATED PRETENCES.{' '}
+                      THE ABOVE STATED PRETENCES.
                     </center>
                     <p />
                   </div>

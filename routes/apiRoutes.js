@@ -9,11 +9,20 @@ module.exports = app => {
   app.use(bodyParser.urlencoded({ extended: false }));
 
   app.use(
-    logger('combined', {
+    logger('dev', {
       skip: function(req, res) {
         return res.statusCode >= 400;
       },
       stream: process.stdout
+    })
+  );
+
+  app.use(
+    logger('dev', {
+      skip: function(req, res) {
+        return res.statusCode < 400;
+      },
+      stream: process.stderr
     })
   );
 
@@ -42,6 +51,7 @@ module.exports = app => {
     const googleId = req.body.googleId;
     const email = req.body.emailVal;
     const userName = req.body.userName;
+    const requestor = util.format('%s', req.user.userName);
 
     var newUser = new User({
       googleId: googleId,
@@ -58,7 +68,7 @@ module.exports = app => {
       if (err) throw err;
       winLog.log({
         level: 'info',
-        message: 'User created by: ' + req.user
+        message: 'User created by: ' + requestor
       });
     });
     res.redirect('/z/crud');
