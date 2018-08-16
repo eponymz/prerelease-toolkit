@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/eponymz/prerelease-toolkit/compare/v5.0.5...v5.1.0) (2018-08-16)
+
+
+
 <a name="5.0.5"></a>
 ## [5.0.5](https://github.com/eponymz/prerelease-toolkit/compare/v5.0.4...v5.0.5) (2018-08-16)
 
