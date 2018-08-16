@@ -1,24 +1,18 @@
 const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, label, prettyPrint, colorize, json } = format;
+const { combine, timestamp, label, colorize, printf } = format;
 
-const customColors = {
-  colors: {
-    error: 'red',
-    warn: 'yellow',
-    info: 'green'
-  }
-};
+const myFormat = printf(info => {
+  return `${info.timestamp} ${info.label} ${info.level}: ${info.message}`;
+});
 
 const logger = createLogger({
   format: combine(
     colorize(),
     label({ label: '[app-server]' }),
     timestamp(),
-    prettyPrint()
+    myFormat
   ),
-  transports: [
-    new transports.Console({ colorize: process.stdout.isTTY, json: false })
-  ]
+  transports: [new transports.Console()]
 });
 
 module.exports = logger;
