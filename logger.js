@@ -1,5 +1,5 @@
 const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, label, colorize, printf } = format;
+const { combine, timestamp, label, colorize, printf, splat } = format;
 
 const myFormat = printf(info => {
   return `${info.timestamp} ${info.label} ${info.level}: ${info.message}`;
@@ -10,6 +10,7 @@ const logger = createLogger({
     colorize(),
     label({ label: '[app-server]' }),
     timestamp(),
+    splat(),
     myFormat
   ),
   transports: [new transports.Console()]
