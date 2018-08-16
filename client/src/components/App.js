@@ -73,7 +73,7 @@ class App extends Component {
           <Route exact path="/z/pre-release/dockinit" component={CollapseBtn} />
           <Route exact path="/z/pre-release/dockinit" component={DockNation} />
           <Route exact path="/z/crud" component={UserCrud} />
-          <Route exact path="/z/lazy" component={TestRail} />
+          {/* <Route exact path="/z/lazy" component={TestRail} /> */}
           <Route exact path="/unauthorized" component={Unauthorized} />
           <Route path="/" component={Footer} />
         </div>
