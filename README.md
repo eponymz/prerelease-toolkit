@@ -33,11 +33,13 @@ A home for all tools and nifty items used by me and members of my previous team.
 
 ### TODOS
 
-- [] Write up test cases.
+- [ ] Write up test cases.
   > currently the pass is coming from the addTwoNumbers() test. These are next on the list. Getting this migrated from CircleCI 1.0 to 2.0 and successfully wired up was the highest priority. Tests coming soon.
-- [] Implement 'authorized users only' DB?
+- [ ] Implement 'authorized users only' DB?
   > currently access is determined by pre-existing auth in the database. If you would like to request access, feel free to post an issue [here](https://github.com/eponymz/prerelease-toolkit/issues/new) or [email](mailto:sabeyfox@gmail.com) me directly.
-- [] Write loggers and store output to mongoDB
+- [ ] Write loggers and store output to mongoDB
+  > [x] Logger implementation
+  > [ ] mongoDB transport
 
 ## SESSION STORAGE IS ACTIVE BY COOKIE AND STORED SECURELY IN MONGODB.
 
