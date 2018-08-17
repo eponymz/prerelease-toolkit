@@ -3,4 +3,3 @@ dev.js
 .DS_Store
 package-lock.json
 createUser.js
-testRail.js
