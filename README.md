@@ -38,9 +38,8 @@ A home for all tools and nifty items used by me and members of my previous team.
 - [ ] Implement 'authorized users only' DB?
   > currently access is determined by pre-existing auth in the database. If you would like to request access, feel free to post an issue [here](https://github.com/eponymz/prerelease-toolkit/issues/new) or [email](mailto:sabeyfox@gmail.com) me directly.
 - [ ] Write loggers and store output to mongoDB
-
-* [x] Logger implementation
-* [ ] mongoDB transport
+  > [x] Logger implementation
+  > [ ] mongoDB transport
 
 ## SESSION STORAGE IS ACTIVE BY COOKIE AND STORED SECURELY IN MONGODB.
 
