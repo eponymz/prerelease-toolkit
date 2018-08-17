@@ -60,11 +60,9 @@ module.exports = app => {
   app.post('/api/search_user', (req, res) => {
     const userName = req.body.userName;
     const requestor = util.format('%s', req.user.userName);
-    winLog.log({
-      level: 'info',
-      message:
-        'DB query by userName for: ' + userName + ' initiated by: ' + requestor
-    });
+    winLog.info(
+      'DB query by userName for: ' + userName + ' initiated by: ' + requestor
+    );
 
     const query = User.where({ userName: userName });
     query
@@ -91,7 +89,8 @@ module.exports = app => {
 
   // READ ALL
   app.get('/api/search', (req, res) => {
-    console.log('DB query for all initiated by: ' + req.user);
+    const requestor = util.format('%s', req.user.userName);
+    winLog.info('DB query for all initiated by: ' + requestor);
     User.find()
       .then(post => {
         if (!post) {

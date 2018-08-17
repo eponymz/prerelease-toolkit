@@ -51,12 +51,12 @@ class Header extends Component {
                 style={{ fontFamily: "'Orbitron', sans-serif" }}>
                 Utilities
               </Link>
-              <Link
+              {/* <Link
                 to={this.props.auth ? '/z/testrail' : '/'}
                 className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
                 style={{ fontFamily: "'Orbitron', sans-serif" }}>
                 Testrail
-              </Link>
+              </Link> */}
               {/* <Link
                   to={this.props.auth ? '/z/hipchat' : '/'}
                   className="no-underline navbar-button"

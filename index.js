@@ -20,7 +20,7 @@ mongoose
 const app = express();
 
 app.use(
-  logger('dev', {
+  logger('combined', {
     skip: function(req, res) {
       return res.statusCode < 400;
     }
