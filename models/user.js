@@ -13,6 +13,11 @@ const userSchema = new Schema(
       type: String,
       index: true,
       unique: true
+    },
+    role: {
+      type: String,
+      index: true,
+      unique: true
     }
   },
   { timestamps: true }

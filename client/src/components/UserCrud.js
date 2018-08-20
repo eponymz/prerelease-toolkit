@@ -5,6 +5,16 @@ import Center from 'react-center';
 import { Alert } from 'react-alert';
 
 class UserCrud extends Component {
+  // componentDidMount() {
+  //   this.setState({
+  //     googleId: '',
+  //     emailVal: '',
+  //     userName: '',
+  //     role: 'user',
+  //     copied: false
+  //   });
+  // }
+
   constructor(props) {
     super(props);
 
@@ -12,12 +22,15 @@ class UserCrud extends Component {
       googleId: '',
       emailVal: '',
       userName: '',
+      role: 'user',
       copied: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
     this.apiSearch = this.apiSearch.bind(this);
+    this.updateRole = this.updateRole.bind(this);
+    this.callApi = this.callApi.bind(this);
   }
 
   stateTimeout() {
@@ -27,7 +40,8 @@ class UserCrud extends Component {
           copied: false,
           googleId: '',
           emailVal: '',
-          userName: ''
+          userName: '',
+          role: 'user'
         });
       }, 3000);
     });
@@ -35,6 +49,10 @@ class UserCrud extends Component {
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  updateRole(role) {
+    this.setState({ role: role });
   }
 
   apiSearch() {
@@ -54,7 +72,7 @@ class UserCrud extends Component {
   callApi = async () => {
     const res = await fetch('/api/search_user');
     const body = await res.json();
-
+    console.log(body);
     if (res.status !== 200) throw Error(body.message);
     return body;
   };
@@ -114,6 +132,18 @@ class UserCrud extends Component {
                   value={this.state.userName}
                   onChange={this.handleChange}
                 />
+              </Center>
+              <Center>
+                <select
+                  name="role"
+                  style={{ textAlign: 'center' }}
+                  value={this.state.role}
+                  onChange={event => {
+                    this.updateRole(event.target.value);
+                  }}>
+                  <option>user</option>
+                  <option>admin</option>
+                </select>
               </Center>
               <Center>
                 <button

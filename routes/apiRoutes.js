@@ -20,12 +20,27 @@ module.exports = app => {
     //res.status(200).JSON(req.user);
   });
 
-  app.get('/api/crud', function(req, res) {
-    winLog.log({
-      level: 'info',
-      message: 'API is live.'
-    });
-    res.send("I'M ALIIIIIIVVE");
+  //CRUD button
+  app.get('/api/crud', (req, res) => {
+    // const userName = util.format('%s', req.user.userName);
+    // const isAdmin = User.where({ userName: userName, role: 'admin' });
+    // isAdmin.findOne().then(post => {
+    //   if (isAdmin) {
+    //     res.send({ isAdmin: true });
+    //     // winLog.info(post);
+    //     console.log(post);
+    //   }
+    //   res.send({ isAdmin: false });
+    // });
+    // console.log(isAdmin);
+    // res.send(isAdmin);
+    const role = req.user.role;
+    if (role == 'admin') {
+      res.send({ isAdmin: true });
+    } else {
+      res.send({ isAdmin: false });
+      winLog.error('unauthorized attempt to get to crud');
+    }
   });
 
   // CREATE
@@ -33,6 +48,7 @@ module.exports = app => {
     const googleId = req.body.googleId;
     const email = req.body.emailVal;
     const userName = req.body.userName;
+    const role = req.body.role;
     const requestor = util.format('%s', req.user.userName);
 
     var newUser = new User({
@@ -43,14 +59,15 @@ module.exports = app => {
           type: 'account'
         }
       ],
-      userName: userName
+      userName: userName,
+      role: role
     });
 
     User.createUser(newUser, function(err) {
       if (err) throw err;
       winLog.log({
         level: 'info',
-        message: 'User created by: ' + requestor
+        message: 'User: ' + userName + ' created by: ' + requestor
       });
     });
     res.redirect('/z/crud');
