@@ -5,15 +5,11 @@ import Center from 'react-center';
 import { Alert } from 'react-alert';
 
 class UserCrud extends Component {
-  // componentDidMount() {
-  //   this.setState({
-  //     googleId: '',
-  //     emailVal: '',
-  //     userName: '',
-  //     role: 'user',
-  //     copied: false
-  //   });
-  // }
+  componentDidMount() {
+    this.isAdmin()
+      .then(res => this.setState({ isAdmin: res.isAdmin }))
+      .catch(err => console.log(err));
+  }
 
   constructor(props) {
     super(props);
@@ -30,8 +26,14 @@ class UserCrud extends Component {
     this.stateTimeout = this.stateTimeout.bind(this);
     this.apiSearch = this.apiSearch.bind(this);
     this.updateRole = this.updateRole.bind(this);
-    this.callApi = this.callApi.bind(this);
   }
+
+  isAdmin = async () => {
+    const res = await fetch('/api/crud');
+    const body = await res.json();
+    if (res.status !== 200) throw Error(body.message);
+    return body;
+  };
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -68,14 +70,6 @@ class UserCrud extends Component {
     });
     this.callApi();
   }
-
-  callApi = async () => {
-    const res = await fetch('/api/search_user');
-    const body = await res.json();
-    console.log(body);
-    if (res.status !== 200) throw Error(body.message);
-    return body;
-  };
 
   renderContent() {
     switch (this.props.auth) {
@@ -147,6 +141,7 @@ class UserCrud extends Component {
               </Center>
               <Center>
                 <button
+                  disabled={!this.state.isAdmin}
                   type="submit"
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -172,6 +167,7 @@ class UserCrud extends Component {
               </Center>
               <Center>
                 <button
+                  disabled={!this.state.isAdmin}
                   type="submit"
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}

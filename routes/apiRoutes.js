@@ -22,24 +22,11 @@ module.exports = app => {
 
   //CRUD button
   app.get('/api/crud', (req, res) => {
-    // const userName = util.format('%s', req.user.userName);
-    // const isAdmin = User.where({ userName: userName, role: 'admin' });
-    // isAdmin.findOne().then(post => {
-    //   if (isAdmin) {
-    //     res.send({ isAdmin: true });
-    //     // winLog.info(post);
-    //     console.log(post);
-    //   }
-    //   res.send({ isAdmin: false });
-    // });
-    // console.log(isAdmin);
-    // res.send(isAdmin);
     const role = req.user.role;
     if (role == 'admin') {
       res.send({ isAdmin: true });
     } else {
       res.send({ isAdmin: false });
-      winLog.error('unauthorized attempt to get to crud');
     }
   });
 
@@ -50,6 +37,7 @@ module.exports = app => {
     const userName = req.body.userName;
     const role = req.body.role;
     const requestor = util.format('%s', req.user.userName);
+    const reqRole = util.format('%s', req.user.role);
 
     var newUser = new User({
       googleId: googleId,
@@ -62,66 +50,96 @@ module.exports = app => {
       userName: userName,
       role: role
     });
-
-    User.createUser(newUser, function(err) {
-      if (err) throw err;
-      winLog.log({
-        level: 'info',
-        message: 'User: ' + userName + ' created by: ' + requestor
+    if (reqRole == 'admin') {
+      User.createUser(newUser, function(err) {
+        if (err) throw err;
+        winLog.log({
+          level: 'info',
+          message: 'User: ' + userName + ' created by: ' + requestor
+        });
       });
-    });
-    res.redirect('/z/crud');
+      res.redirect('/z/crud');
+    } else {
+      res
+        .send(
+          'You managed to defeat client-side vaildation but my server caught you. ;)'
+        )
+        .status(401);
+      winLog.error('unauthorized attempt to create user by: ' + requestor);
+    }
   });
 
   // READ ONE
   app.post('/api/search_user', (req, res) => {
     const userName = req.body.userName;
     const requestor = util.format('%s', req.user.userName);
-    winLog.info(
-      'DB query by userName for: ' + userName + ' initiated by: ' + requestor
-    );
+    const reqRole = util.format('%s', req.user.role);
 
-    const query = User.where({ userName: userName });
-    query
-      .findOne()
-      .then(post => {
-        if (!post) {
-          return res
-            .status(404)
-            .send({ message: 'User not found with userName: ' + userName });
-        }
-        res.send(post);
-      })
-      .catch(err => {
-        if (err.kind === 'ObjectId') {
-          return res
-            .status(404)
-            .send({ message: 'User not found with userName: ' + userName });
-        }
-        return res.status(500).send({
-          message: 'Error retrieving user with userName: ' + userName
+    if (reqRole == 'admin') {
+      winLog.info(
+        'DB query by userName for: ' + userName + ' initiated by: ' + requestor
+      );
+
+      const query = User.where({ userName: userName });
+      query
+        .findOne()
+        .then(post => {
+          if (!post) {
+            return res
+              .status(404)
+              .send({ message: 'User not found with userName: ' + userName });
+          }
+          res.send(post);
+        })
+        .catch(err => {
+          if (err.kind === 'ObjectId') {
+            return res
+              .status(404)
+              .send({ message: 'User not found with userName: ' + userName });
+          }
+          return res.status(500).send({
+            message: 'Error retrieving user with userName: ' + userName
+          });
         });
-      });
+    } else {
+      res
+        .send(
+          'You managed to defeat client-side vaildation but my server caught you. ;)'
+        )
+        .status(401);
+      winLog.error('unauthorized attempt to search user by: ' + requestor);
+    }
   });
 
   // READ ALL
   app.get('/api/search', (req, res) => {
     const requestor = util.format('%s', req.user.userName);
-    winLog.info('DB query for all initiated by: ' + requestor);
-    User.find()
-      .then(post => {
-        if (!post) {
-          return res.status(404).send({ message: 'Request not found' });
-        }
-        res.send(post);
-      })
-      .catch(err => {
-        if (err.kind === 'ObjectId') {
-          return res.status(404).send({ message: 'Request not found' });
-        }
-        return res.status(500).send({
-          message: 'Error retrieving users'
+    const reqRole = util.format('%s', req.user.role);
+
+    if (reqRole == 'admin') {
+      winLog.info('DB query for all initiated by: ' + requestor);
+      User.find()
+        .then(post => {
+          if (!post) {
+            return res.status(404).send({ message: 'Request not found' });
+          }
+          res.send(post);
+        })
+        .catch(err => {
+          if (err.kind === 'ObjectId') {
+            return res.status(404).send({ message: 'Request not found' });
+          }
+          return res.status(500).send({
+            message: 'Error retrieving users'
+          });
         });
-      });
+    } else {
+      res
+        .send(
+          'You managed to defeat client-side vaildation but my server caught you. ;)'
+        )
+        .status(401);
+      winLog.error('unauthorized attempt to search user by: ' + requestor);
+    }
   });
 };
