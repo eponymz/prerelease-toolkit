@@ -9,6 +9,7 @@ class UserCrud extends Component {
     this.isAdmin()
       .then(res => this.setState({ isAdmin: res.isAdmin }))
       .catch(err => console.log(err));
+    console.log(this.props.role);
   }
 
   constructor(props) {
@@ -211,8 +212,8 @@ class UserCrud extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, role }) {
+  return { auth, role };
 }
 
 export default connect(mapStateToProps)(UserCrud);

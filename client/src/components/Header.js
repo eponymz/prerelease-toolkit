@@ -100,13 +100,15 @@ class Header extends Component {
                   style={{ fontFamily: "'Orbitron', sans-serif" }}>
                   Utilities
                 </Link>
-                <Link
-                  to={this.state.isAdmin ? '/z/crud' : '#'}
-                  className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.notAdmin}>
-                  C R U D
-                </Link>
+                {this.props.role === 'admin' ? (
+                  <Link
+                    to={this.state.isAdmin ? '/z/crud' : '#'}
+                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                    onClick={this.notAdmin}>
+                    C R U D
+                  </Link>
+                ) : null}
                 {/* <Link
                   to={this.props.auth ? '/z/hipchat' : '/'}
                   className="no-underline navbar-button"
@@ -162,8 +164,8 @@ class Header extends Component {
   }
 }
 
-function mapStateToProps({ auth, authRole }) {
-  return { auth, authRole };
+function mapStateToProps({ auth, role }) {
+  return { auth, role };
 }
 
 export default connect(mapStateToProps)(Header);

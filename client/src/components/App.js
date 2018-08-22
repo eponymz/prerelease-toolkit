@@ -27,6 +27,7 @@ import UserCrud from './UserCrud';
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    this.props.fetchRole();
   }
 
   render() {
