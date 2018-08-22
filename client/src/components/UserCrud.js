@@ -43,7 +43,8 @@ class UserCrud extends Component {
           googleId: '',
           emailVal: '',
           userName: '',
-          role: 'user'
+          role: 'user',
+          email: ''
         });
       }, 3000);
     });
@@ -68,7 +69,6 @@ class UserCrud extends Component {
         });
       }, 3000);
     });
-    this.callApi();
   }
 
   renderContent() {
@@ -161,6 +161,31 @@ class UserCrud extends Component {
                   name="userName"
                   style={{ textAlign: 'center' }}
                   placeholder="Username"
+                  value={this.state.search}
+                  onChange={this.handleChange}
+                />
+              </Center>
+              <Center>
+                <button
+                  disabled={!this.state.isAdmin}
+                  type="submit"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  onSubmit={this.apiSearch}>
+                  Search
+                </button>
+              </Center>
+            </form>
+            <hr />
+            <div className="content-title">
+              <h5 style={{ textAlign: 'center' }}>Update User</h5>
+            </div>
+            <form action="/api/update_user" method="PUT">
+              <Center>
+                <input
+                  name="email"
+                  style={{ textAlign: 'center' }}
+                  placeholder="Email"
                   value={this.state.search}
                   onChange={this.handleChange}
                 />

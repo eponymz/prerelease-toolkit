@@ -22,9 +22,11 @@ module.exports = app => {
 
   //CRUD button
   app.get('/api/crud', (req, res) => {
-    const role = req.user.role;
-    if (role == 'admin') {
-      res.send({ isAdmin: true });
+    if (req.user.role !== undefined) {
+      const role = req.user.role;
+      if (role == 'admin') {
+        res.send({ isAdmin: true });
+      }
     } else {
       res.send({ isAdmin: false });
     }
@@ -109,6 +111,11 @@ module.exports = app => {
         .status(401);
       winLog.error('unauthorized attempt to search user by: ' + requestor);
     }
+  });
+
+  // UPDATE
+  app.get('/api/update_user', (req, res) => {
+    res.send('first commit on the new branch biiiiiiitch');
   });
 
   // READ ALL
