@@ -59,7 +59,7 @@ class CatVersion extends Component {
               <Center>
                 <input
                   style={{ textAlign: 'center' }}
-                  placeholder="Enter Topic Name"
+                  placeholder="Enter App Name"
                   value={this.state.value}
                   onChange={({ target: { value } }) =>
                     this.setState({ value, copied: false })
