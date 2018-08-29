@@ -8,6 +8,7 @@ import CurlButton from './CurlButton';
 import JakobButtons from './JakobButtons';
 import ActivityCurl from './ActivityCurl';
 import KafkaCreate from './KafkaCreate';
+import CatVersion from './CatVersion';
 
 class MiscDockz extends Component {
   renderContent() {
@@ -34,6 +35,8 @@ class MiscDockz extends Component {
             <JakobButtons />
             <hr />
             <KafkaCreate />
+            <hr />
+            <CatVersion />
             <hr />
           </div>
         );
