@@ -69,7 +69,8 @@ class Utilities extends Component {
                 </Link>
               </Center> */}
               <hr />
-              <MoreLazy />
+              {this.props.role === 'admin' ? <MoreLazy /> : null}
+
               <br />
               <Center>
                 {/* <Link
@@ -103,8 +104,8 @@ class Utilities extends Component {
   }
 }
 //change for shits
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, role }) {
+  return { auth, role };
 }
 
 export default connect(mapStateToProps)(Utilities);

@@ -9,33 +9,33 @@ import vaderHelm from '../vaderHelm.svg';
 import logout from '../logout.svg';
 
 class Header extends Component {
-  componentDidMount() {
-    this.isAdmin()
-      .then(res => this.setState({ isAdmin: res.isAdmin }))
-      .catch(err => console.log(err));
-  }
+  // componentDidMount() {
+  //   this.isAdmin()
+  //     .then(res => this.setState({ isAdmin: res.isAdmin }))
+  //     .catch(err => console.log(err));
+  // }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      isAdmin: false,
+      //isAdmin: false,
       copied: false
     };
 
-    this.isAdmin = this.isAdmin.bind(this);
+    //this.isAdmin = this.isAdmin.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
     this.handleChange = this.handleChange.bind(this);
     //this.callApi = this.callApi.bind(this);
-    this.notAdmin = this.notAdmin.bind(this);
+    //this.notAdmin = this.notAdmin.bind(this);
   }
 
-  isAdmin = async () => {
-    const res = await fetch('/api/crud');
-    const body = await res.json();
-    if (res.status !== 200) throw Error(body.message);
-    return body;
-  };
+  // isAdmin = async () => {
+  //   const res = await fetch('/api/crud');
+  //   const body = await res.json();
+  //   if (res.status !== 200) throw Error(body.message);
+  //   return body;
+  // };
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -45,11 +45,11 @@ class Header extends Component {
     });
   }
 
-  notAdmin() {
-    if (!this.state.isAdmin) {
-      this.stateTimeout();
-    }
-  }
+  // notAdmin() {
+  //   if (!this.state.isAdmin) {
+  //     this.stateTimeout();
+  //   }
+  // }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });

@@ -48,8 +48,8 @@ class MiscDockz extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
-  return { auth };
+function mapStateToProps({ auth, role }) {
+  return { auth, role };
 }
 
 export default connect(mapStateToProps)(MiscDockz);
