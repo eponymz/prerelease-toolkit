@@ -34,7 +34,7 @@ A home for all tools and nifty items used by me and members of my previous team.
 ### TODOS
 
 - [ ] Write up test cases.
-  > currently the pass is coming from the addTwoNumbers() test. These are next on the list. Getting this migrated from CircleCI 1.0 to 2.0 and successfully wired up was the highest priority. Tests coming soon.
+  > currently the pass is coming from the addTwoNumbers() test as well as tests againt express to ensure I dont break standard code. These are next on the list. Getting this migrated from CircleCI 1.0 to 2.0 and successfully wired up was the highest priority. Tests coming soon.
 - [ ] Implement 'authorized users only' DB?
       [ ] implement CRUD interface as an 'authorize' application.
       [x] create user interface
