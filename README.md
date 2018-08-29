@@ -36,14 +36,14 @@ A home for all tools and nifty items used by me and members of my previous team.
 - [ ] Write up test cases.
   > currently the pass is coming from the addTwoNumbers() test. These are next on the list. Getting this migrated from CircleCI 1.0 to 2.0 and successfully wired up was the highest priority. Tests coming soon.
 - [ ] Implement 'authorized users only' DB?
-  > [ ] implement CRUD interface as an 'authorize' application.
-  > [x] create user interface
-  > [x] read/search user interface
-  > [ ] update user interface
-  > [ ] delete user interface
-  > [x] enable client and server side validation based on 'role' property defined in the user object.
-  > [x] define roles based on needs of access. Currently only 'admin' and 'user' are needed.
-  > currently access is determined by pre-existing auth in the database. If you would like to request access, feel free to post an issue [here](https://github.com/eponymz/prerelease-toolkit/issues/new) or [email](mailto:sabeyfox@gmail.com) me directly.
+      [ ] implement CRUD interface as an 'authorize' application.
+      [x] create user interface
+      [x] read/search user interface
+      [ ] update user interface
+      [ ] delete user interface
+      [x] enable client and server side validation based on 'role' property defined in the user object.
+      [x] define roles based on needs of access. Currently only 'admin' and 'user' are needed.
+  > currently access is determined by pre-existing auth in the database. If you would like to request access, feel free to post an issue [here](https://github.com/eponymz/prerelease-toolkit/issues/new) or [email](mailto:isabey.dev@gmail.com) me directly.
 - [ ] Write loggers and store output to mongoDB
   > [x] Logger implementation
   > [ ] mongoDB transport
