@@ -52,7 +52,7 @@ class CatVersion extends Component {
             <div>
               <div className="content-title">
                 <h5 style={{ textAlign: 'center' }}>
-                  Run this to enter bash shell for app specified
+                  Run this to print the version file for app specified
                   <br />
                 </h5>
               </div>
