@@ -102,10 +102,9 @@ class Header extends Component {
                 </Link>
                 {this.props.role === 'admin' ? (
                   <Link
-                    to={this.state.isAdmin ? '/z/crud' : '#'}
+                    to={this.props.auth ? '/z/crud' : '/'}
                     className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                    onClick={this.notAdmin}>
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     C R U D
                   </Link>
                 ) : null}
