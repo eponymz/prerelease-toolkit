@@ -68,29 +68,14 @@ class CatVersion extends Component {
               </Center>
               <Center>
                 <CopyToClipboard
-                  text={'docker exec -it ' + this.state.value + ' /bin/bash'}
+                  text={
+                    'docker exec -it ' + this.state.value + ' cat version.txt'
+                  }
                   onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     Copy Command
-                  </button>
-                </CopyToClipboard>
-              </Center>
-              <div className="content-title">
-                <h5 style={{ textAlign: 'center' }}>
-                  Follow up with this to print out the version file
-                  <br />
-                </h5>
-              </div>
-              <Center>
-                <CopyToClipboard
-                  text="cat version.txt"
-                  onCopy={this.stateTimeout}>
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    cat version.txt
                   </button>
                 </CopyToClipboard>
               </Center>
