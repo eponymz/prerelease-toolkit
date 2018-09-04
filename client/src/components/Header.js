@@ -95,7 +95,17 @@ class Header extends Component {
                   Misc Commands
                 </Link>
                 <Link
-                  to={this.props.auth ? '/z/utilities' : '/'}
+                  to={
+                    !this.props.auth
+                      ? '/'
+                      : this.props.role === 'engUser'
+                        ? '/z/eng-utilities'
+                        : this.props.role === 'opsUser'
+                          ? '/z/ops-utilities'
+                          : this.props.role === 'admin'
+                            ? '/z/utilities'
+                            : '/'
+                  }
                   className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}>
                   Utilities

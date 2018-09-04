@@ -16,8 +16,7 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      index: true,
-      unique: true
+      index: true
     }
   },
   { timestamps: true }

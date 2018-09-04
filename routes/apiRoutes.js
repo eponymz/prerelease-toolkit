@@ -20,17 +20,21 @@ module.exports = app => {
     //res.status(200).JSON(req.user);
   });
 
-  //CRUD button
-  app.get('/api/crud', (req, res) => {
-    if (req.user.role !== undefined) {
-      const role = req.user.role;
-      if (role == 'admin') {
-        res.send({ isAdmin: true });
-      }
-    } else {
-      res.send({ isAdmin: false });
-    }
+  app.get('/z/utilities', (req, res) => {
+    req.user.role === 'admin' ? res.status(200) : res.status(401);
   });
+
+  // //CRUD button
+  // app.get('/api/crud', (req, res) => {
+  //   if (req.user.role !== undefined) {
+  //     const role = req.user.role;
+  //     if (role == 'admin') {
+  //       res.send({ isAdmin: true });
+  //     }
+  //   } else {
+  //     res.send({ isAdmin: false });
+  //   }
+  // });
 
   // CREATE
   app.post('/api/create_user', (req, res) => {
@@ -74,42 +78,50 @@ module.exports = app => {
   // READ ONE
   app.post('/api/search_user', (req, res) => {
     const userName = req.body.userName;
-    const requestor = util.format('%s', req.user.userName);
-    const reqRole = util.format('%s', req.user.role);
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
 
-    if (reqRole == 'admin') {
-      winLog.info(
-        'DB query by userName for: ' + userName + ' initiated by: ' + requestor
-      );
+      if (reqRole == 'admin') {
+        winLog.info(
+          'DB query by userName for: ' +
+            userName +
+            ' initiated by: ' +
+            requestor
+        );
 
-      const query = User.where({ userName: userName });
-      query
-        .findOne()
-        .then(post => {
-          if (!post) {
-            return res
-              .status(404)
-              .send({ message: 'User not found with userName: ' + userName });
-          }
-          res.send(post);
-        })
-        .catch(err => {
-          if (err.kind === 'ObjectId') {
-            return res
-              .status(404)
-              .send({ message: 'User not found with userName: ' + userName });
-          }
-          return res.status(500).send({
-            message: 'Error retrieving user with userName: ' + userName
+        const query = User.where({ userName: userName });
+        query
+          .findOne()
+          .then(post => {
+            if (!post) {
+              return res
+                .status(404)
+                .send({ message: 'User not found with userName: ' + userName });
+            }
+            res.send(post);
+          })
+          .catch(err => {
+            if (err.kind === 'ObjectId') {
+              return res
+                .status(404)
+                .send({ message: 'User not found with userName: ' + userName });
+            }
+            return res.status(500).send({
+              message: 'Error retrieving user with userName: ' + userName
+            });
           });
-        });
+      } else {
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to search user by: ' + requestor);
+      }
     } else {
-      res
-        .send(
-          'You managed to defeat client-side vaildation but my server caught you. ;)'
-        )
-        .status(401);
-      winLog.error('unauthorized attempt to search user by: ' + requestor);
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
     }
   });
 
@@ -120,33 +132,53 @@ module.exports = app => {
 
   // READ ALL
   app.get('/api/search', (req, res) => {
-    const requestor = util.format('%s', req.user.userName);
-    const reqRole = util.format('%s', req.user.role);
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
 
-    if (reqRole == 'admin') {
-      winLog.info('DB query for all initiated by: ' + requestor);
-      User.find()
-        .then(post => {
-          if (!post) {
-            return res.status(404).send({ message: 'Request not found' });
-          }
-          res.send(post);
-        })
-        .catch(err => {
-          if (err.kind === 'ObjectId') {
-            return res.status(404).send({ message: 'Request not found' });
-          }
-          return res.status(500).send({
-            message: 'Error retrieving users'
+      if (reqRole == 'admin') {
+        winLog.info('DB query for all initiated by: ' + requestor);
+        User.find()
+          .then(post => {
+            if (!post) {
+              return res.status(404).send({ message: 'Request not found' });
+            }
+            let output = [];
+            for (let i = 0; i < post.length; i++) {
+              userName = post[i].userName;
+              role = post[i].role;
+              output.push({ userName: userName, userRole: role });
+            }
+            // let output = {
+            //   userName: userName,
+            //   userRole: userRole
+            // };
+            res.send({
+              allUsers: true,
+              userList: JSON.parse(JSON.stringify(output))
+            });
+            winLog.warn('heres your data dick: ' + util.format(output));
+          })
+          .catch(err => {
+            if (err.kind === 'ObjectId') {
+              return res.status(404).send({ message: 'Request not found' });
+            }
+            winLog.error(err.stack);
+            return res.status(500).send({
+              message: 'Error retrieving users'
+            });
           });
-        });
+      } else {
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to search user by: ' + requestor);
+      }
     } else {
-      res
-        .send(
-          'You managed to defeat client-side vaildation but my server caught you. ;)'
-        )
-        .status(401);
-      winLog.error('unauthorized attempt to search user by: ' + requestor);
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
     }
   });
 };

@@ -5,12 +5,12 @@ import Center from 'react-center';
 import { Alert } from 'react-alert';
 
 class UserCrud extends Component {
-  componentDidMount() {
-    this.isAdmin()
-      .then(res => this.setState({ isAdmin: res.isAdmin }))
-      .catch(err => console.log(err));
-    console.log(this.props.role);
-  }
+  // componentDidMount() {
+  //   this.isAdmin()
+  //     .then(res => this.setState({ isAdmin: res.isAdmin }))
+  //     .catch(err => console.log(err));
+  //   console.log(this.props.role);
+  // }
 
   constructor(props) {
     super(props);
@@ -20,19 +20,23 @@ class UserCrud extends Component {
       emailVal: '',
       userName: '',
       role: 'user',
-      copied: false
+      copied: false,
+      allUsers: null
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
     this.apiSearch = this.apiSearch.bind(this);
     this.updateRole = this.updateRole.bind(this);
+    this.searchAll = this.searchAll.bind(this);
+    //this.setDiv = this.setDiv.bind(this);
   }
 
-  isAdmin = async () => {
-    const res = await fetch('/api/crud');
+  searchAll = async () => {
+    const res = await fetch('/api/search');
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
+    console.log(JSON.parse(JSON.stringify(body)));
     return body;
   };
 
@@ -54,6 +58,10 @@ class UserCrud extends Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
+  // setDiv() {
+  //   this.setState({ allUsers: res.allUsers });
+  // }
 
   updateRole(role) {
     this.setState({ role: role });
@@ -142,7 +150,7 @@ class UserCrud extends Component {
               </Center>
               <Center>
                 <button
-                  disabled={!this.state.isAdmin}
+                  //disabled={!this.state.isAdmin}
                   type="submit"
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -168,7 +176,7 @@ class UserCrud extends Component {
               </Center>
               <Center>
                 <button
-                  disabled={!this.state.isAdmin}
+                  //disabled={!this.state.isAdmin}
                   type="submit"
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
@@ -177,6 +185,28 @@ class UserCrud extends Component {
                 </button>
               </Center>
             </form>
+            <br />
+            <div className="content-title">
+              <h5 style={{ textAlign: 'center' }}>Lookup All</h5>
+            </div>
+            <br />
+            <form action="/api/search" method="GET">
+              <Center>
+                <button
+                  type="submit"
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}
+                  //onSubmit={this.searchAll().then(this.setDiv)}>
+                >
+                  Search
+                </button>
+              </Center>
+            </form>
+            {this.state.allUsers ? (
+              <div className="card-body, card" style={{ textAlign: 'center' }}>
+                YO DAWG
+              </div>
+            ) : null}
             <hr />
             <div className="content-title">
               <h5 style={{ textAlign: 'center' }}>Update User</h5>
@@ -193,7 +223,7 @@ class UserCrud extends Component {
               </Center>
               <Center>
                 <button
-                  disabled={!this.state.isAdmin}
+                  //disabled={!this.state.isAdmin}
                   type="submit"
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}

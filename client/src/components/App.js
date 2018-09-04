@@ -23,6 +23,7 @@ import Utilities from './Utilities';
 import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import UserCrud from './UserCrud';
+import OpsUtilities from './OpsUtilities';
 
 class App extends Component {
   componentDidMount() {
@@ -42,6 +43,8 @@ class App extends Component {
           <Route exact path="/z/dockin-it" component={DockNation} />
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
           <Route path="/z/utilities" component={Utilities} />
+          <Route path="/z/ops-utilities" component={OpsUtilities} />
+          {/* <Route path="/z/eng-utilities" component={EngUtilities} /> */}
           <Route
             exact
             path="/z/utilities/loan-calculator"
