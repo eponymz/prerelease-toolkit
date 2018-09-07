@@ -26,14 +26,18 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      //const googleId = profile.id;
+      const googleId = profile.id;
       const email = profile.emails;
       const existingUser = await User.findOne({
         //googleId: googleId,
         email: email
       });
       if (existingUser) {
-        winLog.info('User %s exists. Moving along...', profile.displayName);
+        winLog.warn(
+          "User %s's googleID is %s. Add that shit.",
+          profile.displayName,
+          googleId
+        );
         return done(null, existingUser);
       } else {
         winLog.error(

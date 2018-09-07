@@ -81,8 +81,8 @@ module.exports = app => {
   });
 
   // READ ONE
-  app.post('/api/search_user', (req, res) => {
-    const userName = req.body.userName;
+  app.get('/api/search_user', (req, res) => {
+    const userName = req.query.userName;
     if (req.user) {
       const requestor = util.format('%s', req.user.userName);
       const reqRole = util.format('%s', req.user.role);
@@ -104,9 +104,25 @@ module.exports = app => {
                 .status(404)
                 .send({ message: 'User not found with userName: ' + userName });
             }
-            res.send(post);
+            let output = [
+              {
+                siteId: post._id
+              },
+              { googleId: post.googleId },
+              { userName: post.userName },
+              // { email: post.email },
+              { role: post.role },
+              { createdDt: post.createdAt },
+              { updatedDt: post.updatedAt }
+            ];
+
+            res.send({
+              singleUser: true,
+              userData: output
+            });
           })
           .catch(err => {
+            winLog.error(err.stack);
             if (err.kind === 'ObjectId') {
               return res
                 .status(404)
