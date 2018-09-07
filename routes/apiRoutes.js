@@ -11,7 +11,7 @@ module.exports = app => {
   app.get('/api/logout', (req, res) => {
     req.logout();
     res.redirect('/');
-    console.log('Logged out successfully...');
+    winLog.info('Logged out successfully...');
   });
 
   app.get('/api/current_user', (req, res) => {
@@ -42,36 +42,41 @@ module.exports = app => {
     const email = req.body.emailVal;
     const userName = req.body.userName;
     const role = req.body.role;
-    const requestor = util.format('%s', req.user.userName);
-    const reqRole = util.format('%s', req.user.role);
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
 
-    var newUser = new User({
-      googleId: googleId,
-      email: [
-        {
-          value: email,
-          type: 'account'
-        }
-      ],
-      userName: userName,
-      role: role
-    });
-    if (reqRole == 'admin') {
-      User.createUser(newUser, function(err) {
-        if (err) throw err;
-        winLog.log({
-          level: 'info',
-          message: 'User: ' + userName + ' created by: ' + requestor
-        });
+      var newUser = new User({
+        googleId: googleId,
+        email: [
+          {
+            value: email,
+            type: 'account'
+          }
+        ],
+        userName: userName,
+        role: role
       });
-      res.redirect('/z/crud');
+      if (reqRole == 'admin') {
+        User.createUser(newUser, function(err) {
+          if (err) throw err;
+          winLog.log({
+            level: 'info',
+            message: 'User: ' + userName + ' created by: ' + requestor
+          });
+        });
+        res.redirect('/z/crud');
+      } else {
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to create user by: ' + requestor);
+      }
     } else {
-      res
-        .send(
-          'You managed to defeat client-side vaildation but my server caught you. ;)'
-        )
-        .status(401);
-      winLog.error('unauthorized attempt to create user by: ' + requestor);
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
     }
   });
 
@@ -126,8 +131,61 @@ module.exports = app => {
   });
 
   // UPDATE
-  app.get('/api/update_user', (req, res) => {
-    res.send('first commit on the new branch biiiiiiitch');
+  app.put('/api/update_user', (req, res) => {
+    if (req.user) {
+      const userName = req.body.userName;
+      const role = req.body.role;
+      if (req.user) {
+        const requestor = util.format('%s', req.user.userName);
+        const reqRole = util.format('%s', req.user.role);
+
+        if (reqRole == 'admin') {
+          winLog.info(
+            'DB query by userName for: ' +
+              userName +
+              ' initiated by: ' +
+              requestor
+          );
+
+          User.findOneAndUpdate(
+            { userName: userName },
+            { role: role },
+            { returnOriginal: false }
+          )
+            .then(post => {
+              if (!post) {
+                return res.status(404).send({
+                  message: 'User not found with userName: ' + userName
+                });
+              }
+              res.send(post);
+            })
+            .catch(err => {
+              if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                  message: 'User not found with userName: ' + userName
+                });
+              }
+              return res.status(500).send({
+                message: 'Error retrieving user with userName: ' + userName
+              });
+            });
+        } else {
+          res
+            .send(
+              'You managed to defeat client-side vaildation but my server caught you. ;)'
+            )
+            .status(401);
+          winLog.error('unauthorized attempt to search user by: ' + requestor);
+        }
+      } else {
+        res.redirect('/');
+        winLog.warn('Invalid user session. Redirecting to login.');
+      }
+    } else {
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
+    }
   });
 
   // READ ALL
@@ -149,15 +207,11 @@ module.exports = app => {
               role = post[i].role;
               output.push({ userName: userName, userRole: role });
             }
-            // let output = {
-            //   userName: userName,
-            //   userRole: userRole
-            // };
             res.send({
               allUsers: true,
-              userList: JSON.parse(JSON.stringify(output))
+              userList: output
             });
-            winLog.warn('heres your data dick: ' + util.format(output));
+            winLog.info('query for all completed');
           })
           .catch(err => {
             if (err.kind === 'ObjectId') {

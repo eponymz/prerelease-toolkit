@@ -3,13 +3,14 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Center from 'react-center';
 import { Alert } from 'react-alert';
+import { Table } from 'reactstrap';
 
 class UserCrud extends Component {
   // componentDidMount() {
-  //   this.isAdmin()
-  //     .then(res => this.setState({ isAdmin: res.isAdmin }))
-  //     .catch(err => console.log(err));
-  //   console.log(this.props.role);
+  // this.isAdmin()
+  //   .then(res => this.setState({ isAdmin: res.isAdmin }))
+  //   .catch(err => console.log(err));
+  // console.log(this.props.role);
   // }
 
   constructor(props) {
@@ -21,7 +22,8 @@ class UserCrud extends Component {
       userName: '',
       role: 'user',
       copied: false,
-      allUsers: null
+      allUsers: false,
+      userList: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,15 +32,26 @@ class UserCrud extends Component {
     this.updateRole = this.updateRole.bind(this);
     this.searchAll = this.searchAll.bind(this);
     //this.setDiv = this.setDiv.bind(this);
+    this.allUsers = this.allUsers.bind(this);
   }
 
   searchAll = async () => {
     const res = await fetch('/api/search');
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
-    console.log(JSON.parse(JSON.stringify(body)));
     return body;
   };
+
+  allUsers() {
+    this.searchAll()
+      .then(res =>
+        this.setState({
+          allUsers: res.allUsers,
+          userList: res.userList
+        })
+      )
+      .catch(err => console.log(err));
+  }
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -58,10 +71,6 @@ class UserCrud extends Component {
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-
-  // setDiv() {
-  //   this.setState({ allUsers: res.allUsers });
-  // }
 
   updateRole(role) {
     this.setState({ role: role });
@@ -190,36 +199,72 @@ class UserCrud extends Component {
               <h5 style={{ textAlign: 'center' }}>Lookup All</h5>
             </div>
             <br />
-            <form action="/api/search" method="GET">
-              <Center>
-                <button
-                  type="submit"
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  //onSubmit={this.searchAll().then(this.setDiv)}>
-                >
-                  Search
-                </button>
-              </Center>
-            </form>
+            <Center>
+              <button
+                type="submit"
+                className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+                onClick={this.allUsers}>
+                Search
+              </button>
+            </Center>
+            <br />
             {this.state.allUsers ? (
-              <div className="card-body, card" style={{ textAlign: 'center' }}>
-                YO DAWG
-              </div>
+              <Center>
+                <div
+                  className="card"
+                  style={{ textAlign: 'center', width: '80%' }}>
+                  <div className="card-header" style={{ textAlign: 'center' }}>
+                    YO DAWG
+                  </div>
+                  <div className="card-body" style={{ textAlign: 'center' }}>
+                    <Table dark borderless="false" id="userResults">
+                      <thead>
+                        <tr>
+                          <th>UserName</th>
+                          <th>Role</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {this.state.userList.map(function(item, key) {
+                          return (
+                            <tr key={key}>
+                              <td>{item.userName}</td>
+                              <td>{item.userRole}</td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </Table>
+                  </div>
+                </div>
+              </Center>
             ) : null}
             <hr />
             <div className="content-title">
               <h5 style={{ textAlign: 'center' }}>Update User</h5>
             </div>
-            <form action="/api/update_user" method="PUT">
+            <form method="PUT">
               <Center>
                 <input
-                  name="email"
+                  name="userName"
                   style={{ textAlign: 'center' }}
-                  placeholder="Email"
+                  placeholder="Username"
                   value={this.state.search}
                   onChange={this.handleChange}
                 />
+              </Center>
+              <Center>
+                <select
+                  name="role"
+                  style={{ textAlign: 'center' }}
+                  value={this.state.role}
+                  onChange={event => {
+                    this.updateRole(event.target.value);
+                  }}>
+                  <option>user</option>
+                  <option>admin</option>
+                </select>
               </Center>
               <Center>
                 <button

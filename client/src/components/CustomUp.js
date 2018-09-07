@@ -13,18 +13,17 @@ class CustomUp extends Component {
     this.state = {
       value: '',
       copied: false
-    }
+    };
 
     this.stateTimeout = this.stateTimeout.bind(this);
-
   }
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
       setTimeout(() => {
-        this.setState({ copied: false })
-      }, 3000)
-    })
+        this.setState({ copied: false });
+      }, 3000);
+    });
   }
 
   renderContent() {
@@ -38,31 +37,50 @@ class CustomUp extends Component {
           <div>
             <div>
               <Center>
-                {this.state.copied ? <Alert color="success" id="copySuccess" style={{ textAlign: 'center', fontFamily: "'Orbitron', sans-serif", width: '50%' }}>Copied!!</Alert> : null}
+                {this.state.copied ? (
+                  <Alert
+                    color="success"
+                    id="copySuccess"
+                    style={{
+                      textAlign: 'center',
+                      fontFamily: "'Orbitron', sans-serif",
+                      width: '50%'
+                    }}>
+                    Copied!!
+                  </Alert>
+                ) : null}
               </Center>
               <div className="content-title">
                 <h5 style={{ textAlign: 'center' }}>
-                  You can choose specific apps to 'spin up'. If more than one, make sure to separate with a space.<br />
+                  You can choose specific apps to 'spin up'. If more than one,
+                  make sure to separate with a space.
+                  <br />
                 </h5>
               </div>
               <Center>
-                <input style={{ textAlign: 'center' }} placeholder="Enter Apps" value={this.state.value}
-                  onChange={({ target: { value } }) => this.setState({ value })} />
+                <input
+                  style={{ textAlign: 'center' }}
+                  placeholder="Enter Apps"
+                  value={this.state.value}
+                  onChange={({ target: { value } }) => this.setState({ value })}
+                />
               </Center>
               <Center>
-                <CopyToClipboard text={"dc up -d --no-recreate " + this.state.value} onCopy={this.stateTimeout}>
+                <CopyToClipboard
+                  text={'dc up -d --no-recreate ' + this.state.value}
+                  onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     Up With --no-recreate Flag
                   </button>
                 </CopyToClipboard>
-                <CopyToClipboard text={"dc up -d " + this.state.value} onCopy={this.stateTimeout}>
+                <CopyToClipboard
+                  text={'dc up -d ' + this.state.value}
+                  onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark pt-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  >
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     Up Normally
                   </button>
                 </CopyToClipboard>

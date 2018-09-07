@@ -3,6 +3,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const winLog = require('../logger');
+const util = require('util');
 
 const User = mongoose.model('users');
 
@@ -25,19 +26,19 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      const googleId = profile.id;
+      //const googleId = profile.id;
       const email = profile.emails;
       const existingUser = await User.findOne({
-        googleId: googleId,
+        //googleId: googleId,
         email: email
       });
       if (existingUser) {
-        console.log('User ' + profile.id + ' exists. Moving along...');
+        winLog.info('User %s exists. Moving along...', profile.displayName);
         return done(null, existingUser);
       } else {
         winLog.error(
           'Unauthorized login attempt made by: %s, %O',
-          googleId,
+          //googleId,
           email
         );
         return done(null, false, existingUser);
