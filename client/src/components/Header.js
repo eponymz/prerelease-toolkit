@@ -4,38 +4,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { Alert } from 'reactstrap';
-//import triage from '../triage.svg';
 import vaderHelm from '../vaderHelm.svg';
 import logout from '../logout.svg';
 
 class Header extends Component {
-  // componentDidMount() {
-  //   this.isAdmin()
-  //     .then(res => this.setState({ isAdmin: res.isAdmin }))
-  //     .catch(err => console.log(err));
-  // }
-
   constructor(props) {
     super(props);
-
     this.state = {
-      //isAdmin: false,
       copied: false
     };
 
-    //this.isAdmin = this.isAdmin.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    //this.callApi = this.callApi.bind(this);
-    //this.notAdmin = this.notAdmin.bind(this);
   }
-
-  // isAdmin = async () => {
-  //   const res = await fetch('/api/crud');
-  //   const body = await res.json();
-  //   if (res.status !== 200) throw Error(body.message);
-  //   return body;
-  // };
 
   stateTimeout() {
     this.setState({ copied: true }, () => {
@@ -44,12 +25,6 @@ class Header extends Component {
       }, 3000);
     });
   }
-
-  // notAdmin() {
-  //   if (!this.state.isAdmin) {
-  //     this.stateTimeout();
-  //   }
-  // }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
@@ -98,9 +73,11 @@ class Header extends Component {
                   to={
                     !this.props.auth
                       ? '/'
-                      : this.props.role === 'engUser'
+                      : this.props.role === 'engUser' ||
+                        this.props.role === 'engLead'
                         ? '/z/eng-utilities'
-                        : this.props.role === 'opsUser'
+                        : this.props.role === 'opsUser' ||
+                          this.props.role === 'opsLead'
                           ? '/z/ops-utilities'
                           : this.props.role === 'admin'
                             ? '/z/utilities'
@@ -116,6 +93,24 @@ class Header extends Component {
                     className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}>
                     C R U D
+                  </Link>
+                ) : null}
+                {this.props.role === 'admin' ||
+                this.props.role === 'engLead' ? (
+                  <Link
+                    to={this.props.auth ? '/z/eng-crud' : '/'}
+                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    E N G - C R U D
+                  </Link>
+                ) : null}
+                {this.props.role === 'admin' ||
+                this.props.role === 'opsLead' ? (
+                  <Link
+                    to={this.props.auth ? '/z/ops-crud' : '/'}
+                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    O P S - C R U D
                   </Link>
                 ) : null}
                 {/* <Link

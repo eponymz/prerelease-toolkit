@@ -32,15 +32,15 @@ class ComponentName extends Component {
                   LOAN CALCULATOR
                 </Link>
               </Center>
-              {/* <Center>
+              <br />
+              <Center>
                 <Link
-                  to={this.props.auth ? '/z/utilities/day-calculator' : '/'}
+                  to={this.props.auth ? '/z/ops-crud' : '/'}
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                >
-                  DAY CALCULATOR
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                  OPS A to Z
                 </Link>
-              </Center> */}
+              </Center>
               <hr />
               {/* {this.props.role === 'admin' ? <MoreLazy /> : null} */}
 

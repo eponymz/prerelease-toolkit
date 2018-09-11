@@ -64,7 +64,8 @@ class CurlButton extends Component {
             <div>
               <div className="content-title">
                 <h5 style={{ textAlign: 'center' }}>
-                  If you are having issues with activities showing up, run this.<br />
+                  If you are having issues with activities showing up, run this.
+                  <br />
                 </h5>
               </div>
               <Center>
@@ -80,9 +81,9 @@ class CurlButton extends Component {
               <Center>
                 <CopyToClipboard
                   text={
-                    'curl -X GET http://kraken-qa-' +
+                    'curl -X POST http://kraken-qa-' +
                     this.state.value +
-                    '.sofitest.com:9024/cs/v2/customers/batchReplicateToElasticSearch/500'
+                    '.sofitest.com:8925/cs/v2/customers-batch/batchReplicateToElasticSearch?chunkSize=200'
                   }
                   onCopy={this.stateTimeout}>
                   <button

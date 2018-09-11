@@ -1,0 +1,27 @@
+{
+    "#": {
+        "10-Day Payoff": "The amount due in a 10-day payoff is the current loan amount from the current servicer — this includes the principal and interest accrued up until today, plus any interest that accrues over the next 10 days. Each loan being refinanced will have its own 10-day payoff amount.",
+        "1099-C": "A federal tax form, 'Cancellation of Debt', received from the lender who has forgiven the debt. According to the IRS, nearly any owed debt that is canceled, forgiven, or discharged becomes taxable income if the amount of debt owed is $600 or more.",
+        "2106 Form Employee Business Expense": "Unreimbursed employee business expenses reported on Form 2106 of a borrower's individual tax return for ordinary and necessary expenses for job (e.g. mileage, depreciation, and lodging).",
+        "3 Points of Contact": "The number of attempts needed to reach a consumer before a complaint can be considered closed. Points of contact need to be completed by both phone and email. Points of contact should be made every other day."
+    },
+    "A": {
+        "Accrued Interest": "The amount of loan interest that has already occurred or accumulated, but has not yet been paid to the lender by the borrower.",
+        "ACDV": "Automated Credit Dispute Verification, initiated by a credit reporting agencies on behalf of a consumer as part of the e - Oscar system.",
+        "Activity": "An assigned duty in IEX with a corresponding time. Activities include: Open (includes inbound, outbound, email), Chat, Meeting, Break / Lunch, Training, 1 on 1, Project,Overtime",
+        "Account Number": "The SoFi Money account number that would be associated with ACH transaction (e.g.account and routing number).",
+        "Address Document": "A supporting document to help verify an applicant's address. Includes: Government Issued ID, a Financial Statement, or Utility Bill",
+        "Address Mismatch": "FACTA requires that Credit Reporting Agencies(CRA) notify a credit report requestor if there is a substantial discrepancy between the address on inquiry input and the address on file.",
+        "Adherence": "Adhering to the activities that are assigned during the corresponding time. This is a unit measure that is monitored by managers to assure agents are effectively working on and completing their assigned activities or tasks.",
+        "AdHoc Document": "A document that an operator can choose to send at any time in the app process.",
+        "Adjusted Gross Income": "Generally, the total earned income before taxes.",
+        "Adjustment": "When someone is linked to one welcome bonus but receives a link to a larger welcome bonus, an adjustment can be made for the difference.",
+        "Admin Documents": "Located on the Documents tab of the application and used for any internal or external documents received that need to be uploaded to the application.The applicant cannot see these documents.Documents uploaded to Admin Documents cannot be deleted.",
+        "Adverse Action(Decline)": "A condition is discovered during the review process that prevents the reviewer from approving the loan application or the applicant does not meet specified credit criteria at time of application.",
+        "Adverse Action Letter": "An action that denies an applicant credit in response to a review of both the account information provided by the applicant along with data found within the individual’ s credit report.",
+        "Advisor": "The SoFi proprietary user interface for reviewing and managing a client 's Wealth account. Advisor can be accessed at: 'https://internal.sofi.com/advisor/#/members/action'",
+        "Advisor Portal": "Platform utilized to review, track, and maintain a Wealth Applicant’ s and / or Member’ s application and portfolio.",
+        "Advisor Supervisor": "An advisor supervisor manages the advisors.",
+        "Affiliate / Association": "A referral classification containing the list of all affiliates or associations that SoFi has established a relationship with through the business development group."
+    }
+}

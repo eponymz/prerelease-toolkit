@@ -24,6 +24,7 @@ import MiscDockz from './MiscDockz';
 import Unauthorized from './Unauthorized';
 import UserCrud from './UserCrud';
 import OpsUtilities from './OpsUtilities';
+import OpsCrud from './OpsCrud';
 
 class App extends Component {
   componentDidMount() {
@@ -44,7 +45,7 @@ class App extends Component {
           <Route exact path="/z/misc-dockz" component={MiscDockz} />
           <Route path="/z/utilities" component={Utilities} />
           <Route path="/z/ops-utilities" component={OpsUtilities} />
-          {/* <Route path="/z/eng-utilities" component={EngUtilities} /> */}
+          <Route path="/z/ops-crud" component={OpsCrud} />
           <Route
             exact
             path="/z/utilities/loan-calculator"

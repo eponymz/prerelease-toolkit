@@ -24,18 +24,6 @@ module.exports = app => {
     req.user.role === 'admin' ? res.status(200) : res.status(401);
   });
 
-  // //CRUD button
-  // app.get('/api/crud', (req, res) => {
-  //   if (req.user.role !== undefined) {
-  //     const role = req.user.role;
-  //     if (role == 'admin') {
-  //       res.send({ isAdmin: true });
-  //     }
-  //   } else {
-  //     res.send({ isAdmin: false });
-  //   }
-  // });
-
   // CREATE
   app.post('/api/create_user', (req, res) => {
     const googleId = req.body.googleId;
