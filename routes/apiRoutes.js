@@ -134,6 +134,54 @@ module.exports = app => {
     }
   });
 
+  // READ ALL
+  app.get('/api/search', (req, res) => {
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
+
+      if (reqRole == 'admin') {
+        winLog.info('DB query for all initiated by: ' + requestor);
+        User.find()
+          .then(post => {
+            if (!post) {
+              return res.status(404).send({ message: 'Request not found' });
+            }
+            let output = [];
+            for (let i = 0; i < post.length; i++) {
+              userName = post[i].userName;
+              role = post[i].role;
+              output.push({ userName: userName, userRole: role });
+            }
+            res.send({
+              allUsers: true,
+              userList: output
+            });
+            winLog.info('query for all completed');
+          })
+          .catch(err => {
+            if (err.kind === 'ObjectId') {
+              return res.status(404).send({ message: 'Request not found' });
+            }
+            winLog.error(err.stack);
+            return res.status(500).send({
+              message: 'Error retrieving users'
+            });
+          });
+      } else {
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to search user by: ' + requestor);
+      }
+    } else {
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
+    }
+  });
+
   // UPDATE
   app.put('/api/update_user', (req, res) => {
     const whom = req.query.whom;
@@ -184,38 +232,34 @@ module.exports = app => {
     }
   });
 
-  // READ ALL
-  app.get('/api/search', (req, res) => {
+  //DELETE
+  app.delete('/api/delete_user', (req, res) => {
+    const whom = req.query.whom;
+
     if (req.user) {
       const requestor = util.format('%s', req.user.userName);
       const reqRole = util.format('%s', req.user.role);
 
       if (reqRole == 'admin') {
-        winLog.info('DB query for all initiated by: ' + requestor);
-        User.find()
+        winLog.info('DB update to: ' + whom + ' initiated by: ' + requestor);
+
+        User.findOneAndDelete({ userName: whom }, { returnOriginal: false })
           .then(post => {
             if (!post) {
-              return res.status(404).send({ message: 'Request not found' });
+              return res.status(404).send({
+                message: 'User not found with userName: ' + userName
+              });
             }
-            let output = [];
-            for (let i = 0; i < post.length; i++) {
-              userName = post[i].userName;
-              role = post[i].role;
-              output.push({ userName: userName, userRole: role });
-            }
-            res.send({
-              allUsers: true,
-              userList: output
-            });
-            winLog.info('query for all completed');
+            res.send(post);
           })
           .catch(err => {
             if (err.kind === 'ObjectId') {
-              return res.status(404).send({ message: 'Request not found' });
+              return res.status(404).send({
+                message: 'User not found with userName: ' + userName
+              });
             }
-            winLog.error(err.stack);
             return res.status(500).send({
-              message: 'Error retrieving users'
+              message: 'Error retrieving user with userName: ' + userName
             });
           });
       } else {

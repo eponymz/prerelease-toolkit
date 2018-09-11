@@ -33,6 +33,7 @@ class UserCrud extends Component {
     this.allUsers = this.allUsers.bind(this);
     this.searchOne = this.searchOne.bind(this);
     this.oneUser = this.oneUser.bind(this);
+    this.deleteOne = this.deleteOne.bind(this);
   }
 
   allUsers() {
@@ -71,6 +72,16 @@ class UserCrud extends Component {
     return body;
   };
 
+  deleteOne = async () => {
+    const res = await fetch('/api/delete_user?whom=' + this.state.userName, {
+      method: 'DELETE'
+    });
+    const body = await res.json();
+    if (res.status !== 200) throw Error(body.message);
+    console.log(body);
+    return body;
+  };
+
   updateOne = async () => {
     const updateURL =
       '/api/update_user?whom=' +
@@ -82,8 +93,8 @@ class UserCrud extends Component {
     const res = await fetch(updateURL, { method: 'PUT' });
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
-    console.log(body);
-    return body;
+    //console.log(body);
+    //return body;
   };
 
   toggleResults() {
@@ -403,6 +414,30 @@ class UserCrud extends Component {
                 style={{ fontFamily: "'Orbitron', sans-serif" }}
                 onClick={this.updateOne}>
                 Update
+              </button>
+            </Center>
+            <hr />
+            <div className="content-title">
+              <h5 style={{ textAlign: 'center' }}>Delete User</h5>
+            </div>
+            <br />
+            <Center>
+              <input
+                name="userName"
+                style={{ textAlign: 'center' }}
+                placeholder="Username"
+                value={this.state.userName}
+                onChange={this.handleChange}
+              />
+            </Center>
+            <Center>
+              <button
+                //disabled={!this.state.isAdmin}
+                type="submit"
+                className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+                onClick={this.deleteOne}>
+                Delete
               </button>
             </Center>
           </div>
