@@ -136,55 +136,47 @@ module.exports = app => {
 
   // UPDATE
   app.put('/api/update_user', (req, res) => {
+    const whom = req.query.whom;
+    const opts = req.query.opts;
+    const updatedVal = req.query.updatedVal;
+    const Obj = {};
+    Obj[opts] = updatedVal;
+
     if (req.user) {
-      const userName = req.body.userName;
-      const role = req.body.role;
-      if (req.user) {
-        const requestor = util.format('%s', req.user.userName);
-        const reqRole = util.format('%s', req.user.role);
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
 
-        if (reqRole == 'admin') {
-          winLog.info(
-            'DB query by userName for: ' +
-              userName +
-              ' initiated by: ' +
-              requestor
-          );
+      if (reqRole == 'admin') {
+        winLog.info('DB update to: ' + whom + ' initiated by: ' + requestor);
 
-          User.findOneAndUpdate(
-            { userName: userName },
-            { role: role },
-            { returnOriginal: false }
-          )
-            .then(post => {
-              if (!post) {
-                return res.status(404).send({
-                  message: 'User not found with userName: ' + userName
-                });
-              }
-              res.send(post);
-            })
-            .catch(err => {
-              if (err.kind === 'ObjectId') {
-                return res.status(404).send({
-                  message: 'User not found with userName: ' + userName
-                });
-              }
-              return res.status(500).send({
-                message: 'Error retrieving user with userName: ' + userName
+        User.findOneAndUpdate({ userName: whom }, Obj, {
+          returnOriginal: false
+        })
+          .then(post => {
+            if (!post) {
+              return res.status(404).send({
+                message: 'User not found with userName: ' + userName
               });
+            }
+            res.send(post);
+          })
+          .catch(err => {
+            if (err.kind === 'ObjectId') {
+              return res.status(404).send({
+                message: 'User not found with userName: ' + userName
+              });
+            }
+            return res.status(500).send({
+              message: 'Error retrieving user with userName: ' + userName
             });
-        } else {
-          res
-            .send(
-              'You managed to defeat client-side vaildation but my server caught you. ;)'
-            )
-            .status(401);
-          winLog.error('unauthorized attempt to search user by: ' + requestor);
-        }
+          });
       } else {
-        res.redirect('/');
-        winLog.warn('Invalid user session. Redirecting to login.');
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to search user by: ' + requestor);
       }
     } else {
       res.redirect('/');

@@ -17,13 +17,17 @@ class UserCrud extends Component {
       allUsers: false,
       userList: '',
       singleUser: false,
-      userData: ''
+      userData: '',
+      opts: 'role',
+      updatedVal: '',
+      whom: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.stateTimeout = this.stateTimeout.bind(this);
     this.apiSearch = this.apiSearch.bind(this);
     this.updateRole = this.updateRole.bind(this);
+    this.updateOpts = this.updateOpts.bind(this);
     this.searchAll = this.searchAll.bind(this);
     this.toggleResults = this.toggleResults.bind(this);
     this.allUsers = this.allUsers.bind(this);
@@ -67,6 +71,21 @@ class UserCrud extends Component {
     return body;
   };
 
+  updateOne = async () => {
+    const updateURL =
+      '/api/update_user?whom=' +
+      this.state.whom +
+      '&opts=' +
+      this.state.opts +
+      '&updatedVal=' +
+      this.state.updatedVal;
+    const res = await fetch(updateURL, { method: 'PUT' });
+    const body = await res.json();
+    if (res.status !== 200) throw Error(body.message);
+    console.log(body);
+    return body;
+  };
+
   toggleResults() {
     this.setState({ allUsers: false, singleUser: false });
   }
@@ -92,6 +111,10 @@ class UserCrud extends Component {
 
   updateRole(role) {
     this.setState({ role: role });
+  }
+
+  updateOpts(opts) {
+    this.setState({ opts: opts });
   }
 
   apiSearch() {
@@ -171,7 +194,10 @@ class UserCrud extends Component {
                   onChange={event => {
                     this.updateRole(event.target.value);
                   }}>
-                  <option>user</option>
+                  <option>engUser</option>
+                  <option>engLead</option>
+                  <option>opsUser</option>
+                  <option>opsLead</option>
                   <option>admin</option>
                 </select>
               </Center>
@@ -332,39 +358,53 @@ class UserCrud extends Component {
             <div className="content-title">
               <h5 style={{ textAlign: 'center' }}>Update User</h5>
             </div>
-            <form method="PUT">
-              <Center>
-                <input
-                  name="userName"
-                  style={{ textAlign: 'center' }}
-                  placeholder="Username"
-                  value={this.state.search}
-                  onChange={this.handleChange}
-                />
-              </Center>
-              <Center>
-                <select
-                  name="role"
-                  style={{ textAlign: 'center' }}
-                  value={this.state.role}
-                  onChange={event => {
-                    this.updateRole(event.target.value);
-                  }}>
-                  <option>user</option>
-                  <option>admin</option>
-                </select>
-              </Center>
-              <Center>
-                <button
-                  //disabled={!this.state.isAdmin}
-                  type="submit"
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onSubmit={this.apiSearch}>
-                  Search
-                </button>
-              </Center>
-            </form>
+
+            <Center>
+              <input
+                name="whom"
+                style={{ textAlign: 'center' }}
+                placeholder="Whom to Update"
+                value={this.state.whom}
+                onChange={this.handleChange}
+              />
+            </Center>
+            <br />
+            <div className="content-title">
+              <h6 style={{ textAlign: 'center' }}>What to Update?</h6>
+            </div>
+            <Center>
+              <select
+                name="opts"
+                style={{ textAlign: 'center' }}
+                value={this.state.opts}
+                onChange={event => {
+                  this.updateOpts(event.target.value);
+                }}>
+                <option>role</option>
+                <option>userName</option>
+                <option>googleId</option>
+              </select>
+            </Center>
+            <br />
+            <Center>
+              <input
+                name="updatedVal"
+                style={{ textAlign: 'center' }}
+                placeholder="Updated Value"
+                value={this.state.updatedVal}
+                onChange={this.handleChange}
+              />
+            </Center>
+            <Center>
+              <button
+                //disabled={!this.state.isAdmin}
+                type="submit"
+                className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                style={{ fontFamily: "'Orbitron', sans-serif" }}
+                onClick={this.updateOne}>
+                Update
+              </button>
+            </Center>
           </div>
         );
     }
