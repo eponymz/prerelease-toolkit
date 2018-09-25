@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="8.2.5"></a>
+## [8.2.5](https://github.com/eponymz/prerelease-toolkit/compare/v8.2.4...v8.2.5) (2018-09-25)
+
+
+
 <a name="8.2.4"></a>
 ## [8.2.4](https://github.com/eponymz/prerelease-toolkit/compare/v8.2.3...v8.2.4) (2018-09-25)
 
