@@ -148,11 +148,11 @@ class UserCrud extends Component {
                     />
                   </Center>
                   <Center>
+                    <p Definition />
                     <Input
                       name="definition"
                       type="textarea"
-                      style={{ textAlign: 'center' }}
-                      placeholder="Definition"
+                      style={{ textAlign: 'center', width: '80%' }}
                       value={this.state.definition}
                       onChange={this.handleChange}
                     />
