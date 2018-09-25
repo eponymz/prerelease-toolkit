@@ -14,6 +14,10 @@ module.exports = app => {
     winLog.info('Logged out successfully...');
   });
 
+  app.get('/api/health', (req, res) => {
+    res.json({ health: 'super good' });
+  });
+
   app.get('/api/current_user', (req, res) => {
     // res.send(req.session);
     res.send(req.user);

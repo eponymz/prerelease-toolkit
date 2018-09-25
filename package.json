@@ -37,6 +37,7 @@
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.7",
     "morgan": "^1.9.0",
+    "node-fetch": "^2.2.0",
     "nodemailer": "^4.6.7",
     "nodemon": "^1.18.3",
     "npm": "^6.3.0",

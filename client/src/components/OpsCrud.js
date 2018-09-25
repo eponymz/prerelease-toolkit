@@ -150,6 +150,7 @@ class UserCrud extends Component {
                   <Center>
                     <input
                       name="definition"
+                      type="textarea"
                       style={{ textAlign: 'center' }}
                       placeholder="Definition"
                       value={this.state.definition}
