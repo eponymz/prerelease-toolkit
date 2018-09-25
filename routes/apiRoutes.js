@@ -27,6 +27,9 @@ module.exports = app => {
   app.get('/z/utilities', (req, res) => {
     if (req.user) {
       req.user.role === 'admin' ? res.status(200) : res.status(401);
+    } else {
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
     }
   });
 
