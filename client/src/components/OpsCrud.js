@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Center from 'react-center';
 import { Alert } from 'react-alert';
-import { Table } from 'reactstrap';
+import { Table, Input } from 'reactstrap';
 
 class UserCrud extends Component {
   constructor(props) {
@@ -148,7 +148,7 @@ class UserCrud extends Component {
                     />
                   </Center>
                   <Center>
-                    <input
+                    <Input
                       name="definition"
                       type="textarea"
                       style={{ textAlign: 'center' }}
