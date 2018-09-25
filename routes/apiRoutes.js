@@ -25,7 +25,9 @@ module.exports = app => {
   });
 
   app.get('/z/utilities', (req, res) => {
-    req.user.role === 'admin' ? res.status(200) : res.status(401);
+    if (req.user) {
+      req.user.role === 'admin' ? res.status(200) : res.status(401);
+    }
   });
 
   // CREATE

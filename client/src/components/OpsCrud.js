@@ -147,8 +147,12 @@ class UserCrud extends Component {
                       onChange={this.handleChange}
                     />
                   </Center>
+
                   <Center>
-                    <p Definition />
+                    <p>Definition</p>
+                  </Center>
+
+                  <Center>
                     <Input
                       name="definition"
                       type="textarea"
