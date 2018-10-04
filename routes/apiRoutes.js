@@ -57,9 +57,8 @@ module.exports = app => {
       if (reqRole == 'admin') {
         User.createUser(newUser, function(err) {
           if (err) throw err;
-          winLog.log({
-            level: 'info',
-            message: 'User: ' + userName + ' created by: ' + requestor
+          winLog.info({
+            message: `User: ${userName} created by: ${requestor}`
           });
         });
         res.redirect('/z/crud');
@@ -69,7 +68,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to create user by: ' + requestor);
+        winLog.error(`unauthorized attempt to create user by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -99,7 +98,7 @@ module.exports = app => {
             if (!post) {
               return res
                 .status(404)
-                .send({ message: 'User not found with userName: ' + userName });
+                .send({ message: `User not found with userName: ${userName}` });
             }
             let output = [
               {
@@ -123,10 +122,10 @@ module.exports = app => {
             if (err.kind === 'ObjectId') {
               return res
                 .status(404)
-                .send({ message: 'User not found with userName: ' + userName });
+                .send({ message: `User not found with userName: ${userName}` });
             }
             return res.status(500).send({
-              message: 'Error retrieving user with userName: ' + userName
+              message: `Error retrieving user with userName: ${userName}`
             });
           });
       } else {
@@ -135,7 +134,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to search user by: ' + requestor);
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -150,7 +149,7 @@ module.exports = app => {
       const reqRole = util.format('%s', req.user.role);
 
       if (reqRole == 'admin') {
-        winLog.info('DB query for all initiated by: ' + requestor);
+        winLog.info(`DB query for all initiated by: ${requestor}`);
         User.find()
           .then(post => {
             if (!post) {
@@ -183,7 +182,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to search user by: ' + requestor);
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -204,7 +203,7 @@ module.exports = app => {
       const reqRole = util.format('%s', req.user.role);
 
       if (reqRole == 'admin') {
-        winLog.info('DB update to: ' + whom + ' initiated by: ' + requestor);
+        winLog.info(`DB update to: ${whom} initiated by: ${requestor}`);
 
         User.findOneAndUpdate({ userName: whom }, Obj, {
           returnOriginal: false
@@ -212,7 +211,7 @@ module.exports = app => {
           .then(post => {
             if (!post) {
               return res.status(404).send({
-                message: 'User not found with userName: ' + userName
+                message: `User not found with userName: ${userName}`
               });
             }
             res.send(post);
@@ -220,11 +219,11 @@ module.exports = app => {
           .catch(err => {
             if (err.kind === 'ObjectId') {
               return res.status(404).send({
-                message: 'User not found with userName: ' + userName
+                message: `User not found with userName: ${userName}`
               });
             }
             return res.status(500).send({
-              message: 'Error retrieving user with userName: ' + userName
+              message: `Error retrieving user with userName: ${userName}`
             });
           });
       } else {
@@ -233,7 +232,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to search user by: ' + requestor);
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -250,13 +249,13 @@ module.exports = app => {
       const reqRole = util.format('%s', req.user.role);
 
       if (reqRole == 'admin') {
-        winLog.info('DB update to: ' + whom + ' initiated by: ' + requestor);
+        winLog.info(`${whom} deleted by: ${requestor}`);
 
         User.findOneAndDelete({ userName: whom }, { returnOriginal: false })
           .then(post => {
             if (!post) {
               return res.status(404).send({
-                message: 'User not found with userName: ' + userName
+                message: `User not found with userName: ${userName}`
               });
             }
             res.send(post);
@@ -264,11 +263,11 @@ module.exports = app => {
           .catch(err => {
             if (err.kind === 'ObjectId') {
               return res.status(404).send({
-                message: 'User not found with userName: ' + userName
+                message: `User not found with userName: ${userName}`
               });
             }
             return res.status(500).send({
-              message: 'Error retrieving user with userName: ' + userName
+              message: `Error retrieving user with userName: ${userName}`
             });
           });
       } else {
@@ -277,7 +276,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to search user by: ' + requestor);
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
       }
     } else {
       res.redirect('/');

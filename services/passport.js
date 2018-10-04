@@ -34,9 +34,7 @@ passport.use(
       });
       if (existingUser) {
         winLog.warn(
-          "User %s's googleID is %s. Add that shit.",
-          profile.displayName,
-          googleId
+          `User ${profile.displayName} googleID is ${googleId}. Add that shit.`
         );
         return done(null, existingUser);
       } else {

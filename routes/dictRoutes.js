@@ -41,10 +41,10 @@ module.exports = app => {
             if (err.kind === 'ObjectId') {
               return res
                 .status(404)
-                .send({ message: 'Term not found with title: ' + term });
+                .send({ message: `Term not found with title: ${term}` });
             }
             return res.status(500).send({
-              message: 'Error retrieving term with title: ' + term
+              message: `Error retrieving term with title: ${term}`
             });
           });
       } else {
@@ -53,7 +53,7 @@ module.exports = app => {
             'You do not have the proper role to initiate this request! Please reach out to a manager or admin.'
           )
           .status(401);
-        winLog.error('unauthorized attempt to create entry by: ' + requestor);
+        winLog.error(`unauthorized attempt to create entry by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -105,7 +105,7 @@ module.exports = app => {
               });
             }
             return res.status(500).send({
-              message: 'Error retrieving term with title: ' + term
+              message: `Error retrieving term with title: ${term}`
             });
           });
       } else {
@@ -114,7 +114,7 @@ module.exports = app => {
             'You do not have the proper role to initiate this request! Please reach out to a manager or admin.'
           )
           .status(401);
-        winLog.error('unauthorized attempt to create entry by: ' + requestor);
+        winLog.error(`unauthorized attempt to create entry by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -124,7 +124,7 @@ module.exports = app => {
 
   // CREATE
   app.post('/api/dict/create', (req, res) => {
-    const alphaVal = req.body.alphaVal.toUpperCase();
+    const alphaVal = req.body.alphaVal.toUpperCase;
     const term = req.body.term;
     const definition = req.body.definition;
 
@@ -139,10 +139,12 @@ module.exports = app => {
       });
       if (reqRole == 'admin' || reqRole == 'opsLead') {
         Dict.createDict(newDict, function(err) {
-          if (err) throw err;
-          winLog.log({
-            level: 'info',
-            message: 'Entry: ' + term + ' created by: ' + requestor
+          if (err) {
+            winLog.error(`Error occured creating ${term}.\n ${err.stack}`);
+            throw err;
+          }
+          winLog.info({
+            message: `Entry: ${term} created by: ${requestor}`
           });
         });
         res.redirect('/z/ops-crud');
@@ -152,7 +154,7 @@ module.exports = app => {
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
           .status(401);
-        winLog.error('unauthorized attempt to create user by: ' + requestor);
+        winLog.error(`unauthorized attempt to create entry by: ${requestor}`);
       }
     } else {
       res.redirect('/');
