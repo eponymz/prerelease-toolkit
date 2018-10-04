@@ -18,7 +18,8 @@ class UserCrud extends Component {
       allUsers: false,
       userList: '',
       singleUser: false,
-      entryData: ''
+      entryData: '',
+      letterVal: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,7 +27,9 @@ class UserCrud extends Component {
     this.apiSearch = this.apiSearch.bind(this);
     this.toggleResults = this.toggleResults.bind(this);
     this.searchOne = this.searchOne.bind(this);
+    this.searchAll = this.searchAll.bind(this);
     this.oneUser = this.oneUser.bind(this);
+    this.allUsers = this.allUsers.bind(this);
   }
 
   oneUser() {
@@ -45,6 +48,27 @@ class UserCrud extends Component {
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
     console.log(body);
+    return body;
+  };
+
+  allUsers() {
+    this.searchAll()
+      .then(res =>
+        this.setState({
+          allUsers: res.allUsers,
+          entryData: res.entryData
+        })
+      )
+      .catch(err => console.log(err));
+    console.log(this.state.allUsers);
+  }
+
+  searchAll = async () => {
+    const res = await fetch(
+      '/api/dict/alpha-search?letter=' + this.state.letterVal
+    );
+    const body = await res.json();
+    if (res.status !== 200) throw Error(body.message);
     return body;
   };
 
@@ -147,11 +171,9 @@ class UserCrud extends Component {
                       onChange={this.handleChange}
                     />
                   </Center>
-
                   <Center>
                     <p>Definition</p>
                   </Center>
-
                   <Center>
                     <Input
                       name="definition"
@@ -249,8 +271,18 @@ class UserCrud extends Component {
             ) : null}
             <br />
             <div className="content-title">
-              <h5 style={{ textAlign: 'center' }}>Lookup All</h5>
+              <h5 style={{ textAlign: 'center' }}>Search By Letter</h5>
             </div>
+            <br />
+            <Center>
+              <input
+                name="letterVal"
+                style={{ textAlign: 'center' }}
+                placeholder="Alphabet Value"
+                value={this.state.letterVal}
+                onChange={this.handleChange}
+              />
+            </Center>
             <br />
             <Center>
               <button
@@ -268,7 +300,7 @@ class UserCrud extends Component {
                   className="card"
                   style={{ textAlign: 'center', width: '80%' }}>
                   <div className="card-header" style={{ textAlign: 'center' }}>
-                    All Users
+                    All Terms Starting With {this.state.letterVal.toUpperCase()}
                   </div>
                   <div style={{ textAlign: 'center' }}>
                     <Table
@@ -279,16 +311,18 @@ class UserCrud extends Component {
                       className="mb-0">
                       <thead>
                         <tr>
-                          <th>UserName</th>
-                          <th>Role</th>
+                          <th>Alphabet Value</th>
+                          <th>Term</th>
+                          <th>Definition</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {this.state.userList.map(function(item, key) {
+                        {this.state.entryData.map(function(item, key) {
                           return (
                             <tr key={key}>
-                              <td>{item.userName}</td>
-                              <td>{item.userRole}</td>
+                              <td>{item.alpha}</td>
+                              <td>{item.term}</td>
+                              <td>{item.definition}</td>
                             </tr>
                           );
                         })}

@@ -18,9 +18,7 @@ module.exports = app => {
         (reqRole == 'opsLead') |
         (reqRole == 'opsUser')
       ) {
-        winLog.info(
-          'DB query by term for: ' + term + ' initiated by: ' + requestor
-        );
+        winLog.info(`DB query by term for: ${term} initiated by: ${requestor}`);
 
         const query = Dict.where({ term: term });
         query
@@ -29,7 +27,7 @@ module.exports = app => {
             if (!post) {
               return res
                 .status(404)
-                .send({ message: 'Term not found with title: ' + term });
+                .send({ message: `Term not found with title: ${term}` });
             }
             let output = [{ term: post.term }, { definition: post.definition }];
 
@@ -44,6 +42,67 @@ module.exports = app => {
               return res
                 .status(404)
                 .send({ message: 'Term not found with title: ' + term });
+            }
+            return res.status(500).send({
+              message: 'Error retrieving term with title: ' + term
+            });
+          });
+      } else {
+        res
+          .send(
+            'You do not have the proper role to initiate this request! Please reach out to a manager or admin.'
+          )
+          .status(401);
+        winLog.error('unauthorized attempt to create entry by: ' + requestor);
+      }
+    } else {
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
+    }
+  });
+
+  // SEARCH BY APLHABET VALUE
+  app.get('/api/dict/alpha-search', (req, res) => {
+    const letter = req.query.letter.toUpperCase();
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
+      if (
+        (reqRole == 'admin') |
+        (reqRole == 'opsLead') |
+        (reqRole == 'opsUser')
+      ) {
+        winLog.info(
+          `DB query by letter for: ${letter} initiated by: ${requestor}`
+        );
+
+        const query = Dict.where({ alpha: letter });
+        query
+          .find()
+          .then(post => {
+            if (!post) {
+              return res.status(404).send({
+                message: `Terms not found with alphabet value: ${letter}`
+              });
+            }
+            let output = [];
+            for (let i = 0; i < post.length; i++) {
+              alpha = post[i].alpha;
+              term = post[i].term;
+              definition = post[i].definition;
+              output.push({ alpha: alpha, term: term, definition: definition });
+            }
+            res.send({
+              allUsers: true,
+              entryData: output
+            });
+          })
+          .catch(err => {
+            winLog.error(err.stack);
+            if (err.kind === 'ObjectId') {
+              return res.status(404).send({
+                message: `Terms not found with alphabet value: ${alpha}`
+              });
             }
             return res.status(500).send({
               message: 'Error retrieving term with title: ' + term

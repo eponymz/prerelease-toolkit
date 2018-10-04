@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import '../App.css';
 import MoreLazy from './MoreLazy';
+import OpsUtilities from './OpsUtilities';
 
 class Utilities extends Component {
   constructor(props) {
@@ -70,7 +71,10 @@ class Utilities extends Component {
               </Center> */}
               <hr />
               {this.props.role === 'admin' ? <MoreLazy /> : null}
-
+              {this.props.role === 'opsUser' ||
+              this.props.role === 'opsLead' ? (
+                <OpsUtilities />
+              ) : null}
               <br />
               <Center>
                 {/* <Link
