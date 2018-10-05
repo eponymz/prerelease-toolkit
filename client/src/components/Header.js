@@ -57,18 +57,26 @@ class Header extends Component {
               >
                 Pre Release
               </Link> */}
-                <Link
-                  to={this.props.auth ? '/z/dockin-it' : '/'}
-                  className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                  Dockerz
-                </Link>
-                <Link
-                  to={this.props.auth ? '/z/misc-dockz' : '/'}
-                  className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                  Misc Commands
-                </Link>
+                {this.props.role === 'admin' ||
+                this.props.role === 'engUser' ||
+                this.props.role === 'engLead' ? (
+                  <Link
+                    to={this.props.auth ? '/z/dockin-it' : '/'}
+                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    Dockerz
+                  </Link>
+                ) : null}
+                {this.props.role === 'admin' ||
+                this.props.role === 'engUser' ||
+                this.props.role === 'engLead' ? (
+                  <Link
+                    to={this.props.auth ? '/z/misc-dockz' : '/'}
+                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    Misc Commands
+                  </Link>
+                ) : null}
                 <Link
                   to={
                     !this.props.auth
@@ -77,7 +85,8 @@ class Header extends Component {
                         this.props.role === 'engLead'
                         ? '/z/eng-utilities'
                         : this.props.role === 'opsUser' ||
-                          this.props.role === 'opsLead'
+                          this.props.role === 'opsLead' ||
+                          this.props.role === 'hackDay'
                           ? '/z/ops-utilities'
                           : this.props.role === 'admin'
                             ? '/z/utilities'

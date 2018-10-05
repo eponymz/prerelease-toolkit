@@ -16,7 +16,8 @@ module.exports = app => {
       if (
         (reqRole == 'admin') |
         (reqRole == 'opsLead') |
-        (reqRole == 'opsUser')
+        (reqRole == 'opsUser') |
+        (reqRole == 'hackDay')
       ) {
         winLog.info(`DB query by term for: ${term} initiated by: ${requestor}`);
 
@@ -53,7 +54,7 @@ module.exports = app => {
             'You do not have the proper role to initiate this request! Please reach out to a manager or admin.'
           )
           .status(401);
-        winLog.error(`unauthorized attempt to create entry by: ${requestor}`);
+        winLog.error(`Term ${term} not found. Triggered by: ${requestor}`);
       }
     } else {
       res.redirect('/');
@@ -70,7 +71,8 @@ module.exports = app => {
       if (
         (reqRole == 'admin') |
         (reqRole == 'opsLead') |
-        (reqRole == 'opsUser')
+        (reqRole == 'opsUser') |
+        (reqRole == 'hackDay')
       ) {
         winLog.info(
           `DB query by letter for: ${letter} initiated by: ${requestor}`
@@ -137,7 +139,7 @@ module.exports = app => {
         term: term,
         definition: definition
       });
-      if (reqRole == 'admin' || reqRole == 'opsLead') {
+      if (reqRole == 'admin' || reqRole == 'opsLead' || reqRole == 'hackDay') {
         Dict.createDict(newDict, function(err) {
           if (err) {
             winLog.error(`Error occured creating ${term}.\n ${err.stack}`);
@@ -155,6 +157,55 @@ module.exports = app => {
           )
           .status(401);
         winLog.error(`unauthorized attempt to create entry by: ${requestor}`);
+      }
+    } else {
+      res.redirect('/');
+      winLog.warn('Invalid user session. Redirecting to login.');
+    }
+  });
+
+  // DELETE
+  app.delete('/api/dict/delete', (req, res) => {
+    const term = req.query.term;
+
+    if (req.user) {
+      const requestor = util.format('%s', req.user.userName);
+      const reqRole = util.format('%s', req.user.role);
+
+      if (
+        (reqRole == 'admin') |
+        (reqRole == 'opsLead') |
+        (reqRole == 'opsUser') |
+        (reqRole == 'hackDay')
+      ) {
+        winLog.info(`${term} deleted by: ${requestor}`);
+
+        Dict.findOneAndDelete({ term: term }, { returnOriginal: false })
+          .then(post => {
+            if (!post) {
+              return res.status(404).send({
+                message: `Term not found: ${term}`
+              });
+            }
+            res.send(post);
+          })
+          .catch(err => {
+            if (err.kind === 'ObjectId') {
+              return res.status(404).send({
+                message: `Term not found: ${term}`
+              });
+            }
+            return res.status(500).send({
+              message: `Error deleting term: ${term}`
+            });
+          });
+      } else {
+        res
+          .send(
+            'You managed to defeat client-side vaildation but my server caught you. ;)'
+          )
+          .status(401);
+        winLog.error(`unauthorized attempt to delete term by: ${requestor}`);
       }
     } else {
       res.redirect('/');

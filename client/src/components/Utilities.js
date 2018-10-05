@@ -72,7 +72,8 @@ class Utilities extends Component {
               <hr />
               {this.props.role === 'admin' ? <MoreLazy /> : null}
               {this.props.role === 'opsUser' ||
-              this.props.role === 'opsLead' ? (
+              this.props.role === 'opsLead' ||
+              this.props.role === 'hackDay' ? (
                 <OpsUtilities />
               ) : null}
               <br />

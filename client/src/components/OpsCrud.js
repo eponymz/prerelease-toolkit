@@ -27,9 +27,10 @@ class UserCrud extends Component {
     this.apiSearch = this.apiSearch.bind(this);
     this.toggleResults = this.toggleResults.bind(this);
     this.searchOne = this.searchOne.bind(this);
-    this.searchAll = this.searchAll.bind(this);
     this.oneUser = this.oneUser.bind(this);
+    this.searchAll = this.searchAll.bind(this);
     this.allUsers = this.allUsers.bind(this);
+    this.deleteOne = this.deleteOne.bind(this);
   }
 
   oneUser() {
@@ -69,6 +70,16 @@ class UserCrud extends Component {
     );
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
+    return body;
+  };
+
+  deleteOne = async () => {
+    const res = await fetch(`/api/dict/delete?term=${this.state.term}`, {
+      method: 'DELETE'
+    });
+    const body = await res.json();
+    if (res.status !== 200) throw Error(body.message);
+    console.log(body);
     return body;
   };
 
@@ -145,7 +156,9 @@ class UserCrud extends Component {
                 </Alert>
               ) : null}
             </Center>
-            {this.props.role === 'admin' || this.props.role === 'opsLead' ? (
+            {this.props.role === 'admin' ||
+            this.props.role === 'opsLead' ||
+            this.props.role === 'hackDay' ? (
               <div>
                 <div className="content-title">
                   <h5 style={{ textAlign: 'center' }}>Insert Terms</h5>
@@ -343,6 +356,35 @@ class UserCrud extends Component {
               </Center>
             ) : null}
             <hr />
+            {this.props.role === 'admin' ||
+            this.props.role === 'opsLead' ||
+            this.props.role === 'hackDay' ? (
+              <div>
+                <div className="content-title">
+                  <h5 style={{ textAlign: 'center' }}>Delete Term</h5>
+                </div>
+                <br />
+                <Center>
+                  <input
+                    name="term"
+                    style={{ textAlign: 'center' }}
+                    placeholder="Term"
+                    value={this.state.term}
+                    onChange={this.handleChange}
+                  />
+                </Center>
+                <Center>
+                  <button
+                    //disabled={!this.state.isAdmin}
+                    type="submit"
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}
+                    onClick={this.deleteOne}>
+                    Delete
+                  </button>
+                </Center>
+              </div>
+            ) : null}
           </div>
         );
     }
