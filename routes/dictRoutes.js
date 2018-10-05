@@ -124,7 +124,7 @@ module.exports = app => {
 
   // CREATE
   app.post('/api/dict/create', (req, res) => {
-    const alphaVal = req.body.alphaVal.toUpperCase;
+    const alphaVal = req.body.alphaVal.toUpperCase();
     const term = req.body.term;
     const definition = req.body.definition;
 
