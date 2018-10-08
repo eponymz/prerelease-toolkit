@@ -69,7 +69,6 @@ class Utilities extends Component {
                   DAY CALCULATOR
                 </Link>
               </Center> */}
-              <hr />
               {this.props.role === 'admin' ? <MoreLazy /> : null}
               {this.props.role === 'opsUser' ||
               this.props.role === 'opsLead' ||

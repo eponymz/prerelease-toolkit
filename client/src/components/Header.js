@@ -113,15 +113,6 @@ class Header extends Component {
                     E N G - C R U D
                   </Link>
                 ) : null}
-                {this.props.role === 'admin' ||
-                this.props.role === 'opsLead' ? (
-                  <Link
-                    to={this.props.auth ? '/z/ops-crud' : '/'}
-                    className="btn btn-sm font-weight-bold btn-outline-light border-light p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    O P S - C R U D
-                  </Link>
-                ) : null}
                 {/* <Link
                   to={this.props.auth ? '/z/hipchat' : '/'}
                   className="no-underline navbar-button"
