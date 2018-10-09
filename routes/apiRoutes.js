@@ -63,11 +63,10 @@ module.exports = app => {
         });
         res.redirect('/z/crud');
       } else {
-        res
-          .send(
+        res.send(401, {
+          unauthorized:
             'You managed to defeat client-side vaildation but my server caught you. ;)'
-          )
-          .status(401);
+        });
         winLog.error(`unauthorized attempt to create user by: ${requestor}`);
       }
     } else {
