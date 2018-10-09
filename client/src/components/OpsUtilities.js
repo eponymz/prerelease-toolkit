@@ -25,19 +25,14 @@ class ComponentName extends Component {
             </div>
             <div>
               {this.props.role === 'hackDay' ? (
-                <div>
-                  <Center>
-                    <Link
-                      to={
-                        this.props.auth ? '/z/utilities/loan-calculator' : '/'
-                      }
-                      className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                      style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                      LOAN CALCULATOR
-                    </Link>
-                  </Center>
-                  <br />
-                </div>
+                <Center>
+                  <Link
+                    to={this.props.auth ? '/z/utilities/loan-calculator' : '/'}
+                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                    LOAN CALCULATOR
+                  </Link>
+                </Center>
               ) : null}
               <Center>
                 <Link
