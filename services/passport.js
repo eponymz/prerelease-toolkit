@@ -36,6 +36,7 @@ passport.use(
         winLog.warn(
           `User ${profile.displayName} googleID is ${googleId}. Add that shit.`
         );
+        console.log(existingUser.role);
         return done(null, existingUser);
       } else {
         winLog.error(

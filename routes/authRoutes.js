@@ -12,7 +12,7 @@ module.exports = app => {
   app.get(
     '/auth/google/callback',
     passport.authenticate('google', {
-      successRedirect: '/z/dashboard',
+      successRedirect: '/z/ops-utilities',
       failureRedirect: '/',
       failureFlash: true
     })

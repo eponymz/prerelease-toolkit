@@ -42,7 +42,13 @@ class Header extends Component {
             <nav className="navbar pb-1 pt-0 pr-0 pl-2 sticky-top navbar-dark bg-dark border-bottom border-light">
               <div>
                 <Link
-                  to={this.props.auth ? '/z/dashboard' : '/'}
+                  to={
+                    !this.props.auth
+                      ? '/'
+                      : this.props.role === 'hackDay'
+                        ? '/z/ops-utilities'
+                        : '/z/dashboard'
+                  }
                   className="text-white pr-4 font-weight-bold navbar-brand"
                   style={{
                     fontFamily: "'Orbitron', sans-serif",

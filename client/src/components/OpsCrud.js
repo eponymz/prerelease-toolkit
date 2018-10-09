@@ -19,7 +19,8 @@ class UserCrud extends Component {
       userList: '',
       singleUser: false,
       entryData: '',
-      letterVal: ''
+      letterVal: '',
+      error: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -45,9 +46,11 @@ class UserCrud extends Component {
   }
 
   searchOne = async () => {
-    const res = await fetch('/api/dict/search?term=' + this.state.term);
+    const res = await fetch(`/api/dict/search?term=${this.state.term}`);
     const body = await res.json();
-    if (res.status !== 200) throw Error(body.message);
+    if (res.status !== 200) {
+      throw Error(body.message);
+    }
     console.log(body);
     return body;
   };
@@ -66,7 +69,7 @@ class UserCrud extends Component {
 
   searchAll = async () => {
     const res = await fetch(
-      '/api/dict/alpha-search?letter=' + this.state.letterVal
+      `/api/dict/alpha-search?letter=${this.state.letterVal}`
     );
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
@@ -143,7 +146,7 @@ class UserCrud extends Component {
               ) : null}
             </Center>
             <Center>
-              {this.state.message ? (
+              {this.state.error ? (
                 <Alert
                   color="danger"
                   id="copySuccess"
