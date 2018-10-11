@@ -76,7 +76,7 @@ class Header extends Component {
                 ) : null}
                 {this.props.role === 'admin' ||
                 this.props.role === 'engUser' ||
-                this.props.role === 'hackDay'
+                this.props.role === 'hackDay' ||
                 this.props.role === 'engLead' ? (
                   <Link
                     to={this.props.auth ? '/z/misc-dockz' : '/'}
