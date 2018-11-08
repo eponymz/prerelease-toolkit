@@ -29,12 +29,12 @@ describe('without NODE_ENV', function() {
   });
 });
 
-// describe('User schema exists', function () {
-//   it('should definitely exist', function () {
-//     var userSchema = schemas.userSchema;
-//     assert.isDefined(userSchema, 'Schema exists')
-//   })
-// })
+describe('User schema exists', function () {
+  it('should definitely exist', function () {
+    var userSchema = '../models/schemas.userSchema';
+    assert.isDefined(userSchema, 'Schema exists')
+  })
+});
 
 describe('GET /current_user', function() {
   it('responds with status 404 if no auth', function() {
@@ -42,7 +42,7 @@ describe('GET /current_user', function() {
     request(app)
       .get('/api/current_user')
       .expect(404)
-      .end(function(err, res) {
+      .end(function(err) {
         if (err) throw err;
       });
   });
@@ -348,7 +348,7 @@ describe('exports', function() {
     };
     var app = express();
 
-    app.use(function(req, res, next) {
+    app.use(function(req, res) {
       res.end(req.foo());
     });
 
@@ -363,7 +363,7 @@ describe('exports', function() {
     };
     var app = express();
 
-    app.use(function(req, res, next) {
+    app.use(function(req, res) {
       res.foo();
     });
 
@@ -375,7 +375,8 @@ describe('exports', function() {
   it('should throw on old middlewares', function() {
     var error;
     try {
-      express.bodyParser;
+      // noinspection BadExpressionStatementJS
+        express.bodyParser;
     } catch (e) {
       error = e;
     }
