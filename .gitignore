@@ -3,4 +3,4 @@ dev.js
 .DS_Store
 package-lock.json
 createUser.js
-.idea
+/.idea
