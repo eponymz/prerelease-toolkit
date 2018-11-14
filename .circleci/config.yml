@@ -35,7 +35,7 @@ jobs:
         
       # run tests!
       - run: yarn test
-      # - run: npm run build
+      - run: npm install --prefix client && npm run build --prefix client
 
   deploy:
     machine: true
@@ -49,7 +49,6 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - build
       - deploy:
           requires:
             - build
