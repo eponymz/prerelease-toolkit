@@ -21,7 +21,7 @@
     "majdeploy": "concurrently \"npm run major\" \"npm run push\"",
     "mindeploy": "concurrently \"npm run minor\" \"npm run push\"",
     "push": "git push -u --follow-tags origin master",
-    "build": "npm run build --prefix client"
+    "build": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "Ian Fox Sabey",
   "license": "ISC",
@@ -36,11 +36,11 @@
     "mocha": "^5.2.0",
     "mongodb": "^3.1.1",
     "mongoose": "^5.2.7",
-    "morgan": "^1.9.0",
+    "morgan": "^1.9.1",
     "node-fetch": "^2.2.0",
     "nodemailer": "^4.6.7",
     "nodemon": "^1.18.3",
-    "npm": "^6.3.0",
+    "npm": "^6.4.1",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "standard-version": "^4.4.0",
