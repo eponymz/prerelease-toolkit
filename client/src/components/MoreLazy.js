@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -84,6 +84,15 @@ class MoreLazy extends Component {
                   Copy Commit
                 </button>
               </CopyToClipboard>
+            </Center>
+            <br/>
+            <Center>
+              <Link
+                to={this.props.auth ? '/z/ops-crud' : '/'}
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                  SoFi A to Z
+              </Link>
             </Center>
           </div>
         );
