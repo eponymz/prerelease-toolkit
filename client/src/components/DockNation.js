@@ -209,30 +209,12 @@ class DockNation extends Component {
               </div>
               <Center>
                 <CopyToClipboard
-                  text="dc up -d mysql postgres ; sleep 30"
+                  text="dc up kafka-init; dc up db-init; dc up -d --no-recreate qa-stack"
                   onCopy={this.stateTimeout}>
                   <button
                     className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                     style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    dc up -d mysql postgres ; sleep 30
-                  </button>
-                </CopyToClipboard>
-                <CopyToClipboard
-                  text="dc up db-init"
-                  onCopy={this.stateTimeout}>
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    dc up db-init
-                  </button>
-                </CopyToClipboard>
-                <CopyToClipboard
-                  text="dc up -d qa-stack"
-                  onCopy={this.stateTimeout}>
-                  <button
-                    className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
-                    style={{ fontFamily: "'Orbitron', sans-serif" }}>
-                    dc up -d qa-stack
+                      STARTUP
                   </button>
                 </CopyToClipboard>
               </Center>
