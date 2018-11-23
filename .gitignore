@@ -4,3 +4,4 @@ dev.js
 package-lock.json
 createUser.js
 .idea/
+/client/package-lock.json
