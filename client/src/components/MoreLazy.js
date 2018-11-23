@@ -73,7 +73,7 @@ class MoreLazy extends Component {
             <Center>
               <CopyToClipboard
                 text={
-                  "git add . && git commit -m '" +
+                  "git add . && git merge --squash && git commit -m '" +
                   this.state.commitMessage +
                   "'"
                 }
