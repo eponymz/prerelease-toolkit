@@ -20,7 +20,7 @@
     "deploy": "concurrently \"standard-version\" \"npm run push\"",
     "majdeploy": "concurrently \"npm run major\" \"npm run push\"",
     "mindeploy": "concurrently \"npm run minor\" \"npm run push\"",
-    "push": "git merge --squash && git push -u --follow-tags origin master",
+    "push": "git push -u --follow-tags origin master",
     "build": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "Ian Fox Sabey",
