@@ -66,6 +66,7 @@ class Utilities extends Component {
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
                 >
+                https://kraken-qa-22.sofitest.com/sl-refi-service/public/swagger-ui/index.html?url=/sl-refi-service/swagger.json
                   DAY CALCULATOR
                 </Link>
               </Center> */}

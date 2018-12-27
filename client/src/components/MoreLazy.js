@@ -13,7 +13,8 @@ class MoreLazy extends Component {
 
     this.state = {
       copied: false,
-      commitMessage: ''
+      commitMessage: '',
+      boxNumber: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -82,6 +83,31 @@ class MoreLazy extends Component {
                   className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}>
                   Copy Commit
+                </button>
+              </CopyToClipboard>
+            </Center>
+            <br/>
+            <Center>
+              <input
+                name="boxNumber"
+                style={{ textAlign: 'center' }}
+                placeholder="Box Number"
+                value={this.state.boxNumber}
+                onChange={this.handleChange}
+              />
+            </Center>
+            <Center>
+              <CopyToClipboard
+                text={
+                  "https://kraken-qa-" +
+                  this.state.boxNumber +
+                  ".sofitest.com/sl-refi-service/public/swagger-ui/index.html?url=/sl-refi-service/swagger.json"
+                }
+                onCopy={this.stateTimeout}>
+                <button
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
+                  style={{ fontFamily: "'Orbitron', sans-serif" }}>
+                  Copy Swagger URL
                 </button>
               </CopyToClipboard>
             </Center>
