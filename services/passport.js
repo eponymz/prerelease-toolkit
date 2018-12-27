@@ -23,10 +23,11 @@ passport.use(
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
-      // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+      userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
+      winLog.warn(profile);
       const googleId = profile.id;
       const email = profile.emails;
       const existingUser = await User.findOne({
@@ -41,7 +42,7 @@ passport.use(
         return done(null, existingUser);
       } else {
         winLog.error(
-          'Unauthorized login attempt made by: %s, %O',
+          'Unauthorized login attempt made by: %O',
           //googleId,
           email
         );
