@@ -29,7 +29,7 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       winLog.warn('%O', profile._json);
       const googleId = profile.id;
-      const email = profile.emails;
+      const email = profile._json.email;
       const existingUser = await User.findOne({
         //googleId: googleId,
         email: email
@@ -44,7 +44,7 @@ passport.use(
         winLog.error(
           'Unauthorized login attempt made by: %O',
           //googleId,
-          email[0].value
+          email
         );
         return done(null, false, existingUser);
       }
