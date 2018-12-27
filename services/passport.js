@@ -44,7 +44,7 @@ passport.use(
         winLog.error(
           'Unauthorized login attempt made by: %O',
           //googleId,
-          email
+          email[0].value
         );
         return done(null, false, existingUser);
       }
