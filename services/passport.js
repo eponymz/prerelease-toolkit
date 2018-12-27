@@ -30,6 +30,7 @@ passport.use(
       winLog.warn('%O', profile._json);
       const googleId = profile.id;
       const email = profile._json.email;
+      winLog.warn(email);
       const existingUser = await User.findOne({
         //googleId: googleId,
         email: email
