@@ -45,12 +45,7 @@ module.exports = app => {
 
       var newUser = new User({
         googleId: googleId,
-        email: [
-          {
-            value: email,
-            type: 'account'
-          }
-        ],
+        email: email,
         userName: userName,
         role: role
       });

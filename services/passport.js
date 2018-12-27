@@ -33,7 +33,7 @@ passport.use(
       winLog.warn(email);
       const existingUser = await User.findOne({
         //googleId: googleId,
-        email: email
+        email: `[ { value: ${email}}, verified: true } ]`
       });
       if (existingUser) {
         winLog.warn(
