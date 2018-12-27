@@ -27,7 +27,7 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      winLog.warn(profile);
+      winLog.warn('%O', profile);
       const googleId = profile.id;
       const email = profile.emails;
       const existingUser = await User.findOne({
