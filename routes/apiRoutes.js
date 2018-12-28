@@ -95,12 +95,10 @@ module.exports = app => {
                 .send({ message: `User not found with userName: ${userName}` });
             }
             let output = [
-              {
-                siteId: post._id
-              },
+              { siteId: post._id },
+              { email: post.email },
               { googleId: post.googleId },
               { userName: post.userName },
-              // { email: post.email },
               { role: post.role },
               { createdDt: post.createdAt },
               { updatedDt: post.updatedAt }
@@ -142,7 +140,7 @@ module.exports = app => {
       const requestor = util.format('%s', req.user.userName);
       const reqRole = util.format('%s', req.user.role);
 
-      if (reqRole == 'admin') {
+      if (reqRole === 'admin') {
         winLog.info(`DB query for all initiated by: ${requestor}`);
         User.find()
           .then(post => {
@@ -153,7 +151,10 @@ module.exports = app => {
             for (let i = 0; i < post.length; i++) {
               userName = post[i].userName;
               role = post[i].role;
-              output.push({ userName: userName, userRole: role });
+              email = post[i].email;
+              output.push(
+                { userName: userName, userRole: role, userEmail: email }
+              );
             }
             res.send({
               allUsers: true,

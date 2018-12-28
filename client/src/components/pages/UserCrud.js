@@ -39,13 +39,9 @@ class UserCrud extends Component {
   allUsers() {
     this.searchAll()
       .then(res =>
-        this.setState({
-          allUsers: res.allUsers,
-          userList: res.userList
-        })
+        this.setState({ allUsers: res.allUsers, userList: res.userList })
       )
       .catch(err => console.log(err));
-    console.log(this.state.allUsers);
   }
 
   searchAll = async () => {
@@ -61,14 +57,12 @@ class UserCrud extends Component {
         this.setState({ singleUser: res.singleUser, userData: res.userData })
       )
       .catch(err => console.log(err));
-    console.log(this.state.userData);
   }
 
   searchOne = async () => {
     const res = await fetch('/api/search_user?userName=' + this.state.userName);
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
-    console.log(body);
     return body;
   };
 
@@ -78,7 +72,6 @@ class UserCrud extends Component {
     });
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
-    console.log(body);
     return body;
   };
 
@@ -266,6 +259,7 @@ class UserCrud extends Component {
                       <thead>
                         <tr>
                           <th>ID</th>
+                          <th>Email</th>
                           <th>GoogleID</th>
                           <th>UserName</th>
                           <th>Role</th>
@@ -279,6 +273,7 @@ class UserCrud extends Component {
                             return (
                               <td key={key}>
                                 {item.siteId}
+                                {item.email}
                                 {item.googleId}
                                 {item.userName}
                                 {item.role}
@@ -338,17 +333,19 @@ class UserCrud extends Component {
                         <tr>
                           <th>UserName</th>
                           <th>Role</th>
+                          <th>Email</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {this.state.userList.map(function(item, key) {
-                          return (
-                            <tr key={key}>
-                              <td>{item.userName}</td>
-                              <td>{item.userRole}</td>
-                            </tr>
-                          );
-                        })}
+                      {this.state.userList.map(function(item, key) {
+                        return (
+                          <tr key={key}>
+                            <td>{item.userName}</td>
+                            <td>{item.userRole}</td>
+                            <td>{item.userEmail}</td>
+                          </tr>
+                            );
+                          })}
                       </tbody>
                     </Table>
                     <button
