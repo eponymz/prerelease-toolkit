@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 
-import '../App.css'
+import '../../App.css'
 
 class BackDash extends Component {
   renderContent() {

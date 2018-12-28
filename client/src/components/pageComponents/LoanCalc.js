@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 //import Center from 'react-center';
 //import { CopyToClipboard } from 'react-copy-to-clipboard';
-import loading from '../loading.gif';
+import loading from '../../loading.gif';
 //import resetForm from './resetForm';
 
-import '../App.css';
+import '../../App.css';
 //import '../bootswatch.min.css';
 
 class LoanCalc extends Component {

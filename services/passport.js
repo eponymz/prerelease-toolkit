@@ -27,19 +27,16 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      winLog.warn('%O', profile._json);
-      const googleId = profile.id;
+      const googleId = profile._json.sub;
       const email = profile._json.email;
-      winLog.warn(email);
       const existingUser = await User.findOne({
         //googleId: googleId,
-        email: `[ { value: ${email}}, type: account } ]`
+        email: email
       });
       if (existingUser) {
         winLog.warn(
-          `User ${profile.displayName} googleID is ${googleId}. Add that shit.`
+          `User ${profile._json.name} googleID is ${googleId}. Add that shit.`
         );
-        console.log(existingUser.role);
         return done(null, existingUser);
       } else {
         winLog.error(
@@ -49,14 +46,6 @@ passport.use(
         );
         return done(null, false, existingUser);
       }
-
-      // This is to create a new user. Taking out of this file for security reasons.
-      //|
-      //|
-      //|
-      //|
-      //|
-      //|
     }
   )
 );

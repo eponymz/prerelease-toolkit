@@ -5,8 +5,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import '../App.css';
-import MoreLazy from './MoreLazy';
+import '../../App.css';
+import MoreLazy from '../pageComponents/MoreLazy';
 import OpsUtilities from './OpsUtilities';
 
 class Utilities extends Component {

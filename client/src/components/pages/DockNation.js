@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import '../App.css';
-import KrakenCopy from './KrakenSSH';
-import CustomUp from './CustomUp';
+import '../../App.css';
+import KrakenCopy from '../pageComponents/KrakenSSH';
+import CustomUp from '../pageComponents/CustomUp';
 import { Alert } from 'reactstrap';
 
 class DockNation extends Component {

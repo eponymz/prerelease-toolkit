@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Center from 'react-center';
 import { GoogleLoginButton } from 'react-social-login-buttons';
-import '../App.css';
+import {Alert} from 'reactstrap';
+import '../../App.css';
 
 class Login extends Component {
   render() {
@@ -26,6 +27,20 @@ class Login extends Component {
             <h1 className="Login-title">IAN's TOOLS</h1>
           </header>
         </div>
+        <Center>
+          <Alert
+            color="danger"
+            id="refactorBannerWarn"
+            style={{
+              textAlign: 'center',
+              fontFamily: "'Orbitron', sans-serif",
+              width: '50%'
+            }}>
+            With the deprecation of Google+ API, I have utilized the time here to refactor A LOT.
+            <br/>
+            If you are unable to login, email or Slack me, you may have been removed.
+          </Alert>
+        </Center>
         <div className="App">
           <a className="no-underline" href="/auth/google">
             <Center>

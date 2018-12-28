@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import Center from 'react-center';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Alert } from 'reactstrap';
-// import { Link } from 'react-router-dom'; import Center from 'react-center';
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 class MoreLazy extends Component {
   constructor(props) {

@@ -4,12 +4,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 
-import '../App.css';
+import '../../App.css'
 
-class BackUtil extends Component {
-  lsClear = () => {
-    localStorage.removeItem('branches');
-  };
+class Collapse extends Component {
   renderContent() {
     switch (this.props.auth) {
       case null:
@@ -22,12 +19,11 @@ class BackUtil extends Component {
             <div>
               <Center>
                 <Link
-                  to={this.props.auth ? '/z/utilities' : '/'}
-                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1 mt-5"
+                  to={this.props.auth ? '/z/pre-release' : '/'}
+                  className="btn btn-sm font-weight-bold btn-outline-dark border-dark p-sm-1 mr-sm-1"
                   style={{ fontFamily: "'Orbitron', sans-serif" }}
-                  onClick={this.lsClear}
                 >
-                  † H I D E †
+                  † B A C K †
                 </Link>
               </Center>
             </div>
@@ -45,4 +41,4 @@ function mapStateToProps({ auth }) {
   return { auth };
 }
 
-export default connect(mapStateToProps)(BackUtil);
+export default connect(mapStateToProps)(Collapse);

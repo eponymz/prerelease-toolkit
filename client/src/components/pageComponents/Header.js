@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Center from 'react-center';
 import { Alert } from 'reactstrap';
-import vaderHelm from '../vaderHelm.svg';
-import logout from '../logout.svg';
+import vaderHelm from '../../vaderHelm.svg';
+import logout from '../../logout.svg';
 
 class Header extends Component {
   constructor(props) {

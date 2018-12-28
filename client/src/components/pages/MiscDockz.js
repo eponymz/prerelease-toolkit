@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom'; import Center from 'react-center';
 // import Center from 'react-center';
 // import { CopyToClipboard } from 'react-copy-to-clipboard';
-import CurlButton from './CurlButton';
-import JakobButtons from './JakobButtons';
-import ActivityCurl from './ActivityCurl';
-import KafkaCreate from './KafkaCreate';
-import CatVersion from './CatVersion';
+import CurlButton from '../pageComponents/CurlButton';
+import JakobButtons from '../pageComponents/JakobButtons';
+import ActivityCurl from '../pageComponents/ActivityCurl';
+import KafkaCreate from '../pageComponents/KafkaCreate';
+import CatVersion from '../pageComponents/CatVersion';
 
 class MiscDockz extends Component {
   renderContent() {

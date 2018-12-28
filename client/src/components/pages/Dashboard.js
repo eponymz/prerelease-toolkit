@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-//import { Link } from 'react-router-dom';
 import Center from 'react-center';
-import '../App.css';
-//import statusWidget from './statusWidget';
+import '../../App.css';
 
 class Dashboard extends Component {
   renderContent() {
