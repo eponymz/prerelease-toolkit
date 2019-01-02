@@ -140,7 +140,7 @@ module.exports = app => {
       const requestor = util.format('%s', req.user.userName);
       const reqRole = util.format('%s', req.user.role);
 
-      if (reqRole === 'admin') {
+      if (reqRole === 'admin' || reqRole === 'engLead') {
         winLog.info(`DB query for all initiated by: ${requestor}`);
         User.find()
           .then(post => {
