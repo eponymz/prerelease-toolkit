@@ -36,6 +36,13 @@ describe('User schema exists', function () {
   })
 });
 
+describe('Dictionary schema exists', function () {
+  it('should definitely exist', function () {
+    var dictSchema = '../models/schemas.dictSchema';
+      assert.isDefined(dictSchema, 'Schema exists')
+  })
+});
+
 describe('GET /current_user', function() {
   it('responds with status 404 if no auth', function() {
     var app = express();
