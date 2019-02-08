@@ -1,98 +1,65 @@
-const User = require('../models/user');
-const bodyParser = require('body-parser');
-//const logger = require('morgan');
-const winLog = require('../logger');
-const util = require('util');
+const User = require('../models/user')
+const bodyParser = require('body-parser')
+// const logger = require('morgan');
+const winLog = require('../logger')
+const util = require('util')
+const userController = require('../controllers/userController')
 
 module.exports = app => {
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: false }))
 
   app.get('/api/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-    winLog.info('Logged out successfully...');
-  });
+    req.logout()
+    res.redirect('/')
+    winLog.info('Logged out successfully...')
+  })
 
   app.get('/api/health', (req, res) => {
-    res.json({ health: 'super good' });
-  });
+    res.json({ health: 'super good' })
+  })
 
   app.get('/api/current_user', (req, res) => {
     // res.send(req.session);
-    res.send(req.user);
-    //res.status(200).JSON(req.user);
-  });
+    res.send(req.user)
+    // res.status(200).JSON(req.user);
+  })
 
   app.get('/z/utilities', (req, res) => {
     if (req.user) {
-      req.user.role === 'admin' ? res.status(200) : res.status(401);
+      req.user.role === 'admin' ? res.status(200) : res.status(401)
     } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
+      res.redirect('/')
+      winLog.warn('Invalid user session. Redirecting to login.')
     }
-  });
+  })
 
   // CREATE
-  app.post('/api/create_user', (req, res) => {
-    const googleId = req.body.googleId;
-    const email = req.body.emailVal;
-    const userName = req.body.userName;
-    const role = req.body.role;
-    if (req.user) {
-      const requestor = util.format('%s', req.user.userName);
-      const reqRole = util.format('%s', req.user.role);
-
-      var newUser = new User({
-        googleId: googleId,
-        email: email,
-        userName: userName,
-        role: role
-      });
-      if (reqRole == 'admin') {
-        User.createUser(newUser, function(err) {
-          if (err) throw err;
-          winLog.info({
-            message: `User: ${userName} created by: ${requestor}`
-          });
-        });
-        res.redirect('/z/crud');
-      } else {
-        res.send(401, {
-          unauthorized:
-            'You managed to defeat client-side vaildation but my server caught you. ;)'
-        });
-        winLog.error(`unauthorized attempt to create user by: ${requestor}`);
-      }
-    } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
-    }
-  });
+  app.post('/api/create_user', userController.createUser)
 
   // READ ONE
   app.get('/api/search_user', (req, res) => {
-    const userName = req.query.userName;
+    const userName = req.query.userName
     if (req.user) {
-      const requestor = util.format('%s', req.user.userName);
-      const reqRole = util.format('%s', req.user.role);
+      const requestor = util.format('%s', req.user.userName)
+      const reqRole = util.format('%s', req.user.role)
 
-      if (reqRole == 'admin') {
+      if (reqRole === 'admin') {
         winLog.info(
           'DB query by userName for: ' +
             userName +
             ' initiated by: ' +
             requestor
-        );
+        )
 
-        const query = User.where({ userName: userName });
+        const query = User.where({ userName: userName })
         query
           .findOne()
           .then(post => {
             if (!post) {
               return res
                 .status(404)
-                .send({ message: `User not found with userName: ${userName}` });
+                .send({ message: `User not found with userName: ${userName}` })
             }
             let output = [
               { siteId: post._id },
@@ -102,103 +69,105 @@ module.exports = app => {
               { role: post.role },
               { createdDt: post.createdAt },
               { updatedDt: post.updatedAt }
-            ];
+            ]
 
             res.send({
               singleUser: true,
               userData: output
-            });
+            })
           })
           .catch(err => {
-            winLog.error(err.stack);
+            winLog.error(err.stack)
             if (err.kind === 'ObjectId') {
               return res
                 .status(404)
-                .send({ message: `User not found with userName: ${userName}` });
+                .send({ message: `User not found with userName: ${userName}` })
             }
             return res.status(500).send({
               message: `Error retrieving user with userName: ${userName}`
-            });
-          });
+            })
+          })
       } else {
         res
           .send(
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
-          .status(401);
-        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
+          .status(401)
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`)
       }
     } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
+      res.redirect('/')
+      winLog.warn('Invalid user session. Redirecting to login.')
     }
-  });
+  })
 
   // READ ALL
   app.get('/api/search', (req, res) => {
+    let userName, role, email
     if (req.user) {
-      const requestor = util.format('%s', req.user.userName);
-      const reqRole = util.format('%s', req.user.role);
+      const requestor = util.format('%s', req.user.userName)
+      const reqRole = util.format('%s', req.user.role)
 
       if (reqRole === 'admin' || reqRole === 'engLead') {
-        winLog.info(`DB query for all initiated by: ${requestor}`);
+        winLog.info(`DB query for all initiated by: ${requestor}`)
         User.find()
           .then(post => {
             if (!post) {
-              return res.status(404).send({ message: 'Request not found' });
+              return res.status(404).send({ message: 'Request not found' })
             }
-            let output = [];
+            let output = []
             for (let i = 0; i < post.length; i++) {
-              userName = post[i].userName;
-              role = post[i].role;
-              email = post[i].email;
+              userName = post[i].userName
+              role = post[i].role
+              email = post[i].email
               output.push(
                 { userName: userName, userRole: role, userEmail: email }
-              );
+              )
             }
             res.send({
               allUsers: true,
               userList: output
-            });
-            winLog.info('query for all completed');
+            })
+            winLog.info('query for all completed')
           })
           .catch(err => {
             if (err.kind === 'ObjectId') {
-              return res.status(404).send({ message: 'Request not found' });
+              return res.status(404).send({ message: 'Request not found' })
             }
-            winLog.error(err.stack);
+            winLog.error(err.stack)
             return res.status(500).send({
               message: 'Error retrieving users'
-            });
-          });
+            })
+          })
       } else {
         res
           .send(
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
-          .status(401);
-        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
+          .status(401)
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`)
       }
     } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
+      res.redirect('/')
+      winLog.warn('Invalid user session. Redirecting to login.')
     }
-  });
+  })
 
   // UPDATE
   app.put('/api/update_user', (req, res) => {
-    const whom = req.query.whom;
-    const opts = req.query.opts;
-    const updatedVal = req.query.updatedVal;
-    const Obj = {};
-    Obj[opts] = updatedVal;
+    let userName
+    const whom = req.query.whom
+    const opts = req.query.opts
+    const updatedVal = req.query.updatedVal
+    const Obj = {}
+    Obj[opts] = updatedVal
 
     if (req.user) {
-      const requestor = util.format('%s', req.user.userName);
-      const reqRole = util.format('%s', req.user.role);
+      const requestor = util.format('%s', req.user.userName)
+      const reqRole = util.format('%s', req.user.role)
 
-      if (reqRole == 'admin') {
-        winLog.info(`DB update to: ${whom} initiated by: ${requestor}`);
+      if (reqRole === 'admin') {
+        winLog.info(`DB update to: ${whom} initiated by: ${requestor}`)
 
         User.findOneAndUpdate({ userName: whom }, Obj, {
           returnOriginal: false
@@ -207,75 +176,76 @@ module.exports = app => {
             if (!post) {
               return res.status(404).send({
                 message: `User not found with userName: ${userName}`
-              });
+              })
             }
-            res.send(post);
+            res.send(post)
           })
           .catch(err => {
             if (err.kind === 'ObjectId') {
               return res.status(404).send({
                 message: `User not found with userName: ${userName}`
-              });
+              })
             }
             return res.status(500).send({
               message: `Error retrieving user with userName: ${userName}`
-            });
-          });
+            })
+          })
       } else {
         res
           .send(
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
-          .status(401);
-        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
+          .status(401)
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`)
       }
     } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
+      res.redirect('/')
+      winLog.warn('Invalid user session. Redirecting to login.')
     }
-  });
+  })
 
-  //DELETE
+  // DELETE
   app.delete('/api/delete_user', (req, res) => {
-    const whom = req.query.whom;
+    const whom = req.query.whom
+    let userName
 
     if (req.user) {
-      const requestor = util.format('%s', req.user.userName);
-      const reqRole = util.format('%s', req.user.role);
+      const requestor = util.format('%s', req.user.userName)
+      const reqRole = util.format('%s', req.user.role)
 
-      if (reqRole == 'admin') {
-        winLog.info(`${whom} deleted by: ${requestor}`);
+      if (reqRole === 'admin') {
+        winLog.info(`${whom} deleted by: ${requestor}`)
 
         User.findOneAndDelete({ userName: whom }, { returnOriginal: false })
           .then(post => {
             if (!post) {
               return res.status(404).send({
                 message: `User not found with userName: ${userName}`
-              });
+              })
             }
-            res.send(post);
+            res.send(post)
           })
           .catch(err => {
             if (err.kind === 'ObjectId') {
               return res.status(404).send({
                 message: `User not found with userName: ${userName}`
-              });
+              })
             }
             return res.status(500).send({
               message: `Error retrieving user with userName: ${userName}`
-            });
-          });
+            })
+          })
       } else {
         res
           .send(
             'You managed to defeat client-side vaildation but my server caught you. ;)'
           )
-          .status(401);
-        winLog.error(`unauthorized attempt to search user by: ${requestor}`);
+          .status(401)
+        winLog.error(`unauthorized attempt to search user by: ${requestor}`)
       }
     } else {
-      res.redirect('/');
-      winLog.warn('Invalid user session. Redirecting to login.');
+      res.redirect('/')
+      winLog.warn('Invalid user session. Redirecting to login.')
     }
-  });
-};
+  })
+}

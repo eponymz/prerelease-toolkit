@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const userSchema = new Schema(
   {
     googleId: {
@@ -20,14 +20,14 @@ const userSchema = new Schema(
     }
   },
   { timestamps: true }
-);
+)
 
-var User = (module.exports = mongoose.model('users', userSchema));
+module.exports = mongoose.model('users', userSchema)
 
-module.exports.createUser = function(newUser, callback) {
-  newUser.save(callback);
-};
+module.exports.createUser = function (newUser, callback) {
+  newUser.save(callback)
+}
 
-module.exports.searchUser = function(returnUser, callback) {
-  returnUser.findOne(callback);
-};
+module.exports.searchUser = function (returnUser, callback) {
+  returnUser.findOne(callback)
+}

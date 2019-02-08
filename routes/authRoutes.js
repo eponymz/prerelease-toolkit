@@ -1,5 +1,5 @@
-const passport = require('passport');
-require('connect-flash');
+const passport = require('passport')
+require('connect-flash')
 
 module.exports = app => {
   app.get(
@@ -7,7 +7,7 @@ module.exports = app => {
     passport.authenticate('google', {
       scope: ['profile', 'email']
     })
-  );
+  )
 
   app.get(
     '/auth/google/callback',
@@ -16,5 +16,5 @@ module.exports = app => {
       failureRedirect: '/',
       failureFlash: true
     })
-  );
-};
+  )
+}
