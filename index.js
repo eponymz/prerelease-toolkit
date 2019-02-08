@@ -1,13 +1,14 @@
 const express = require('express')
-const mongoose = require('mongoose')
-mongoose.Promise = require('bluebird')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
 const keys = require('./config/keys')
+const winlog = require('./logger')
+const bodyParser = require('body-parser')
+const util = require('util')
+const mongoose = require('mongoose')
+mongoose.Promise = require('bluebird')
 require('./models/user')
 require('./services/passport')
-const logger = require('morgan')
-const winlog = require('./logger')
 
 mongoose
   .connect(
@@ -19,13 +20,24 @@ mongoose
 
 const app = express()
 
-app.use(
-  logger('combined', {
-    skip: function (req, res) {
-      return res.statusCode < 400
-    }
-  })
-)
+// Parsers
+app.use(bodyParser.json({
+  type: () => {
+    return true
+  }
+}))
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  res.header('Accept', 'application/json')
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
+  next()
+})
 
 app.use(
   cookieSession({
@@ -50,6 +62,28 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
   })
 }
+
+// Custom error handler
+app.use((err, req, res, next) => {
+  if (err.name === 'SyntaxError') {
+    winlog.error(`${err.name} occurred trying to ${req.method} | '${util.format(req.url)}'`)
+    res
+      .status(400)
+      .send({
+        message: 'Bad Request!',
+        desc: err.message
+      })
+  } else if (err.name === 'TypeError') {
+    winlog.error(err)
+    return res
+      .status(500)
+      .send({
+        message: 'Server Error!',
+        desc: err.message
+      })
+  }
+  next()
+})
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
