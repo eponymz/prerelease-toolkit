@@ -1,4 +1,4 @@
-const winLog = require('../logger')
+const winLog = require('../utils/logger')
 const util = require('util')
 const Dict = require('../models/dict')
 

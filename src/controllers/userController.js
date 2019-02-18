@@ -1,5 +1,5 @@
 const User = require('../models/user')
-const winLog = require('../logger')
+const winLog = require('../utils/logger')
 const util = require('util')
 
 module.exports.createUser = (req, res) => {
