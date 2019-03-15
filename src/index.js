@@ -1,7 +1,7 @@
 const express = require('express')
 const cookieSession = require('cookie-session')
 const passport = require('passport')
-const keys = require('../config/keys')
+const keys = require('./config/keys')
 const winlog = require('./utils/logger')
 const bodyParser = require('body-parser')
 const util = require('util')
@@ -63,27 +63,27 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-// Custom error handler
-app.use((err, req, res, next) => {
-  if (err.name === 'SyntaxError') {
-    winlog.error(`${err.name} occurred trying to ${req.method} | '${util.format(req.url)}'`)
-    res
-      .status(400)
-      .send({
-        message: 'Bad Request!',
-        desc: err.message
-      })
-  } else if (err.name === 'TypeError') {
-    winlog.error(err)
-    return res
-      .status(500)
-      .send({
-        message: 'Server Error!',
-        desc: err.message
-      })
-  }
-  next()
-})
+// // Custom error handler
+// app.use((err, req, res, next) => {
+//   if (err.name === 'SyntaxError') {
+//     winlog.error(`${err.name} occurred trying to ${req.method} | '${util.format(req.url)}'`)
+//     res
+//       .status(400)
+//       .send({
+//         message: 'Bad Request!',
+//         desc: err.message
+//       })
+//   } else if (err.name === 'TypeError') {
+//     winlog.error(err)
+//     return res
+//       .status(500)
+//       .send({
+//         message: 'Server Error!',
+//         desc: err.message
+//       })
+//   }
+//   next()
+// })
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {

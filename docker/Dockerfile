@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:8-slim
 WORKDIR /prerelease-toolkit
 COPY . package*.json
 RUN npm i
