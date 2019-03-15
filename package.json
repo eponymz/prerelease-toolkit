@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./config/*.js ./controllers/*.js ./models/*.js ./routes/*.js ./services/*.js ./index.js ./logger.js",
     "lint-fix": "./node_modules/.bin/eslint --fix ./config/*.js ./controllers/*.js ./models/*.js ./routes/*.js ./services/*.js ./index.js ./logger.js",
-    "start": "node index.js",
+    "start": "node src/index.js",
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
