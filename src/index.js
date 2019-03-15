@@ -21,23 +21,23 @@ mongoose
 const app = express()
 
 // Parsers
-app.use(bodyParser.json({
-  type: () => {
-    return true
-  }
-}))
+// app.use(bodyParser.json({
+//   type: () => {
+//     return true
+//   }
+// }))
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  )
-  res.header('Accept', 'application/json')
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
-  next()
-})
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*')
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   )
+//   res.header('Accept', 'application/json')
+//   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS')
+//   next()
+// })
 
 app.use(
   cookieSession({
