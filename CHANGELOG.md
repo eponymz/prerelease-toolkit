@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="11.3.1"></a>
+## [11.3.1](https://github.com/eponymz/prerelease-toolkit/compare/v11.3.0...v11.3.1) (2019-04-06)
+
+
+
 <a name="11.3.0"></a>
 # [11.3.0](https://github.com/eponymz/prerelease-toolkit/compare/v11.1.3...v11.3.0) (2019-02-08)
 
