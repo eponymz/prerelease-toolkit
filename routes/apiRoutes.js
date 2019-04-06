@@ -31,8 +31,8 @@ module.exports = app => {
 
   // user routes
   app.post('/api/create_user', userController.createUser)
-  app.get('/api/search_user', userController.searchSingleUser)
+  app.get('/api/search_user/:userName', userController.searchSingleUser)
   app.get('/api/search', userController.searchAll)
-  app.put('/api/update_user', userController.updateUser)
-  app.delete('/api/delete_user', userController.deleteUser)
+  app.put('/api/update_user/:userName', userController.updateUser)
+  app.delete('/api/delete_user/:userName', userController.deleteUser)
 }

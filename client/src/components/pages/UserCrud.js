@@ -20,7 +20,9 @@ class UserCrud extends Component {
       userData: '',
       opts: 'role',
       updatedVal: '',
-      whom: ''
+      whom: '',
+      error: false,
+      errMessage: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -60,14 +62,14 @@ class UserCrud extends Component {
   }
 
   searchOne = async () => {
-    const res = await fetch('/api/search_user?userName=' + this.state.userName);
+    const res = await fetch(`/api/search_user/${this.state.userName}`);
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
     return body;
   };
 
   deleteOne = async () => {
-    const res = await fetch('/api/delete_user?whom=' + this.state.userName, {
+    const res = await fetch(`/api/delete_user/${this.state.userName}`, {
       method: 'DELETE'
     });
     const body = await res.json();
@@ -76,14 +78,13 @@ class UserCrud extends Component {
   };
 
   updateOne = async () => {
-    const updateURL =
-      '/api/update_user?whom=' +
-      this.state.whom +
-      '&opts=' +
-      this.state.opts +
-      '&updatedVal=' +
-      this.state.updatedVal;
-    const res = await fetch(updateURL, { method: 'PUT' });
+    const res = await fetch(`/api/update_user/${this.state.whom}`, {
+      method: 'PUT',
+      body: {
+        opts: this.state.opts,
+        updatedVal: this.state.updatedVal
+      }
+    });
     const body = await res.json();
     if (res.status !== 200) throw Error(body.message);
     //console.log(body);

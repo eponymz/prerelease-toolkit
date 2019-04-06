@@ -18,13 +18,19 @@ module.exports.createUser = (req, res) => {
       role: role
     })
     if (reqRole === 'admin') {
-      User.createUser(newUser, function (err) {
-        if (err) throw err
-        winLog.info({
-          message: `User: ${userName} created by: ${requestor}`
+      try {
+        User.createUser(newUser, () => {
+          winLog.info({
+            message: `User: ${userName} created by: ${requestor}`
+          })
         })
-      })
-      res.redirect('/z/crud')
+        res.redirect('/z/crud')
+      } catch (err) {
+        winLog.error({
+          message: `Error occurred creating user.\n${util.format(err)}`
+        })
+        res.redirect('/z/crud')
+      }
     } else {
       res.send(401, {
         unauthorized:
@@ -39,7 +45,7 @@ module.exports.createUser = (req, res) => {
 }
 
 module.exports.searchSingleUser = (req, res) => {
-  const userName = req.query.userName
+  const userName = req.params.userName
   if (req.user) {
     const requestor = util.format('%s', req.user.userName)
     const reqRole = util.format('%s', req.user.role)
@@ -70,7 +76,6 @@ module.exports.searchSingleUser = (req, res) => {
             { createdDt: post.createdAt },
             { updatedDt: post.updatedAt }
           ]
-
           res.send({
             singleUser: true,
             userData: output
@@ -154,9 +159,9 @@ module.exports.searchAll = (req, res) => {
 
 module.exports.updateUser = (req, res) => {
   let userName
-  const whom = req.query.whom
-  const opts = req.query.opts
-  const updatedVal = req.query.updatedVal
+  const whom = req.params.userName
+  const opts = req.body.opts
+  const updatedVal = req.body.updatedVal
   const Obj = {}
   Obj[opts] = updatedVal
 
@@ -203,16 +208,13 @@ module.exports.updateUser = (req, res) => {
 }
 
 module.exports.deleteUser = (req, res) => {
-  const whom = req.query.whom
+  const whom = req.params.userName
   let userName
-
   if (req.user) {
     const requestor = util.format('%s', req.user.userName)
     const reqRole = util.format('%s', req.user.role)
-
     if (reqRole === 'admin') {
       winLog.info(`${whom} deleted by: ${requestor}`)
-
       User.findOneAndDelete({ userName: whom }, { returnOriginal: false })
         .then(post => {
           if (!post) {
@@ -233,11 +235,9 @@ module.exports.deleteUser = (req, res) => {
           })
         })
     } else {
-      res
-        .send(
-          'You managed to defeat client-side vaildation but my server caught you. ;)'
-        )
-        .status(401)
+      res.status(401).send({
+          message: 'You managed to defeat client-side vaildation but my server caught you. ;)'
+        })
       winLog.error(`unauthorized attempt to search user by: ${requestor}`)
     }
   } else {
